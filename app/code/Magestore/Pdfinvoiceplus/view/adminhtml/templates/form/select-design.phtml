@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\PdfTemplate\Edit\Tab\GeneralTab\SelectDesign $block */
+?>
+<div data-mage-init='{"Magestore_Pdfinvoiceplus/js/select-design": {"btnSelectDesign": ".btn-select-design"}}'
+     style="display:none; 0">
+    <div class="pdf-invoice-popup-load-template-background"></div>
+    <div class="pdf-invoice-popup-load-template-content">
+        <div>
+            <ul>
+                <?php foreach ($block->getSystemTemplateCollection() as $templateType): ?>
+                    <li class="pdf-invoice-popup-load-template"
+                        data-template-type="<?php echo $templateType->getData('type_id') ?>">
+                        <div class="box-image-view">
+                            <img class="img-template-type-<?php echo $templateType->getData('type_id') ?>"
+                                 src="<?php echo $block->getViewFileUrl($templateType->getData('image')) ?>">
+                        </div>
+                        <div class="pdf-invoice-template-description"><?php echo $templateType->getData('name')?></div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>

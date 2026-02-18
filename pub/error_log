@@ -1,0 +1,24 @@
+[03-Aug-2018 03:35:28 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 03:36:24 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 03:36:26 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 03:36:27 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 06:05:55 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 07:21:42 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[03-Aug-2018 13:40:39 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/lenssaverco/public_html/vendor/colinmollenhour/cache-backend-file/File.php on line 81
+[09-Oct-2018 11:09:06 UTC] PHP Fatal error:  Uncaught RuntimeException: The specified "/home/lenssaverco/public_html/var/generation/Magento/Framework/ObjectManager/Config/Reader/Dom/Proxy.php.32635" file could not be written Warning!file_put_contents(): Only 0 of 2359 bytes written, possibly out of free disk space in /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator.php:115
+Stack trace:
+#0 /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator/Autoloader.php(35): Magento\Framework\Code\Generator->generateClass('Magento\\Framewo...')
+#1 [internal function]: Magento\Framework\Code\Generator\Autoloader->load('Magento\\Framewo...')
+#2 [internal function]: spl_autoload_call('Magento\\Framewo...')
+#3 /home/lenssaverco/public_html/vendor/magento/framework/Code/Reader/ClassReader.php(19): ReflectionClass->__construct('Magento\\Framewo...')
+#4 /home/lenssaverco/public_html/vendor/magento/framework/ObjectManager/Definition/Runtime.php(44): Magento\Framework\Code\Reader\ClassReader->getConstructor('Magento\\Framewo...')
+#5 /home/ in /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator.php on line 115
+[09-Oct-2018 11:09:34 UTC] PHP Fatal error:  Uncaught RuntimeException: The specified "/home/lenssaverco/public_html/var/generation/Magento/Framework/ObjectManager/Config/Reader/Dom/Proxy.php.386" file could not be written Warning!file_put_contents(): Only 0 of 2359 bytes written, possibly out of free disk space in /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator.php:115
+Stack trace:
+#0 /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator/Autoloader.php(35): Magento\Framework\Code\Generator->generateClass('Magento\\Framewo...')
+#1 [internal function]: Magento\Framework\Code\Generator\Autoloader->load('Magento\\Framewo...')
+#2 [internal function]: spl_autoload_call('Magento\\Framewo...')
+#3 /home/lenssaverco/public_html/vendor/magento/framework/Code/Reader/ClassReader.php(19): ReflectionClass->__construct('Magento\\Framewo...')
+#4 /home/lenssaverco/public_html/vendor/magento/framework/ObjectManager/Definition/Runtime.php(44): Magento\Framework\Code\Reader\ClassReader->getConstructor('Magento\\Framewo...')
+#5 /home/le in /home/lenssaverco/public_html/vendor/magento/framework/Code/Generator.php on line 115
+[09-Oct-2018 11:27:45 UTC] PHP Fatal error:  Uncaught RuntimeException: Can't create directory /home/lenssaverco/public_html/var/generation/Magento/Directory/Helper/Data/. in /home/lenssaverco/public_html/vendor/magen

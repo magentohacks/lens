@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales_order_tabs">
+            <block class="BoostMyShop\Rma\Block\Sales\Order\View\Tab\Rma" name="sales_order_rma"/>
+            <action method="addTabAfter">
+                <argument name="name" xsi:type="string">order_rma</argument>
+                <argument name="block" xsi:type="string">sales_order_rma</argument>
+                <argument name="afterTabId" xsi:type="string">order_info</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

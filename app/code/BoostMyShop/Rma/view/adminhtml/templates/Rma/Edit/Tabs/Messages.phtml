@@ -1,0 +1,15 @@
+
+    <p><strong><?php echo __('Post a new message'); ?></strong></p>
+    <textarea name="message" id="message" style="width: 100%"></textarea>
+
+    <p>&nbsp;</p>
+    <p><strong><?php echo __('Messages'); ?></strong></p>
+
+    <?php foreach($this->getRma()->getMessages() as $message): ?>
+
+        <div class="rma-msg-<?php echo $message->getrmm_author(); ?>">
+            <p><strong><?php echo $message->getrmm_date(); ?>, by <?php echo $message->getrmm_author(); ?> </strong></p>
+            <p><?php echo $message->getrmm_message(); ?></p>
+        </div>
+
+    <?php endforeach; ?>

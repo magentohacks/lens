@@ -1,0 +1,21 @@
+.ambuilder-main-container {
+  margin-top: 30px;
+  padding: 0 135px;
+  text-align: center;
+}
+.ambuilder-app-component {
+  margin: auto;
+  max-width: 850px;
+}
+.ambuilder-layout-container {
+  margin: auto;
+  border: 1px dashed #999;
+}
+.ambuilder-layout-container.-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ambuilder-layout-container .react-grid-item.react-grid-placeholder {
+  background: #424242;
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sources%22%3A%5B%22%5C%2Fstatic%5C%2Fadminhtml%5C%2FMagento%5C%2Fbackend%5C%2Fen_US%5C%2FAmasty_CheckoutLayoutBuilder%5C%2Fjs%5C%2Flayout-builder%5C%2Fsrc%5C%2FApp%5C%2FLayoutBuilder%5C%2Fstyles%5C%2FBuilderComponent.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAQA%3BEACI%2CgBAAA%3BEACA%2CgBAAA%3BEACA%2CkBAAA%3B%3BAAGJ%3BEACI%2CYAAA%3BEACA%2CgBAAA%3B%3BAAGJ%3BEAEQ%2CYAAA%3BEACA%2CuBAAA%3B%3BAAGJ%2C2BAAC%3BEACG%2CYAAA%3BEACA%2CmBAAA%3B%3BAARR%2C2BAWI%2CiBAAgB%3BEACZ%2CmBAAA%22%7D */

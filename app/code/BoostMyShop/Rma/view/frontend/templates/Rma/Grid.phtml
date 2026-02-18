@@ -1,0 +1,41 @@
+<?php if ($this->canRequestReturn()): ?>
+    <div style="float: right">
+        <button type="button" role="add-address" title="Request for a return" class="action primary add" onclick="document.location.href = '<?php echo $this->getNewReturnUrl(); ?>'"><span><?php echo __('Request for a return'); ?></span></button>
+    </div>
+<?php endif; ?>
+
+<?php if ($this->getRmas()->getSize() > 0): ?>
+
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-rma-table">
+            <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('Returns') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col id"><?php /* @escapeNotVerified */ echo __('Return #') ?></th>
+                <th scope="col" class="col date"><?php /* @escapeNotVerified */ echo __('Date') ?></th>
+                <th scope="col" class="col shipping"><?php /* @escapeNotVerified */ echo __('Products') ?></th>
+                <th scope="col" class="col total"><?php /* @escapeNotVerified */ echo __('Status') ?></th>
+                <th scope="col" class="col actions">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($this->getRmas() as $rma): ?>
+                <tr>
+                    <td data-th="<?php echo $block->escapeHtml(__('Return #')) ?>" class="col id"><?php /* @escapeNotVerified */ echo $rma->getrma_reference() ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Date')) ?>" class="col date"><?php /* @escapeNotVerified */ echo $block->formatDate($rma->getrma_created_at()) ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Date')) ?>" class="col date"><?php echo $this->getProductDetails($rma); ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Date')) ?>" class="col date"><?php echo $rma->getrma_status(); ?></td>
+                    <td data-th="<?php echo $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                        <a href="<?php /* @escapeNotVerified */ echo $block->getViewUrl($rma) ?>" class="action view">
+                            <span><?php /* @escapeNotVerified */ echo __('View') ?></span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+<?php else: ?>
+    <div class="message info empty" style="margin-top: 50px;"><span><?php /* @escapeNotVerified */ echo __('No returns available.'); ?></span></div>
+<?php endif ?>

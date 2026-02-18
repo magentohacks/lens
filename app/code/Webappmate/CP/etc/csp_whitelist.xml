@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+  <policies>
+    <policy id="default-src">
+        <values>
+            <value id="data" type="host">self</value>
+        </values>
+    </policy>
+    <policy id="script-src">
+      <values>
+        <value id="googleads-trusted-domain" type="host">https://www.googleadservices.com/</value>
+      </values>
+    </policy>
+    <policy id="script-src">
+      <values>
+        <value id="googleanalytics-trusted-domain" type="host">https://www.google-analytics.com/</value>
+      </values>
+    </policy>
+    <policy id="script-src">
+      <values>
+        <value id="googletagmanager-trusted-domain" type="host">https://www.googletagmanager.com/</value>
+      </values>
+    </policy>
+    <policy id="media-src">
+      <values>
+        <value id="zdassets-trusted-domain" type="host">https://static.zdassets.com/</value>
+      </values>
+    </policy>
+    </policies>
+</csp_whitelist>

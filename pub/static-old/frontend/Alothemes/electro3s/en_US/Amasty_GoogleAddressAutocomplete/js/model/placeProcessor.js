@@ -1,0 +1,116 @@
+/* global google */
+/**
+ * Google Autocomplete Place processor
+ */
+define([
+    'uiRegistry',
+    'ko',
+    'underscore'
+], function (registry, ko, _) {
+    'use strict';
+
+    return {
+        /**
+         * Returns a properly formatted list of regions that follows the following format:
+         * [ countryId => [regionCode => regionId] ]
+         * @type {Object.<string, Object.<string, string>>}
+         */
+        regionMap: null,
+
+        /**
+         * Number of available street fields
+         * @type {number}
+         */
+        streetFieldsCount: 1,
+
+        /**
+         * @param {Place} place
+         * @returns {Promise<{}|null>}
+         */
+        convertToAddress: async function (place) {
+            if (!place.addressComponents) {
+                const placeFetched = await place.fetchFields({ fields: [ 'addressComponents', 'displayName' ] });
+                place = placeFetched.place;
+
+                if (!place.addressComponents) {
+                    return null;
+                }
+            }
+
+            let address = {
+                    country_id: '',
+                    street: [ place.displayName ],
+                    postcode: '',
+                    region_id: '',
+                    region_id_input: ''
+                },
+                regionData = {
+                    region_id: '',
+                    region: '',
+                    region_2: ''
+                };
+
+            place.addressComponents.forEach((addressComponent) => {
+                let shortValue = addressComponent.shortText,
+                    longValue = addressComponent.longText;
+
+                switch (addressComponent.types[0]) {
+                    case 'street_number':
+                        if (this.streetFieldsCount > 1) {
+                            address.street[1] = longValue;
+                        }
+
+                        break;
+                    case 'route':
+                        if (this.streetFieldsCount > 1) {
+                            address.street[0] = longValue;
+                        }
+
+                        break;
+                    case 'postal_code_prefix':
+                        address.postcode = longValue + '-';
+
+                        break;
+                    case 'postal_code':
+                        address.postcode = longValue + address.postcode;
+
+                        break;
+                    case 'postal_code_suffix':
+                        address.postcode += '-' + longValue;
+
+                        break;
+                    case 'administrative_area_level_1':
+                        regionData.region_id = shortValue;
+                        regionData.region = longValue;
+
+                        break;
+                    case 'administrative_area_level_2':
+                        regionData.region_2 = shortValue;
+
+                        break;
+                    case 'locality':
+                    case 'postal_town':
+                        address.city = longValue;
+
+                        break;
+                    case 'country':
+                        address.country_id = shortValue;
+
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            if (address.country_id in this.regionMap) {
+                address.region_id = this.regionMap[address.country_id][regionData.region_id]
+                    || this.regionMap[address.country_id][regionData.region_2]
+                    || '';
+            } else {
+                address.region_id_input = regionData.region;
+            }
+
+            return address;
+        }
+    }
+});

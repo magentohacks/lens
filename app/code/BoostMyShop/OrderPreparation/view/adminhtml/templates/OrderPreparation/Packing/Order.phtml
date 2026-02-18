@@ -1,0 +1,14 @@
+<?php if ($this->canDisplay()): ?>
+    <table class="tbl-order">
+        <tr>
+            <th colspan="5" style="background-color: #FF9900;"><a href="<?php echo $this->getOrderViewUrl(); ?>" style="color: white; text-decoration: underline;   "><?php echo __('Order #%1', $this->currentOrderInProgress()->getOrder()->getincrement_id()); ?></a></th>
+        </tr>
+        <tr>
+            <th width="20%"><?php echo __('Ship to<br> %1', $this->currentOrderInProgress()->getOrder()->getcustomer_firstname().' '.$this->currentOrderInProgress()->getOrder()->getcustomer_lastname()); ?></th>
+            <th width="20%"><?php echo __('Shipping method<br> %1', $this->currentOrderInProgress()->getOrder()->getShippingDescription()); ?></th>
+            <th width="20%"><?php echo __('Shipping country<br> %1', $this->currentOrderInProgress()->getOrder()->getShippingAddress()->getcountry_id()); ?></th>
+            <th width="20%"><?php echo __('Status<br> %1', $this->currentOrderInProgress()->getOrder()->getStatus()); ?></th>
+            <th width="20%"><?php echo __('Estimated Weight<br> %1', $this->currentOrderInProgress()->getEstimatedWeight()); ?></th>
+        </tr>
+    </table>
+<?php endif; ?>

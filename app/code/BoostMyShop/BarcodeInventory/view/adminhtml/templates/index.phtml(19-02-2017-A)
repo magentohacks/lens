@@ -1,0 +1,109 @@
+<script>
+    var kTextScanProduct = '<?php echo __('Please scan product barcode'); ?>';
+    var kTextNoProductToSave = '<?php echo __('Nothing to save !'); ?>';
+
+    function changeWarehouse(id)
+    {
+        var url = '<?php echo $this->getChangeWarehouseUrl(); ?>';
+        url = url.replace('[warehouse_id]', id);
+        setLocation(url);
+    }
+
+</script>
+
+<div class="page-main-actions">
+
+    <div class="div_sbi_notifications">
+        <div id="div_instruction" style="font-size: 24px; font-weight: bold;">
+
+        </div>
+        <div id="div_message" style="font-size: 18px; font-weight: bold; padding-top: 5px;">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="page-actions">
+                <?php if ($this->isMultipleWarehouse()): ?>
+
+                    <label class="label admin__field-label"><span><?php echo __('Warehouse'); ?></span></label>
+
+                    <select name="warehouse" id="warehouse" class="select admin__control-select" onchange="changeWarehouse(this.value);">
+                        <?php foreach($this->getWarehouses() as $warehouse): ?>
+                            <option <?php echo ($this->getCurrentWarehouseId() == $warehouse['value'] ? ' selected ' : ''); ?> value="<?php echo $warehouse['value']; ?>"><?php echo $warehouse['label']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <?php endif;?>
+
+                <?php if (!$this->isImmediateMode()): ?>
+                    <button id="btn-save" class="action-toggle primary" type="button"><span><?php echo __('Save')?></span></button>
+                <?php endif; ?>
+
+
+                <?php foreach($this->getModes() as $mode): ?>
+                    <button type="button" id="btn-mode-<?php echo $mode['value']; ?>" class="<?php echo ($mode['value'] == $this->getDefaultMode() ? 'sbi-button-selected' : 'sbi-button'); ?> sbi-mode" ><span value="<?php echo $mode['value']; ?>"><?php echo $mode['label']; ?></span></button>
+                <?php endforeach; ?>
+
+    </div>
+</div>
+
+<div id="div_product" style="align: center; text-align: center; border: 1px solid #D6D6D6; background: #FAFAFA; margin-top: 10px;">
+    <center>
+        <table border="0" cellspacing="20">
+            <tr>
+                <td>
+                    <img src="" id="product_image" height="200">
+                </td>
+                <td>
+                    <center>
+                        <div id="product_name" class="sbi-product-name"></div>
+                        <div id="product_sku" class="sbi-product-sku"></div>
+                        <div id="product_stock_div" class="sbi-product-stock">
+                            <input type="button" value=" - " class="sbi-btn-change-qty sbi-minus">
+                            <input type="textbox" id="product_stock" class="sbi-qty-field">
+                            <input type="button" value=" + " class="sbi-btn-change-qty sbi-plus">
+                            <br><input type="button" value="<?php echo __('Commit'); ?>" class="sbi-btn-commit">
+                        </div>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </center>
+</div>
+
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo __('History'); ?></h3></td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="div_history" style="align: center; text-align: center; border: 1px solid #D6D6D6; background: #FAFAFA; margin-top: 10px;">
+    <table border="1" cellspacing="0" width="100%" id="table_history">
+        <tr>
+            <th class="sbi-table-header"><?php echo __(''); ?></th>
+            <th class="sbi-table-header"><?php echo __('Barcode'); ?></th>
+            <th class="sbi-table-header"><?php echo __('Sku'); ?></th>
+            <th class="sbi-table-header"><?php echo __('Name'); ?></th>
+            <th class="sbi-table-header"><?php echo __('Action'); ?></th>
+            <th class="sbi-table-header"><?php echo __('New stock level'); ?></th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    require(["barcodeinventory"], function(barcodeInventory){
+        barcodeInventory.init('<?php echo $this->getProductInformationUrl(); ?>', '<?php echo $this->CommitProductStockUrl(); ?>', <?php echo ($this->isImmediateMode() ? ' true ' : 'false'); ?>, '<?php echo $this->getDefaultMode(); ?>');
+        barcodeInventory.waitForScan();
+    });
+</script>
+
+<form method="POST" action="<?php echo $this->getSaveUrl(); ?>" id="form_save">
+    <input id="form_key" name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>" />
+    <input type="hidden" name="changes" id="changes" value="">
+</form>
+
+<audio id="audio_nok" src="<?php echo $this->getViewFileUrl('BoostMyShop_BarcodeInventory::sound/wrong.mp3'); ?>" ></audio>
+<audio id="audio_ok" src="<?php echo $this->getViewFileUrl('BoostMyShop_BarcodeInventory::sound/correct.mp3'); ?>" ></audio>

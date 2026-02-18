@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @Author: nguyen
+ * @Date:   2020-02-12 14:01:01
+ * @Last Modified by:   nguyen
+ * @Last Modified time: 2025-05-30 18:55:34
+ */ -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magepow" translate="label" sortOrder="102">
+            <label>Magepow</label>
+        </tab>
+        <section id="magepow_productzoom" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Product Zoom</label>
+            <tab>magepow</tab>
+            <resource>Magepow_Productzoom::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <comment>Enabled Module</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="zoomType" translate="label comment" type="select" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Zoom Type</label>
+                    <comment>Window, Inner, Lens</comment>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Type</source_model>
+                </field>
+                <field id="hoverBoundingBox" translate="label comment" type="select" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Hover Bounding Box</label>
+                    <comment>A bounding box will show the area currently being previewed</comment>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Truefalse</source_model>
+                </field>
+                <field id="backgroundBoundingBox" translate="label comment" type="text" sortOrder="6"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Background Bounding Box</label>
+                    <comment>Color Background Hover Bounding Box</comment>
+                    <frontend_model>Magepow\Productzoom\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="backgroundMask" translate="label comment" type="text" sortOrder="7"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Background Mask loading</label>
+                    <comment>Color Background Mask loading</comment>
+                    <frontend_model>Magepow\Productzoom\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="bgOpacity" translate="label comment" type="select" sortOrder="8"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Opacity Background Color</label>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Opacity</source_model>
+                    <depends>
+                        <field id="zoomType" separator=",">window</field>
+                    </depends>
+                </field>
+                <field id="loaderColor" translate="label comment" type="text" sortOrder="9"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Loader Color</label>
+                    <comment>Loading Icon Color</comment>
+                    <frontend_model>Magepow\Productzoom\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <!-- <field id="zoomTouch" translate="label comment" type="select" sortOrder="20"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Zoom ( Mobile )</label>
+                    <comment>Zoom in device use Touch event as Mobile Ipad</comment>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Truefalse</source_model>
+                </field> -->
+
+                <field id="zoomFactor" translate="label comment" type="text" sortOrder="25"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Level magnify</label>
+                    <comment>Level Zoom is number greater than zero to one (0, 9].</comment>
+                    <validate>validate-number validate-number-range number-range-0-9 validate-greater-than-zero</validate>
+                </field>
+
+                <!-- Type Window -->
+
+                <field id="zIndex" translate="label comment" type="text" sortOrder="32"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>z-index window zoom</label>
+                    <depends><field id="zoomType" separator=",">window</field></depends>
+                    <validate>validate-digits</validate>
+                </field>
+                <field id="zoomWidth" translate="label comment" type="text" sortOrder="35"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Zoom window Width</label>
+                    <comment>Width of the zoomWindow (Note: zoomType must be "window")</comment>
+                    <depends><field id="zoomType" separator=",">window</field></depends>
+                </field>
+                <field id="zoomHeight" translate="label comment" type="text" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Zoom window Height</label>
+                    <comment>Height of the zoomWindow (Note: zoomType must be "window")</comment>
+                    <depends><field id="zoomType" separator=",">window</field></depends>
+                </field>
+                <field id="zoomEffect" translate="label comment" type="select" sortOrder="70"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Zoom Window Effect</label>
+                    <comment>Set Effect of Window Zoom</comment>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Effect</source_model>
+                    <depends><field id="zoomType" separator=",">window</field></depends>
+                </field>
+                <field id="effectDuration" translate="label comment" type="text" sortOrder="80"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Effect Duration</label>
+                    <comment>Effect Timing</comment>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                    <depends><field id="zoomType" separator=",">window</field></depends>
+                </field>
+
+                <!-- <field id="loadingIcon" translate="label comment" type="select" sortOrder="260"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Loading Icon</label>
+                    <comment>Set to the url of the spinner icon to activate, e.g, http://www.example.com/spinner.gif. Possible Values: "True", "False"</comment>
+                    <source_model>Magepow\Productzoom\Model\Config\Source\Truefalse</source_model>
+                </field>
+               <field id="gallery" translate="label comment" type="text" sortOrder="265"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Gallery</label>
+                </field> -->
+                <field id="borderRadius" translate="label comment" type="text" sortOrder="270"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Border Radius (%)</label>
+                    <comment>Radius ( Value -1 is auto Radius )</comment>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                </field>
+
+                <field id="borderColor" translate="label comment" type="text" sortOrder="275"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Border Color</label>
+                    <comment>Border Color</comment>
+                    <frontend_model>Magepow\Productzoom\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

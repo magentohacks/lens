@@ -1,0 +1,15 @@
+/* Boxed Layout */
+body.boxed-lg .page-wrapper{
+    box-shadow: 0 0 5px #d5d5d5;
+    margin: 0 auto;
+    max-width: 1240px;
+}
+body.boxed-md .page-wrapper{
+    box-shadow: 0 0 5px #d5d5d5;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+body.boxed-md .page-wrapper .container,
+body.boxed-md .page-wrapper .page-main{
+	width: 100%;
+}

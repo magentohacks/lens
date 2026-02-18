@@ -1,0 +1,14 @@
+interface ProductInterface {
+    product_specifications: String @doc(description: "Product Custom Attribute Show")
+      @resolver(
+        class: "Webappmate\\Customapi\\Model\\Resolver\\Product\\AddCustomAttribute"
+      )
+}
+
+input ProductAttributeFilterInput {
+  product_specifications: FilterEqualTypeInput @doc(description: "Product Data filter with Custom Attribute Value")
+}
+
+input ProductAttributeSortInput {
+  product_specifications: SortEnum @doc(description: "Sort by the Product Custom Attribute.")
+}

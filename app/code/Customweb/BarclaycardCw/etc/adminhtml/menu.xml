@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Customweb_BarclaycardCw::transactions" title="Barclaycard Transactions" module="Customweb_BarclaycardCw" sortOrder="10" parent="Customweb_Base::sales_customweb" action="barclaycardcw/transaction" resource="Customweb_BarclaycardCw::transaction" />
+
+        <add id="Customweb_BarclaycardCw::config" title="Barclaycard" module="Customweb_BarclaycardCw" sortOrder="100" parent="Customweb_Base::config" action="barclaycardcw/config" resource="Customweb_BarclaycardCw::config"/>
+    </menu>
+</config>

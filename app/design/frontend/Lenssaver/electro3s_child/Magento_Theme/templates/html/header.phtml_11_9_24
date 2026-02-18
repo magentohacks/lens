@@ -1,0 +1,216 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+?>
+<?php 
+ $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+ $customerSession = $objectManager->get('Magento\Customer\Model\SessionFactory')->create();
+?>
+
+<header class="page-header alothemes">
+    <div class="header header-sticker">
+		<div class="header-top"  style="display:none;">
+			<div class="container">
+				<div class="row">
+					<div class="header-top-left">
+						<!--div class="welcometop"><?php //echo $this->getChildHtml('welcometop'); ?></div-->
+					</div>
+					<div class="header-top-right">
+						<?php //echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-shop-link')->toHtml();?>
+						<div class="header-top-link header-account">
+							<div class="toggle-tab">
+								<span class="ec ec-user icon-acc"></span>	
+								<span><?php echo __("My account")?></span>								
+							</div>
+							<div class="toggle-content">
+								<?php echo $this->getChildHtml('header.links'); ?>
+							</div>
+						</div>
+						<div class="header-top-link">
+							<?php echo $this->getChildHtml('store_language'); ?>
+							<?php echo $this->getChildHtml('currency'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-content menu-mobile">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 col-6 col-logo">
+						<div class="container-logo">
+							<div class="nav-toggle-mobile">
+								<span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span><i class="fa fa-bars"></i></span>
+							</div>					
+							<div class="content-logo">
+								<div class="header-logo">
+									<?php echo $this->getChildHtml('logo'); ?>
+								</div>							
+							</div>
+							<div class="col-nav-vmenu"><?php echo $this->getChildHtml('vmenu'); ?></div>
+						</div>
+					</div>
+					
+
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 content-search tool-topsearch alo-toggle toggle-tab-mobile">
+						<div class="search-area">
+							<?php echo $this->getChildHtml('top.search'); ?>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 col-cart">
+						<div class="header-icons">
+							<ul class="top-link-product">
+								<?php //echo $this->getChildHtml('catalog.compare.link'); ?>
+									<li>
+								<div class="header-top-link header-account">
+							<div class="toggle-tab" >
+								<span title="<?php echo __('My account') ?>" class="ec ec-user icon-acc" style="font-size:22px;"></span>	
+								<span><?php //echo __("My account")?></span>								
+							</div>
+							<div class="toggle-content">
+								<?php echo $this->getChildHtml('header.links'); ?>
+							</div>
+						</div>
+								</li>
+								
+								<li>
+									<a title="<?php echo __('Compare') ?>" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="btn-compare icon icon-compare compare"><i class="ec ec-compare"></i><span><?php echo __('Compare') ?></span></a>
+								</li>
+								<li>
+									<a title="<?php echo __('Wishlist') ?>" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites 123">
+										<i class="ec ec-favorites"></i><span><?php echo __('Wishlist') ?></span>
+									</a>
+								</li>
+							
+								<li>
+									<?php echo $this->getChildHtml('minicart'); ?>
+								</li>
+								
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row row-bottom">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-nav-top">
+						<div class="content-nav-top">
+							<?php echo $this->getChildHtml('navigation.sections'); ?>
+							<?php echo $this->getChildHtml('catalog.topnav'); ?>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+</header>
+<script type="text/javascript">
+	require([
+		'jquery',
+		'magiccart/wow'
+        ], function($){
+        jQuery( document ).ready(function() {
+        	new WOW().init();
+        });
+    });
+	require([
+		'jquery'
+        ], function($){
+        jQuery( document ).ready(function() {
+        	jQuery(".block-title-vmagicmenu").on("click", function(){
+				if(jQuery(".block-title-vmagicmenu").hasClass( "active")) {
+					jQuery(".block-title-vmagicmenu").removeClass("active");
+					jQuery("html").removeClass("open-nav-vertical");
+				}else{
+					jQuery(".block-title-vmagicmenu").addClass("active");
+					jQuery("html").addClass("open-nav-vertical");
+				}
+				
+			});
+					
+        });
+    });
+ </script>   
+<script>
+	require(['jquery', 'jquery/ui'], function($){
+	  $(document).ready(function() {
+	   	jQuery(".nav-toggle-mobile").click(function () {
+				jQuery('html').toggleClass('nav-open');
+				jQuery('html').toggleClass('nav-before-open');
+				
+			});
+
+
+		jQuery(".level-top").click(function () {
+            jQuery(this).find(".submenu").toggle();
+        
+
+		jQuery(".navigation-mobile .parent.category-item").click(function () {
+            jQuery(this).find("ul.submenu").toggle();
+
+          });
+         });   
+	 }); 
+   });
+ 
+ require(['jquery', 'jquery/ui', 'slick'], function($) {
+    $(document).ready(function() {
+       $(".regular").slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+			responsive: [
+			 {
+				  breakpoint:991,
+				  settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+				  },
+				},
+				{
+				  breakpoint:767,
+				  settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1,
+				  },
+				},
+				{
+				  breakpoint: 580,
+				  settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				  },
+				},
+			   
+			  ],
+        });
+    });
+});
+</script>
+
+<style type="text/css">
+	.cms-index-index .page.messages {
+	display: block;
+}
+</style>
+
+
+
+
+

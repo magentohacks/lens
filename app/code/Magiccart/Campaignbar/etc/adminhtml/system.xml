@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!-- /**
+ * Magepow 
+ * @category    Magepow 
+ * @copyright   Copyright (c) 2014 Magiccart (http://www.magepow.com/) 
+ * @license     http://www.magepow.com/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2016-02-23 18:59:34
+ * @@Modify Date: 2020-07-10 00:13:02
+ * @@Function:
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magiccart" translate="label" sortOrder="89">
+            <label>Magiccart</label>
+        </tab>
+        <section id="magiccart_campaignbar" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Campaign Bar</label>
+            <tab>magiccart</tab>
+            <resource>Magiccart_Campaignbar::config_campaignbar</resource>
+            <group id="header" translate="label" type="text" sortOrder="50" showInDefault="10" showInWebsite="1" showInStore="1">
+                <label><![CDATA[Campaign Header]]></label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Enabled]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="campaign" translate="label comment tooltip" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Campaign Footer Bar</label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\Display</frontend_model>
+                    <backend_model>Magiccart\Campaignbar\Model\Design\Backend\Display</backend_model>
+                    <comment>Campaign Text For Footer bar.</comment>
+                    <tooltip>Campaign Text For Footer bar.</tooltip>
+                </field>
+                <field id="speed" translate="label comment" type="text" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Speed</label>
+                    <comment><![CDATA[Speed (second)]]></comment>
+                    <validate>validate-digits validate-zero-or-greater</validate>
+                </field>
+                <!-- <field id="width" translate="label comment" type="text" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Width</label>
+                    <comment>Width</comment>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                </field> -->
+                <field id="font_size" translate="label comment" type="text" sortOrder="50"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Font Size</label>
+                    <comment>Font Size</comment>
+                    <validate>validate-digits validate-zero-or-greater</validate>
+                </field>
+                <field id="text_color" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Text Color]]></label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\ColorPicker</frontend_model>
+                </field>
+                <field id="bg_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Background Bar]]></label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\ColorPicker</frontend_model>
+                </field>
+            </group>
+            <group id="footer" translate="label" type="text" sortOrder="50" showInDefault="10" showInWebsite="1" showInStore="1">
+                <label><![CDATA[Campaign Footer]]></label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Enabled]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="campaign" translate="label comment tooltip" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Campaign Footer Bar</label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\Display</frontend_model>
+                    <backend_model>Magiccart\Campaignbar\Model\Design\Backend\Display</backend_model>
+                    <comment>Campaign Text For Footer bar.</comment>
+                    <tooltip>Campaign Text For Footer bar.</tooltip>
+                </field>
+                <field id="speed" translate="label comment" type="text" sortOrder="30"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Speed</label>
+                    <comment><![CDATA[Speed (second)]]></comment>
+                    <validate>validate-digits validate-zero-or-greater</validate>
+                </field>
+                <!-- <field id="width" translate="label comment" type="text" sortOrder="40"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Width</label>
+                    <comment>Width</comment>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                </field> -->
+                <field id="font_size" translate="label comment" type="text" sortOrder="50"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Font Size</label>
+                    <comment>Font Size</comment>
+                    <validate>validate-digits validate-zero-or-greater</validate>
+                </field>
+                <field id="text_color" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Text Color]]></label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\ColorPicker</frontend_model>
+                </field>
+                <field id="bg_color" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label><![CDATA[Background Bar]]></label>
+                    <frontend_model>Magiccart\Campaignbar\Block\System\Config\Form\Field\ColorPicker</frontend_model>
+                </field>
+                <field id="bottom" translate="label comment" type="text" sortOrder="80"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Bottom Bar</label>
+                    <comment>Number without(px)</comment>
+                    <validate>validate-digits</validate>
+                </field>
+                <field id="width" translate="label comment" type="text" sortOrder="90"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Width Bar</label>
+                    <comment>Number without(px)</comment>
+                    <validate>validate-digits</validate>
+                </field>
+                <field id="zIndex" translate="label comment" type="text" sortOrder="100"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>CSS z-index Property</label>
+                    <comment>Number z-index</comment>
+                    <validate>validate-digits validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,34 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <csp>
+            <mode>
+                <storefront_checkout_index_index>
+                    <report_only>1</report_only>
+                </storefront_checkout_index_index>
+                <storefront_onestepcheckout_index_index>
+                    <report_only>1</report_only>
+                </storefront_onestepcheckout_index_index>                
+                <storefront>
+                    <report_only>1</report_only>
+                </storefront>
+            </mode>
+            <policies>
+                <storefront>
+                    <frame-ancestors>
+                        <inline>0</inline>
+                    </frame-ancestors>
+                </storefront>
+                <storefront_checkout_index_index>
+                    <scripts>
+                        <inline>1</inline>
+                    </scripts>
+                </storefront_checkout_index_index>
+                <storefront_onestepcheckout_index_index>
+                    <scripts>
+                        <inline>1</inline>
+                    </scripts>
+                </storefront_onestepcheckout_index_index>
+            </policies>
+        </csp>
+    </default>
+</config>

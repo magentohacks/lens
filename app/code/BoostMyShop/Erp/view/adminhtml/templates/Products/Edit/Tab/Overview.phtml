@@ -1,0 +1,13 @@
+<table border="0" width="100%">
+    <tr>
+        <td width="150">
+            <img src="<?php echo $this->getImageUrl(); ?>" height="100" width="100">
+        </td>
+        <td>
+            <h1><?php echo $this->getProduct()->getName(); ?></h1>
+            <h2><i><?php echo $this->getProduct()->getSku(); ?></i></h2>
+        </td>
+    </tr>
+</table>
+
+<?php echo $this->getContent(); ?>

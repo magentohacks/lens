@@ -1,0 +1,120 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter" id="layered-filter-block" data-mage-init='{"collapsible":{"openedState": "active", "collapsible": true, "active": false, "collateral": { "openedState": "filter-active", "element": "body" } }}'>
+        <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
+        <div class="block-title" data-count="<?php /* @escapeNotVerified */ echo $filtered; ?>">
+            <strong data-role="title"><?php /* @escapeNotVerified */ echo __('Shop By') ?></strong>
+        </div>
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter): ?>
+                <?php if ($filter->getItemsCount()): ?>
+                    <?php if (!$wrapOptions): ?>
+                        <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Shopping Options') ?></strong>
+                         <?php  $wrapOptions = true; endif; ?>
+                   
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+            <?php else: ?>
+                <script>
+                    require([
+                        'jquery'
+                    ], function ($) {
+                        $('#layered-filter-block').addClass('filter-no-options');
+                    });
+                </script>
+            <?php endif; ?>
+
+		<!--Layered Navigation Menu Code-->
+		<!--Shop By Type-->
+		<?php 
+		   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		   $category = $objectManager->create('Magento\Catalog\Model\Category')->load(43);
+		   $_helper = $this->helper('Magento\Catalog\Helper\Category');	
+		   $subCategories = $category->getChildrenCategories();
+		   if(count($subCategories)):
+		?>
+			<ul>
+				<li class="layered-title"><?php echo __('SHOP BY TYPE');?></li>
+				<?php 
+				
+					$count = 0;
+					foreach($subCategories as $subCategory):
+						$count++;
+					if($count <=10):
+				?>
+						<li><a href="<?php echo $_helper->getCategoryUrl($subCategory);?>"><?php echo "- ".$subCategory->getName();?></a></li>
+				<?php endif; endforeach; ?>
+				<li><a class="view-all-link" href="<?php echo $_helper->getCategoryUrl($category);?>"><?php echo __('- View All');?></a></li>
+			</ul>
+		<?php endif;?>
+		<!--Shop By BRAND-->
+		<?php 
+		   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		   $brands = $objectManager->create('Ves\Brand\Model\Brand')->getCollection();
+		   if($brands->count()):
+		?>
+			<ul>
+				<li class="layered-title"><?php echo __('SHOP BY BRAND');?></li>
+				<?php 
+					$count = 0;
+					foreach($brands as $brand):
+					$count++;
+					if($count <=10):
+				?>
+						<li><a href="<?php echo $brand->getUrl();?>"><?php echo "- ".$brand->getName();?></a></li>
+				<?php endif; endforeach; ?>
+				<li><a class="view-all-link" href="<?php echo $this->getUrl('all-brands.html');?>"><?php echo __('- View All');?></a></li>
+			</ul>	
+		<?php endif;?>
+		<!--Shop By MANUFACTURER-->
+		<?php 
+		   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		   $category = $objectManager->create('Magento\Catalog\Model\Category')->load(53);
+		   $_helper = $this->helper('Magento\Catalog\Helper\Category');	
+		   $subCategories = $category->getChildrenCategories();
+		   if(count($subCategories)):	
+		?>	
+			<ul>
+			
+				<li class="layered-title"><?php echo __('SHOP BY MANUFACTURER');?></li>
+				<?php 
+				
+					$count = 0;
+					foreach($subCategories as $subCategory):
+						$count++;
+					if($count <= 10):
+				?>
+						<li><a href="<?php echo $_helper->getCategoryUrl($subCategory);?>"><?php echo "- ".$subCategory->getName();?></a></li>
+				<?php endif; endforeach; ?>
+				<li><a class="view-all-link" href="<?php echo $_helper->getCategoryUrl($category);?>"><?php echo __('- View All');?></a></li>
+			</ul>
+		<?php endif;?>
+		<!--Layered Navigation Code Ends Here-->
+
+        </div>
+    </div>
+<?php endif; ?>

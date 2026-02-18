@@ -1,0 +1,16 @@
+<?php if (!$this->hasReport()): ?>
+    <p><?php echo __('No report available, use command line bin/magento bms_advancedstock:check_stock_discrepencies to generate it'); ?></p>
+<?php else: ?>
+    <p><?php echo __('To update that report, use command line bin/magento bms_advancedstock:check_stock_discrepencies'); ?></p>
+    <?php foreach($this->getReportData() as $domain => $data): ?>
+        <h3><font color="<?php echo $this->getColor($data); ?>"><?php echo $data->explanations; ?> - <?php echo $data->status; ?></font></h3>
+        <?php if (count($data->items) > 0): ?>
+            <ul style="margin-left:300px;">
+                <?php foreach($data->items as $element): ?>
+                    <li><?php echo $element; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <hr>
+    <?php endforeach; ?>
+<?php endif; ?>

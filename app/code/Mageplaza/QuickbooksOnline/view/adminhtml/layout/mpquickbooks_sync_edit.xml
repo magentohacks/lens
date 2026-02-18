@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickbooksOnline
+ * @copyright   Copyright (c) Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Mageplaza_QuickbooksOnline::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tabs" name="mageplaza_quickbooks_code_tabs">
+                <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\General" name="mageplaza_quickbooks_sync_edit_tab_general"/>
+                <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\Condition" name="mageplaza_quickbooks_sync_edit_tabs.condition" as="condition"/>
+                <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\Mapping" name="mageplaza_quickbooks_sync_edit_tab_mapping"/>
+                <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\QueueReport" name="mageplaza_quickbooks_sync_edit_tab_queue_report"/>
+                <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\Payment" name="mageplaza_quickbooks_sync_edit_tab_payment"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">mageplaza_quickbooks_sync_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">condition</argument>
+                    <argument name="block" xsi:type="string">condition</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">mapping</argument>
+                    <argument name="block" xsi:type="string">mageplaza_quickbooks_sync_edit_tab_mapping</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">payment</argument>
+                    <argument name="block" xsi:type="string">mageplaza_quickbooks_sync_edit_tab_payment</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit" name="sync"/>
+        </referenceContainer>
+    </body>
+</page>

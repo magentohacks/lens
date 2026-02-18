@@ -1,0 +1,9 @@
+.pdf-container-inner {
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.hide-barcode {
+    display: none !important;
+}
+

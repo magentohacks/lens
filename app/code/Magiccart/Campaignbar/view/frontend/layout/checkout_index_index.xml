@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Magiccart
+ * @package     Magiccart_Campaignbar
+ * @copyright   Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @license     http://www.magepow.com/license-agreement.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="campaignbar.header" remove="true"/>
+		<referenceContainer name="campaignbar.footer" remove="true"/>
+	</body>
+</page>

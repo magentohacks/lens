@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="BoostMyShop_Rma::operations" title="Rma" module="BoostMyShop_Rma" sortOrder="10" parent="Magento_Sales::sales" resource="BoostMyShop_Rma::operations"/>
+        <add id="BoostMyShop_Rma::rma" title="Manage returns" module="BoostMyShop_Rma" sortOrder="10" parent="BoostMyShop_Rma::operations" action="rma/rma" resource="BoostMyShop_Rma::rma"/>
+        <add id="BoostMyShop_Rma::configuration" title="Configuration" module="BoostMyShop_Rma" sortOrder="20" parent="BoostMyShop_Rma::operations" action="rma/configuration" resource="BoostMyShop_Rma::configuration"/>
+    </menu>
+</config>

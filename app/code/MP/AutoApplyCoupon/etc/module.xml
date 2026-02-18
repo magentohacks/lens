@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    MP
+* @package     MP_AutoApplyCoupon
+* @copyright   MagePhobia (http://www.magephobia.com)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
+    <module name="MP_AutoApplyCoupon" setup_version="2.0.0" >
+    </module>
+</config>

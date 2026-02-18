@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_after">
+        <observer name="save_lens_prescription" instance="Lens\Manager\Observer\CreateCustomOptions"/>
+    </event>
+    <event name="controller_action_predispatch_checkout_cart_add"> 
+        <observer name="after_add_to_cart" instance="Lens\Manager\Observer\ProductAddToCartBefore"/> 
+    </event>
+    <event name="checkout_cart_update_item_complete">
+        <observer name="cart_update_item_after" instance="Lens\Manager\Observer\CartUpdateAfter" />
+    </event>
+    <event name="sales_order_place_after"> 
+        <observer name="after_order_place" instance="Lens\Manager\Observer\OrderPlaceAfter"/> 
+    </event>
+</config>

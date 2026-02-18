@@ -1,0 +1,15 @@
+
+### BEGIN FILE ###
+
+User-agent: Googlebot
+Disallow:
+User-agent: Googlebot-image
+Disallow:
+
+User-agent: *
+Disallow:
+
+
+
+
+### END FILE ###

@@ -1,0 +1,23 @@
+<div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+
+    <h3><?php echo __('Available stock per website'); ?></h3>
+
+    <table class="data-grid" id="stocks_grid_table">
+        <thead>
+        <tr>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Website'); ?></span></th>
+            <th class="data-grid-th  no-link col-cache_type"><span><?php echo __('Quantity'); ?></span></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php foreach($this->getWebsites() as $website): ?>
+            <tr>
+                <td class="a-left"><?php echo $website->getName(); ?></td>
+                <td class="a-center"><?php echo $website->getQty(); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--<type name="Magento\Sales\Model\Service\OrderService">-->
+        <!--<plugin name="order_pdf_email_attachment" type="Magestore\Pdfinvoiceplus\Plugins\OrderEmailAttachment"/>-->
+    <!--</type>-->
+    <type name="Magento\Framework\Mail\TransportInterfaceFactory">
+        <plugin name="pdfinvoice_emailattachments_transport_factory" type="Magestore\Pdfinvoiceplus\Plugins\TransportFactory"/>
+    </type>
+    <type name="Magestore\Pdfinvoiceplus\Model\Localization">
+        <arguments>
+            <argument name="translate" xsi:type="object" shared="false">Magento\Framework\TranslateInterface</argument>
+        </arguments>
+    </type>
+    <preference for="Magestore\Pdfinvoiceplus\Model\MPdfPrinterInterface" type="Magestore\Pdfinvoiceplus\Model\MPdfPrinter" />
+    <preference for="Magento\Checkout\Block\Cart\Sidebar" type="Magestore\Pdfinvoiceplus\Block\Cart\Sidebar" />
+    <!--<preference for="Magento\Framework\Mail\Message" type="Magestore\Pdfinvoiceplus\Rewrite\Framework\Mail\Message" />-->
+</config>

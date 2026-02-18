@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\PrintButton\OrderButton $block */
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$_order = $block->getOrder();
+
+/** @var \Magestore\Pdfinvoiceplus\Helper\Data $pdfInvoiceHelper */
+$pdfInvoiceHelper = $this->helper('Magestore\Pdfinvoiceplus\Helper\Data');
+$canshowCustomPrint = $pdfInvoiceHelper->canshowCustomPrint($_order->getStoreId());
+$isDisableCorePrinting = $pdfInvoiceHelper->isDisableCorePrinting();
+$storeId = $pdfInvoiceHelper->getStoreId();
+$isUseForMultiStore = $pdfInvoiceHelper->getUseForMultiStore();
+?>
+<style>
+    .separator{
+        float: right;
+        margin: 0px 3px;
+    }
+</style>
+<div class="actions">
+    <?php if ($this->helper('Magento\Sales\Helper\Reorder')->canReorder($_order->getEntityId())) : ?>
+        <a class="action reorder" href="<?php /* @escapeNotVerified */ echo $block->getReorderUrl($_order) ?>">
+            <span><?php /* @escapeNotVerified */ echo __('Reorder') ?></span>
+        </a>
+    <?php endif ?>
+
+    <?php if($canshowCustomPrint){ ?>
+        <?php if($isUseForMultiStore || $storeId==1 ):?>
+                <!--  Print Custom Order Button  -->
+                <a class="action print"
+                   href="<?php /* @escapeNotVerified */ echo $pdfInvoiceHelper->getCustomPdfPrintOrderUrl($_order) ?>"
+                   onclick="this.target='_blank';">
+                    <span><?php /* @escapeNotVerified */ echo __('Print Custom PDF Order') ?></span>
+                </a>
+        <?php endif;?>
+    <?php } ?>
+    <?php if($canshowCustomPrint && !$isDisableCorePrinting): ?>
+        <span class="separator">|</span>
+    <?php endif ?>
+    <?php if(!$isDisableCorePrinting): ?>
+        <a class="action print"
+       href="<?php /* @escapeNotVerified */ echo $block->getPrintUrl($_order) ?>"
+       onclick="this.target='_blank';">
+        <span><?php /* @escapeNotVerified */ echo __('Print Order') ?></span>
+    </a>
+    <?php endif ?>
+
+    <?php echo $block->getChildHtml(); ?>
+</div>

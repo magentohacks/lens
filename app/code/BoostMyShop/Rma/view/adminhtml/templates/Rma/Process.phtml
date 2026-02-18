@@ -1,0 +1,136 @@
+
+
+<div class="page-main-actions">
+    <div data-mage-init='{"floatingHeader": {}}' class="page-actions"  data-ui-id="page-actions-toolbar-content-header" >
+
+        <button id="back" title="Back" type="button" class="action-default scalable back" onclick="setLocation('<?php echo $this->getBackUrl(); ?>')"  data-ui-id="adminhtml-order-edit-back-button" >
+            <span><?php echo __('Back'); ?></span>
+        </button>
+
+        <button id="import" title="import" type="button" class="action-default scalable primary" onclick="rmaProcess.submit();" >
+            <span><?php echo __('Complete RMA'); ?></span>
+        </button>
+    </div>
+</div>
+
+<form id="edit_form" method="POST" action="<?php echo $this->getSubmitUrl(); ?>" method="POST">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <input type="hidden" name="rma_id" value="<?php echo $this->getRma()->getId(); ?>">
+
+    <table class="data-grid" id="rmaItemsGrid_table">
+            <thead>
+            <tr>
+                <th class="data-grid-th  no-link col-ri_name"><span>Product</span></th>
+                <th class="data-grid-th  no-link col-ri_name"><span>Qty Returned</span></th>
+                <th class="data-grid-th  no-link col-ri_name"><span>Price paid</span></th>
+                <th class="data-grid-th  no-link col-ri_name"><span>Qty back to stock</span></th>
+                <th class="data-grid-th  no-link col-ri_name"><span>Refund</span></th>
+            </tr>
+            </thead>
+
+        <tbody>
+        <?php $i = 0; ?>
+        <?php foreach($this->getRma()->getAllItems() as $item): ?>
+            <?php if ($item->getri_qty() == 0) { continue; } ?>
+            <tr title="#" class="data-row <?php echo ($i % 2 == 0 ? '' : '_odd'); ?>-row">
+                <td class=" col-ri_sku">
+                    <strong><a href="<?php echo $this->getProductUrl($item); ?>"><?php echo $item->getri_sku(); ?> -
+                    <?php echo $item->getri_name(); ?></a></strong>
+                    <br />Reason : <?php echo $item->getri_reason(); ?>
+                    <br />Request : <?php echo $item->getri_request(); ?>
+                    <br /><?php echo $item->getri_comments(); ?>
+                </td>
+                <td class=" col-ri_sku a-center"><?php echo $item->getri_qty(); ?></td>
+                <td class=" col-ri_sku a-center">
+                    <?php if ($item->getOrderItem()): ?>
+                        <?php echo $this->getRma()->formatCurrency($item->getOrderItem()->getprice()); ?>
+                    <?php endif; ?>
+                </td>
+                <td class=" col-ri_sku a-center">
+                    <select name="items[<?php echo $item->getId(); ?>][qty_back_to_stock]">
+                        <?php for($i=0;$i<=$item->getri_qty();$i++): ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </td>
+                <td class=" col-ri_sku a-center">
+                    <select name="items[<?php echo $item->getId(); ?>][refund]" id="items_<?php echo $item->getId(); ?>_refund" onchange="rmaProcess.update();">
+                        <?php for($i=0;$i<=$item->getRefundableQuantity();$i++): ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </td>
+
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+
+        <!-- shipping -->
+        <tr class="data-row <?php echo ($i % 2 == 0 ? '' : '_odd'); ?>-row">
+            <td class=" col-ri_sku"><strong>Shipping</strong></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center">
+                <?php if ($this->getRma()->getOrder()): ?>
+                    <?php echo $this->getRma()->formatCurrency($this->getRma()->getOrder()->getShippingAmount()); ?>
+                <?php endif; ?>
+            </td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center">
+                <select name="shipping" id="shipping_refund" onchange="rmaProcess.update();">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </td>
+        </tr>
+        <?php $i++; ?>
+
+        <!-- fee -->
+        <tr class="data-row <?php echo ($i % 2 == 0 ? '' : '_odd'); ?>-row">
+            <td class=" col-ri_sku"><strong>Refund fee</strong><br><i>Deducted to amount refund</i></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center"></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center">
+                <input type="text" name="fee" id="fee" value="0" onkeyup="rmaProcess.update();">
+            </td>
+        </tr>
+        <?php $i++; ?>
+
+        <!-- fee -->
+        <tr class="data-row <?php echo ($i % 2 == 0 ? '' : '_odd'); ?>-row">
+            <td class=" col-ri_sku"><strong>Refund adjustment</strong><br><i>Added to amount refund</i></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center"></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center">
+                <input type="text" name="adjustment" id="adjustment" value="0" onkeyup="rmaProcess.update();">
+            </td>
+        </tr>
+        <?php $i++; ?>
+
+        <!-- fee -->
+        <tr class="data-row <?php echo ($i % 2 == 0 ? '' : '_odd'); ?>-row">
+            <td class=" col-ri_sku"><strong>Total refunded</strong></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center"></td>
+            <td class=" col-ri_sku"></td>
+            <td class=" col-ri_sku a-center">
+                <span id="total_refunded" style="font-size: 18px; font-weight: bold;">0</span>
+            </td>
+        </tr>
+        <?php $i++; ?>
+
+        </tbody>
+    </table>
+
+</form>
+
+<script>
+
+    var rmaProcess;
+    require(["rma_process"], function(){
+        rmaProcess = new AdminRmaProcess();
+        rmaProcess.init(<?php echo $this->getJsonData(); ?>);
+    });
+
+</script>

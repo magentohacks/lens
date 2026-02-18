@@ -1,0 +1,20 @@
+define([
+    'Magento_Checkout/js/model/quote',
+    'mage/utils/wrapper'
+], function (quote, wrapper) {
+    'use strict';
+
+    return function (setShippingAddressAction) {
+        return wrapper.wrap(setShippingAddressAction, function (originalAction, shippingAddress) {
+
+            if (quote.shippingAddress.equalityComparer(quote.shippingAddress(), shippingAddress)) {
+                // prevent infinity shipping loader
+                require(['Magento_Checkout/js/model/shipping-service'], function (shippingService) {
+                    shippingService.isLoading(false);
+                });
+            }
+
+            return originalAction(shippingAddress);
+        });
+    };
+});

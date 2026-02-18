@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <tab id="boostmyshop" translate="label" sortOrder="0">
+            <label>BoostMyShop</label>
+        </tab>
+
+        <section id="barcodeinventory" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Barcode Inventory</label>
+            <tab>boostmyshop</tab>
+            <resource>Boostmyshop_BarcodeInventory::Config</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+
+                <field id="barcode_attribute" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Barcode attribute</label>
+                    <source_model>BoostMyShop\BarcodeInventory\Model\Config\Source\Attributes</source_model>
+                    <comment><![CDATA[This setting is optional if you are using Embedded ERP.]]></comment>
+                </field>
+
+                <field id="default_mode" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default mode</label>
+                    <source_model>BoostMyShop\BarcodeInventory\Model\Config\Source\Modes</source_model>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

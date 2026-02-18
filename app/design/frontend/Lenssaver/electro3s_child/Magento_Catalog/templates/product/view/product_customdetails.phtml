@@ -1,0 +1,212 @@
+<?php
+// $ves = $this->helper('Ves\Themesettings\Helper\Theme');
+// $show_price = $ves->getProductPageCfg('element_settings/show_price');
+
+$_product = $block->getProduct();
+$productId = 'countdown-'.$_product->getId();
+
+ $product_Id = $_product->getId().'<br>';
+
+
+
+
+$urlInterface = \Magento\Framework\App\ObjectManager::getInstance()
+	->get(\Magento\Framework\UrlInterface::class);
+	$currentUrl = $urlInterface->getCurrentUrl();
+	$test = '';
+	$test1 = '';
+	$array = explode('?', $currentUrl); 
+	//print_r($array);
+	$test = $array['0'];
+	//$test1 = $array['1'];
+	$key_to_check = '1';
+	if(isset($array[$key_to_check])){
+	$test1 = $array['1'];
+	}
+	if ($test1 == 'options=cart') {
+		$test1 = '';
+	}
+	if($test1 != ''){ 
+
+		$final_price = $_product->getFinalPrice();
+		$abc = $_product->getFinalPrice();
+
+
+		$product_id = $_product->getId(); 
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data'); 
+		 $myattribute = $_product->getResource()->getAttribute('promotional_price')->getFrontend()->getValue($_product);
+		 $final_price2 = $abc - $myattribute;
+		 $extra = '?utm';
+		 $sku_extra = $_product->getName();
+
+// else{
+// 	 $final_price2 = $_product->getfinalPrice();
+// 		$extra = '';
+// 		$sku_extra = $_product->getName();
+// }
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+              $coreSession = $objectManager->get('Magento\Framework\Session\SessionManagerInterface'); 
+              $coreSession->start();
+              $sidepart = array();
+              $sidepart[0] = $product_id;
+              $sidepart[1] = $final_price2;
+              $sidepart[2] = $extra;
+              $sidepart[3] = $sku_extra;
+               $date = date('H:i:s');
+$currentDate = strtotime($date);
+$futureDate = $currentDate+(60*50);
+  $formatDate = date("H:i:s", $futureDate);   
+              $sidepart[4] = $formatDate;
+              $setting =  $coreSession->setData('sidepart', $sidepart);
+              }
+	//echo $myattribute;
+	?>
+<?php
+// $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//               $coreSession = $objectManager->get('Magento\Framework\Session\SessionManagerInterface'); 
+//               $coreSession->start();
+//               $sidepart = array();
+//               $sidepart[0] = 'back';
+//               $setting =  $coreSession->setData('sidepart', $sidepart);
+
+
+// $objectManager =  \Magento\Framework\App\ObjectManager::getInstance();        
+ 
+// $catalogSession = $objectManager->get('\Magento\Catalog\Model\Session'); 
+// // set session variable
+// $catalogSession->setNewprice('ABC');
+              
+$urlInterface = \Magento\Framework\App\ObjectManager::getInstance()
+	->get(\Magento\Framework\UrlInterface::class);
+	 $currentUrl = $urlInterface->getCurrentUrl();
+	$test = '';
+	$test1 = '';
+	$array = explode('?', $currentUrl); 
+	//print_r($array);
+	$test = $array['0'];
+	//$test1 = $array['1'];
+	$key_to_check = '1';
+	if(isset($array[$key_to_check])){
+	$test1 = $array['1'];
+	}
+	if ($test1 == 'options=cart') {
+		$test1 = '';
+	}
+	if($test1 != ''){ ?>
+<div class="promotion-price">Promotional Price Applied</div>
+<?php } ?>
+<div class="row">
+<div class="col-lg-8 no-padding">
+<?php echo $this->getChildHtml('page_main_title_custom');?>
+
+
+	<?php $boxSize = $_product->getResource()->getAttribute("lenses_per_box")->getFrontend()->getValue($_product);//echo __("30 lenses per box");
+	
+	      $solutionsize = $_product->getLenssize();
+	?>
+	<?php $relatedboxSize = $_product->getResource()->getAttribute("related_pack_size")->getFrontend()->getValue($_product);//echo __("30 lenses per box");?>
+	<?php if($boxSize != '' && $boxSize != "No"):?>
+		<div class="box-number"><?php echo "(".$boxSize.__(' per box)');?></div>
+	<?php endif;?>
+	<?php if($solutionsize != '' && $solutionsize != "No"):?>
+		<div class="box-number"><?php echo "(".$solutionsize.")";?></div>
+	<?php endif;?>
+
+<?php $view90 = $_product->getView90Pack();?>
+<?php if(!empty($view90) && !empty($relatedboxSize)):?>
+<div class="view-pack-size"><a href="<?php echo $view90;?>"><?php echo __("View ").$relatedboxSize.__(" pack size and save money");?></a></div>
+<?php endif;?>
+</div>
+<div class="product-info-price col-lg-4 no-padding">
+	
+
+	<?php //if($show_price){ 
+
+
+	$urlInterface = \Magento\Framework\App\ObjectManager::getInstance()
+	->get(\Magento\Framework\UrlInterface::class);
+	$currentUrl = $urlInterface->getCurrentUrl();
+	$test = '';
+	$test1 = '';
+	$array = explode('?', $currentUrl); 
+	//print_r($array);
+	$test = $array['0'];
+	//$test1 = $array['1'];
+	$key_to_check = '1';
+	if(isset($array[$key_to_check])){
+	$test1 = $array['1'];
+	}
+	if ($test1 == 'options=cart') {
+		$test1 = '';
+	}
+	if($test1 != ''){ 
+
+		$final_price = $_product->getFinalPrice();
+		$abc = $_product->getFinalPrice();
+
+
+		$product_id = $_product->getId(); 
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data'); 
+		$myattribute = $_product->getResource()->getAttribute('promotional_price')->getFrontend()->getValue($_product);
+		$final_price2 = $abc - $myattribute;
+
+
+	//echo $myattribute;
+	?>
+
+ <div class="price-box price-final_price" data-role="priceBox" data-product-id="<?php echo $product_id; ?>">
+	<span class="price-container price-final_price tax weee" 1="">
+	<span id="product-price-<?php echo $product_id; ?>" data-price-amount="<?php echo number_format((float)$final_price2, 2, '.', '') ?>" class="price-wrapper " itemprop="price"><span class="price">£<?php echo number_format((float)$final_price2, 2, '.', '') ?></span></span>
+	<meta itemprop="priceAmount" content="<?php echo number_format((float)$final_price2, 2, '.', '') ?>">
+	<meta itemprop="price" content="<?php echo number_format((float)$final_price2, 2, '.', '') ?>">
+	<meta itemprop="priceCurrency" content="GBP">
+	</span>
+	</div> 
+
+	<div class="price-box price-final_price line-cross">
+													<span class="price-container price-final_price tax weee">
+														<span data-price-type="finalPrice" class="price-wrapper ">
+															<span class="price"><?php echo $priceHelper->currency($_product->getFinalPrice(), true, false);?></span>
+														</span>
+													</span>
+												</div>
+
+
+<?php }else{
+	//echo "not added";
+	echo $this->getChildHtml('product_price_final');
+}
+
+?>
+
+	
+	<?php //echo $this->getChildHtml('product_price_final') ?>
+
+	<?php //} ?>
+	<?php echo $this->getChildHtml('product_price_tier');?>
+	<?php echo $this->getChildHtml('product_info_brand');?>
+</div>
+</div>
+<div style="clear:both; height:10px;">&nbsp;</div>
+<style type="text/css">
+	.price-box.price-final_price.line-cross span.price-wrapper span.price {
+	text-decoration: line-through;
+	color: #000;
+}
+.promotion-price {
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 13px;
+}
+.price-container .price {
+    color: #ff0000;
+
+}
+.price-box.price-final_price{float: right;
+    padding-left: 14px;}
+</style>
+

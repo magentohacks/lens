@@ -1,0 +1,5 @@
+<form method="POST" action="<?php echo $this->getSaveUrl(); ?>" id="shipping_form" enctype="multipart/form-data">
+    <input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>">
+    <?php echo $this->getChildHtml('orderpreparation.shipping.header'); ?>
+    <?php echo $this->getChildHtml('orderpreparation.shipping.orders'); ?>
+</form>

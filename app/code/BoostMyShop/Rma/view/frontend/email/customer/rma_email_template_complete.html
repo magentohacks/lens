@@ -1,0 +1,17 @@
+<!--@subject {{var company_name}} - Your Return Request #{{var rma_reference}} is complete @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Dear {{var rma_customer_name}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>The customer service has fully processed your return request, you'll be updated soon for the next actions.</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

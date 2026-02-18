@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magecheckout_ZopimChat::zopimchat" title="Zopim Chat" module="Magecheckout_ZopimChat" sortOrder="14" resource="Magecheckout_ZopimChat::zopimchat"/>
+        <add id="Magecheckout_ZopimChat::settings" title="Settings" module="Magecheckout_ZopimChat" sortOrder="10" action="adminhtml/system_config/edit/section/zopimchat" resource="Magecheckout_ZopimChat::settings" parent="Magecheckout_ZopimChat::zopimchat"/>
+    </menu>
+</config>

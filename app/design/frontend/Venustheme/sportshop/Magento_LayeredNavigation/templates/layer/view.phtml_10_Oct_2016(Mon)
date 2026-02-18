@@ -1,0 +1,105 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <div class="block filter" id="layered-filter-block" data-mage-init='{"collapsible":{"openedState": "active", "collapsible": true, "active": false, "collateral": { "openedState": "filter-active", "element": "body" } }}'>
+        <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
+        <div class="block-title" data-count="<?php /* @escapeNotVerified */ echo $filtered; ?>">
+            <strong data-role="title"><?php /* @escapeNotVerified */ echo __('Shop By') ?></strong>
+        </div>
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php /* @escapeNotVerified */ echo $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php /* @escapeNotVerified */ echo __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter): ?>
+                <?php if ($filter->getItemsCount()): ?>
+                    <?php if (!$wrapOptions): ?>
+                        <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php /* @escapeNotVerified */ echo __('Shopping Options') ?></strong>
+                        <!--<div class="filter-options" id="narrow-by-list" data-role="content" data-mage-init='{"accordion":{"openedState": "active", "collapsible": true, "active": false, "multipleCollapsible": false}}'>
+                    <?php  $wrapOptions = true; endif; ?>
+                    <div data-role="collapsible" class="filter-options-item">
+                        <div data-role="title" class="filter-options-title"><?php /* @escapeNotVerified */ echo __($filter->getName()) ?></div>
+                        <div data-role="content" class="filter-options-content"><?php /* @escapeNotVerified */ echo $block->getChildBlock('renderer')->render($filter); ?></div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions): ?>
+                </div>-->
+            <?php else: ?>
+                <script>
+                    require([
+                        'jquery'
+                    ], function ($) {
+                        $('#layered-filter-block').addClass('filter-no-options');
+                    });
+                </script>
+            <?php endif; ?>
+			<ul>
+				<li style="color: #191c21;font-weight: bold;font-size: 20px;">SHOP BY TYPE</li>
+				<li style="cursor:pointer;">Daily disposables</li>
+				<li style="cursor:pointer;">Two Weekly Disposables</li>
+				<li style="cursor:pointer;">Monthly disposable</li>
+				<li style="cursor:pointer;">Toric for Astigmatism</li>
+				<li style="cursor:pointer;">Coloured</li>
+				<li style="cursor:pointer;">Multifocal</li>
+				<li style="cursor:pointer;">Extended Wear</li>
+				<li style="cursor:pointer;">Soft contact lenses</li>
+				<li style="cursor:pointer;">Bifocal/Progressive Lenses</li>
+			</ul>
+			<ul>
+				<li style="color: #191c21;font-weight: bold;font-size: 20px;">SHOP BY BRAND</li>
+				<li style="cursor:pointer;">Aura</li>
+				<li style="cursor:pointer;">Acuvue</li>
+				<li style="cursor:pointer;">Air Optix</li>
+				<li style="cursor:pointer;">Biofinity</li>
+				<li style="cursor:pointer;">Biomedics</li>
+				<li style="cursor:pointer;">Dailies</li>
+				<li style="cursor:pointer;">Easyvision</li>
+				<li style="cursor:pointer;">Everclear</li>
+				<li style="cursor:pointer;">Focus Dailies</li>
+				<li style="cursor:pointer;">Frequency</li>
+				<li style="cursor:pointer;">Freshlook</li>
+				<li style="cursor:pointer;">Opti-Free</li>
+				<li style="cursor:pointer;">Proclear</li>
+				<li style="cursor:pointer;">PureVision</li>
+				<li style="cursor:pointer;">SofLens</li>
+			</ul>
+			<ul>
+				<li style="color: #191c21;font-weight: bold;font-size: 20px;">SHOP BY MANUFACTURER</li>
+				<li style="cursor:pointer;">Abatron</li>
+				<li style="cursor:pointer;">Alcon</li>
+				<li style="cursor:pointer;">Altacor</li>
+				<li style="cursor:pointer;">Allergan</li>
+				<li style="cursor:pointer;">AMO</li>
+				<li style="cursor:pointer;">Ascend</li>
+				<li style="cursor:pointer;">ASDA</li>
+				<li style="cursor:pointer;">Bausch & Lomb</li>
+				<li style="cursor:pointer;">Boston</li>
+				<li style="cursor:pointer;">Ciba Vision</li>
+				<li style="cursor:pointer;">Coopervision</li>
+				<li style="cursor:pointer;">Johnson & Johnson</li>
+				<li style="cursor:pointer;">Novartis Ophthalmics</li>
+				<li style="cursor:pointer;">Sauflon</li>
+				<li style="cursor:pointer;">Scope Healthcare</li>
+			</ul>
+        </div>
+    </div>
+<?php endif; ?>

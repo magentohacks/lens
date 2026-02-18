@@ -1,0 +1,41 @@
+.barcode-type-ean128a,
+.barcode-type-c93,
+.barcode-type-msi,
+.barcode-type-codabar,
+.barcode-type-code11,
+.barcode-type-c39,
+.barcode-type-s25,
+.barcode-type-c128a
+{
+    background: url('../images/barcode/EAN128A.jpg') no-repeat !important;
+}
+
+.barcode-type-imb,
+.barcode-type-rm4scc,
+.barcode-type-kix
+{
+    background: url('../images/barcode/IMB.jpg') no-repeat !important;
+}
+
+.barcode-type-postnet,
+.barcode-type-planet
+{
+    background: url('../images/barcode/POSTNET.jpg') no-repeat !important;
+}
+
+
+.barcode-type-qr {
+    background: url('../images/barcode/QR.jpg') no-repeat !important;
+}
+
+.barcode-type-ean13 {
+    background: url('../images/barcode/EAN13.jpg') no-repeat !important;
+}
+
+.barcode-type-upca {
+    background: url('../images/barcode/UPCA.jpg') no-repeat !important;
+}
+
+.barcode-type-ean8 {
+    background: url('../images/barcode/EAN8.jpg') no-repeat !important;
+}

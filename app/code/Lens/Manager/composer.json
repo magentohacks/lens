@@ -1,0 +1,24 @@
+{
+  "name": "lens/manager",
+  "description": "Magento 2.0 Lens",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+  },
+  "type": "magento2-module",
+  "license": "Commercial",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Lens Manager",
+      "email": "hemant22jain@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Lens\\Manager\\": ""
+    }
+  }
+}

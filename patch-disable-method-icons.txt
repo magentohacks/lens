@@ -1,0 +1,12 @@
+diff --git a/app/code/StripeIntegration/Payments/Api/Service.php b/app/code/StripeIntegration/Payments/Api/Service.php
+index 4539ad999..e02c12b3c 100644
+--- a/app/code/StripeIntegration/Payments/Api/Service.php
++++ b/app/code/StripeIntegration/Payments/Api/Service.php
+@@ -562,6 +562,7 @@ class Service implements ServiceInterface
+
+     public function get_checkout_payment_methods($billingAddress, $shippingAddress = null, $shippingMethod = null, $couponCode = null)
+     {
++        return null;
+         $quote = $this->quoteHelper->getQuote();
+
+         if (!empty($billingAddress))

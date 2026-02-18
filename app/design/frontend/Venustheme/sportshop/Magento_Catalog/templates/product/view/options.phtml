@@ -1,0 +1,241 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/* @var $block \Magento\Catalog\Block\Product\View\Options */
+?>
+<?php
+$_options = $block->decorateArray($block->getOptions()); ?>
+<?php $_productId = $block->getProduct()->getId(); ?>
+<?php $optionData = $this->helper('Lens\Manager\Helper\Data')->getOptionsData($_productId, $_options);?>
+<?php $optionId = $optionData['eyeside_optionid']; ?>
+<input type="hidden" name="eye_side_id" value="<?php echo $optionId; ?>">
+<?php if (count($_options)) :?>
+    <script>
+    require(['jquery'],function($){    
+    jQuery("#product-addtocart-button").click(function(){
+        if(jQuery('#left_checked').is(":checked") || jQuery('#right_checked').is(":checked")){
+           return true;
+           
+        }else{
+            alert('Enter Your Prescription');
+         }
+         return false;
+   });
+ });
+</script>
+
+    <div class="pres_crip"><?php echo __('Enter Your Prescription');?></div>
+    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-3 pres_box">
+        <ul>
+            <li style="padding-top: 5px;"><?php echo __('Eye');?></li>
+            <?php foreach ($_options as $eachOption): ?>
+                <?php if ($eachOption->getType() == 'drop_down') : ?>
+                    <li style="padding-top: 10px;"><?php echo $block->escapeHtml($eachOption->getTitle()) ?></li>
+                <?php endif;?>
+            <?php endforeach;?>
+            <li style="padding-top: 20px;"><?php echo __('No. of boxes');?></li>
+        </ul>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-4 frst_box" id="left_main">
+        <ul>
+            <li><input type="checkbox" checked="checked" id="left_checked"><label class="lft_eye"><?php echo __('Left Eye');?></label></li>
+            <?php $leftCount = 0;?>
+            <?php foreach ($_options as $_option) :?>
+                <?php if ($_option->getType() == 'drop_down') : ?>
+                <li>
+                    <div class="field required">
+                        <div class="control">
+                            <select data-validate="{required:true}" name="left_options[<?php echo $_option->getId(); ?>]" id="select_<?php echo $_option->getId(); ?>" class="required product-custom-option admin__control-select attr-<?php echo strtolower($_option->getTitle()) ?>" title="" data-side="left" data-label="<?php echo strtolower($_option->getTitle()) ?>" data-selector="options[<?php echo $_option->getId(); ?>]" aria-required="true" <?php if ($leftCount > 0) : echo "disabled"; endif; ?>  >
+                                <option value="">-- Please Select --</option>
+                                <?php if ($leftCount == 0) :?>
+                                    <?php foreach ($_option->getValues() as $eachValue) : ?>
+                                        <option value="<?php echo $eachValue->getId(); ?>" price="0"><?php echo $eachValue->getTitle(); ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <?php $leftCount++; ?>
+                <?php endif;?>
+            <?php endforeach;?>
+            <div class="control">
+                <div class="quantity-manager">
+                    <div class="quantity-number left">
+                        <input type="number"
+                        name="left_qty"
+                        id="qty"
+                        maxlength="12"
+                        value="1<?php /* @escapeNotVerified */// echo $block->getProductDefaultQty() * 1 ?>"
+                        title="<?php /* @escapeNotVerified */ echo __('Quantity for left eye') ?>" class="input-text qty"
+                        data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                        />
+                    </div>
+                    <div class="quantity-wrapper">
+                        <span class="add-up add-action fa fa-plus" data-parentqty="true"></span>  
+                        <span class="add-down add-action fa fa-minus" data-parentqty="true"></span>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-4 sec_box" id="right_main">
+        <ul>
+            <li><input type="checkbox" checked="checked" id="right_checked"><label class="rgt_eye"><?php echo __('Right Eye');?></label></li>
+            <?php $rightCount = 0; ?>
+            <?php foreach ($_options as $_option) :?>
+                <?php if ($_option->getType() == 'drop_down') : ?>
+                <li>
+                    <div class="control">
+                        <select name="right_options[<?php echo $_option->getId(); ?>]" id="select_<?php echo $_option->getId(); ?>" class=" required product-custom-option admin__control-select attr-<?php echo strtolower($_option->getTitle()) ?>" title="" data-side="right" data-label="<?php echo strtolower($_option->getTitle()) ?>" data-selector="options[<?php echo $_option->getId(); ?>]" aria-required="true" <?php if ($rightCount > 0): echo "disabled"; endif; ?>>
+                            <option value="">-- Please Select --</option>
+                            <?php if ($rightCount == 0) : ?>
+                                <?php foreach ($_option->getValues() as $eachValue) : ?>
+                                    <option value="<?php echo $eachValue->getId(); ?>" price="0"><?php echo $eachValue->getTitle(); ?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </div>
+                </li>
+                <?php $rightCount++; ?>
+                <?php endif;?>
+            <?php endforeach; ?>
+            <li>
+                <div class="control">
+                    <div class="quantity-manager">
+                        <div class="quantity-number right">
+                            <input type="number"
+                            name="right_qty"
+                            id="qty"
+                            maxlength="12"
+                            value="1<?php /* @escapeNotVerified */ //echo $block->getProductDefaultQty() * 1 ?>"
+                            title="<?php /* @escapeNotVerified */ echo __('Quantity for right eye') ?>" class="input-text qty"
+                            data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                            />
+                        </div>
+                        <div class="quantity-wrapper">
+                            <span class="add-up add-action fa fa-plus" data-parentqty="true"></span>  
+                            <span class="add-down add-action fa fa-minus" data-parentqty="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- <div class="time-to-free-delivery">
+        <p id="demo" class="do_not_show"></p>
+        <p class="warning_message">
+            <span class='dispatch_warning'>Please select prescription for Dispatch Date</span>
+        </p>
+    </div> -->
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "priceOptions": {
+                    "optionConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
+                    "controlContainer": ".field",
+                    "priceHolderSelector": "[data-product-id='<?= $block->escapeHtml($_productId) ?>'][data-role=priceBox]"
+                }
+            }
+        }
+    </script>
+    <?php
+        $myData = [
+            'optionsData' => $optionData,
+            'url' => $block->getUrl('lens/manager/checkavailability')
+        ];
+    ?>
+    <?php $serializedFormData = $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($myData); ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "lensOptionData": <?php /* @noEscape */ echo $serializedFormData; ?>
+            }
+        }
+    </script>
+    <style>
+        /* .s-hidden {
+            visibility:hidden;
+            padding-right:10px;
+        }
+        .select {
+            cursor:pointer;
+            display:inline-block;
+            position:relative;
+            font:normal 11px/22px Arial, Sans-Serif;
+            color:black;
+            width: 158px;
+            border:1px solid #ccc;
+        }
+        .styledSelect {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            padding: 6px 10px;
+            font-size: 15px;
+        }
+        .styledSelect.disabled {
+            opacity:0.5;
+        }
+        .no_display {
+            display: none!important;
+        }
+        .styledSelect:after {
+            content:"";
+            width:0;
+            height:0;
+            border:5px solid transparent;
+            border-color:black transparent transparent transparent;
+            position:absolute;
+            top:9px;
+            right:6px;
+        }
+        .styledSelect:active, .styledSelect.active {
+            background-color:#eee;
+        }
+        .options {
+            display:none;
+            position:absolute;
+            top:100%;
+            right:0;
+            left:0;
+            z-index:999;
+            margin:0 0;
+            padding:0 0;
+            font-size: 14px;
+            list-style:none;
+            border:1px solid #ccc;
+            background-color:white;
+            -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        ul.options {
+            height: 300px;
+            overflow-y:scroll;
+        }
+        .options li {
+            padding:0 6px;
+            margin:0 0;
+            padding:0 10px;
+        }
+        .options li:hover {
+            background-color:#39f;
+            color:white;
+        }
+
+        ul.options span li{
+            width:50%;
+            display: inline-block;
+        }
+        ul.options span:nth-child(1) li {
+            width:100%;
+        } */
+    </style>
+<?php endif; ?>

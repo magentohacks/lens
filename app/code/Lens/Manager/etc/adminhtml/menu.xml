@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lens_Manager::lens" title="Lens Manager" translate="title" module="Lens_Manager" sortOrder="100" resource="Lens_Manager::lens"/>
+        <add id="Lens_Manager::prescriptions" title="All Priscriptions" translate="title" module="Lens_Manager" sortOrder="10" parent="Lens_Manager::lens" action="lens/index/index" resource="Lens_Manager::prescriptions"/>
+    </menu>
+</config>
+ 

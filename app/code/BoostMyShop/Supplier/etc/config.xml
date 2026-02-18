@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <supplier>
+            <order>
+                <email_identity>general</email_identity>
+                <email_template>supplier_order_email_template</email_template>
+            </order>
+        </supplier>
+    </default>
+</config>

@@ -1,0 +1,267 @@
+"Are you sure you want to do this?","Are you sure you want to do this?"
+"Add To Quickbooks Queue","Add To Quickbooks Queue"
+"Synchronize failed.","Synchronize failed."
+"Estimate synchronize failed.","Estimate synchronize failed."
+"A total of #1 record(s) have been synchronized. 
+            Note that in case there have already 5 times failed, it is unable to synchronize more. 
+            Please edit the object data, save and check again. ","A total of #1 record(s) have been synchronized. 
+            Note that in case there have already 5 times failed, it is unable to synchronize more. 
+            Please edit the object data, save and check again. "
+Next,Next
+"Back To Grid","Back To Grid"
+"Save and Continue Edit","Save and Continue Edit"
+"Conditions (don't add conditions if rule is applied to all objects)","Conditions (don't add conditions if rule is applied to all objects)"
+Conditions,Conditions
+"Sync Information","Sync Information"
+Name,Name
+Status,Status
+"Magento Object","Magento Object"
+"Quickbooks Module","Quickbooks Module"
+Website,Website
+Priority,Priority
+"If several rules meet the condition, the one with the highest priority will be applied. 
+                Smaller number means higher priority.","If several rules meet the condition, the one with the highest priority will be applied. 
+                Smaller number means higher priority."
+ID,ID
+Code,Code
+Title,Title
+"Quickbooks Entity","Quickbooks Entity"
+"Add to Queue","Add to Queue"
+"Are you sure you want to add to queue selected items?","Are you sure you want to add to queue selected items?"
+Object,Object
+Events,Events
+"Created On","Created On"
+"Updated On","Updated On"
+Error,Error
+Success,Success
+Pending,Pending
+"Mapping Fields","Mapping Fields"
+"Payment Method List","Payment Method List"
+"Reindex Payment","Reindex Payment"
+"Queue Report","Queue Report"
+"Pending Requests","Pending Requests"
+"Total Objects","Total Objects"
+"Total Requests","Total Requests"
+"Quickbooks Online","Quickbooks Online"
+"Synchronization Information","Synchronization Information"
+"A total of %1 record(s) have been added.","A total of %1 record(s) have been added."
+"Add to Quickbooks queue success.","Add to Quickbooks queue success."
+"Synchronization rule cannot be matched.","Synchronization rule cannot be matched."
+"Quickbooks Entity is exist.","Quickbooks Entity is exist."
+"Invalid object.","Invalid object."
+"Manage Sync Rules","Manage Sync Rules"
+"This item does not exists.","This item does not exists."
+"Data not found when trying to synchronize.","Data not found when trying to synchronize."
+"Please select type sync.","Please select type sync."
+"Manage Queue","Manage Queue"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Sync rule not found","Sync rule not found"
+"The sync rule has been deleted successfully.","The sync rule has been deleted successfully."
+"'An error occurred while deleting the sync rule. ' .","'An error occurred while deleting the sync rule. ' ."
+"Edit Synchronization Rule #%1","Edit Synchronization Rule #%1"
+"Create Synchronization Rule","Create Synchronization Rule"
+"Manage Synchronization Rules","Manage Synchronization Rules"
+"Rules is not active.","Rules is not active."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"Reindex successfully!","Reindex successfully!"
+"Save rule success!","Save rule success!"
+"'An error occurred while saving the sync. Please try again later. ' .","'An error occurred while saving the sync. Please try again later. ' ."
+"Please fill Authorized redirect URIs","Please fill Authorized redirect URIs"
+"The Access Token has been saved successfully. You can close this window, clear the cache and then refresh configuration page.","The Access Token has been saved successfully. You can close this window, clear the cache and then refresh configuration page."
+"Invalid access token. Please try again!","Invalid access token. Please try again!"
+"Grant token not found!","Grant token not found!"
+"Cannot refresh access token.","Cannot refresh access token."
+"Tax Agency using for sync from Magento ","Tax Agency using for sync from Magento "
+"Asset Account by module Mageplaza_QuickbooksOnline ","Asset Account by module Mageplaza_QuickbooksOnline "
+"Expense Account by Mageplaza_QuickbooksOnline ","Expense Account by Mageplaza_QuickbooksOnline "
+"Income Account by Mageplaza_QuickbooksOnline ","Income Account by Mageplaza_QuickbooksOnline "
+"Customer Guest using for sync from Magento ","Customer Guest using for sync from Magento "
+"Accept %1 value.","Accept %1 value."
+"Select Date","Select Date"
+"Insert Variable...","Insert Variable..."
+"Display Name","Display Name"
+"Given Name","Given Name"
+"Middle Name","Middle Name"
+Suffix,Suffix
+"Family Name","Family Name"
+"Email Address","Email Address"
+"Secondary Tax Identifier","Secondary Tax Identifier"
+"Preferred Delivery Method","Preferred Delivery Method"
+GSTIN,GSTIN
+"Business Number","Business Number"
+"Bill With Parent","Bill With Parent"
+Mobile,Mobile
+Fax,Fax
+"Website Address","Website Address"
+Job,Job
+"Balance With Jobs","Balance With Jobs"
+Phone,Phone
+Taxable,Taxable
+Notes,Notes
+Active,Active
+Balance,Balance
+"Company Name","Company Name"
+"Create Time","Create Time"
+"Last Updated Time","Last Updated Time"
+"Billing Postal Code","Billing Postal Code"
+"Billing City","Billing City"
+"Billing Country","Billing Country"
+"Billing Street Line 1","Billing Street Line 1"
+"Billing Street Line 2","Billing Street Line 2"
+"Billing Street Line 3","Billing Street Line 3"
+"Billing Street Line 4","Billing Street Line 4"
+"Billing Street Line 5","Billing Street Line 5"
+"Billing Latitude","Billing Latitude"
+"Billing Longitude","Billing Longitude"
+"Billing Region","Billing Region"
+"Shipping Postal Code","Shipping Postal Code"
+"Shipping City","Shipping City"
+"Shipping Country","Shipping Country"
+"Shipping Street Line 1","Shipping Street Line 1"
+"Shipping Street Line 2","Shipping Street Line 2"
+"Shipping Street Line 3","Shipping Street Line 3"
+"Shipping Street Line 4","Shipping Street Line 4"
+"Shipping Street Line 5","Shipping Street Line 5"
+"Shipping Latitude","Shipping Latitude"
+"Shipping Longitude","Shipping Longitude"
+"Shipping Region","Shipping Region"
+"Inventory Start Date","Inventory Start Date"
+Type,Type
+"Only accept 4 variables: Inventory, Service, NonInventory, Bundle","Only accept 4 variables: Inventory, Service, NonInventory, Bundle"
+"Current Stock Qty","Current Stock Qty"
+SKU,SKU
+"Sales Tax (included in the item amount)","Sales Tax (included in the item amount)"
+"Quantity on hand to be tracked?","Quantity on hand to be tracked?"
+"Purchase Tax (included in the item amount)","Purchase Tax (included in the item amount)"
+Description,Description
+"Sub Item","Sub Item"
+"Taxable Transactions","Taxable Transactions"
+"Reorder Point","Reorder Point"
+"Purchase Description","Purchase Description"
+"Service Type","Service Type"
+"Purchase Cost","Purchase Cost"
+"Unit Price","Unit Price"
+"Fully Qualified Name","Fully Qualified Name"
+"Billing Email Address","Billing Email Address"
+"Print Status","Print Status"
+"Total Amount","Total Amount"
+"Tax (applied after discount)","Tax (applied after discount)"
+"Transaction Reference Number","Transaction Reference Number"
+"Invoice ID","Invoice ID"
+Currency,Currency
+"Private Note","Private Note"
+"Customer Memo","Customer Memo"
+"Total Tax","Total Tax"
+"Exchange Rate","Exchange Rate"
+"Email Status","Email Status"
+"Customer ID","Customer ID"
+"Billing Email","Billing Email"
+"Tracking Number","Tracking Number"
+"Ship Date","Ship Date"
+"Billing Email Cc","Billing Email Cc"
+Deposit,Deposit
+"Tax Code","Tax Code"
+"Rate Value","Rate Value"
+"Tax Rate Name","Tax Rate Name"
+Product,Product
+Customer,Customer
+Invoice,Invoice
+"Credit Memo","Credit Memo"
+Order,Order
+"Invalid url","Invalid url"
+Sandbox,Sandbox
+Production,Production
+"2 minutes","2 minutes"
+"5 minutes","5 minutes"
+"15 minutes","15 minutes"
+"30 minutes","30 minutes"
+"1 hour","1 hour"
+Daily,Daily
+Weekly,Weekly
+Monthly,Monthly
+"Magento object does not exist","Magento object does not exist"
+"Conditions Combination","Conditions Combination"
+exists,exists
+"does not exist","does not exist"
+"Conditions combination","Conditions combination"
+"Grand Total","Grand Total"
+Subtotal,Subtotal
+"Total Quantity","Total Quantity"
+"Order Date","Order Date"
+"Order Status","Order Status"
+"Purchased From","Purchased From"
+"Tax Amount","Tax Amount"
+"Payment Method","Payment Method"
+"Shipping Method","Shipping Method"
+"Shipping Postcode","Shipping Postcode"
+"Shipping State/Province","Shipping State/Province"
+"Billing Postcode","Billing Postcode"
+"Billing State/Province","Billing State/Province"
+"Total Weight","Total Weight"
+"Customer Group","Customer Group"
+"Shipping Amount","Shipping Amount"
+Tax,Tax
+"Zip/Post Code","Zip/Post Code"
+Country,Country
+State,State
+Rate,Rate
+Create,Create
+Update,Update
+Delete,Delete
+"Products and Services","Products and Services"
+"Sales Receipt","Sales Receipt"
+"Tax Service","Tax Service"
+Inactive,Inactive
+View,View
+"Queue ID","Queue ID"
+"Sync Rule","Sync Rule"
+"Json Response","Json Response"
+Syncing...,Syncing...
+"Company ID","Company ID"
+"Copy to clipboard","Copy to clipboard"
+"Quickbooks Fields","Quickbooks Fields"
+"Magento Fields","Magento Fields"
+"Default Value","Default Value"
+"Internal Note","Internal Note"
+General,General
+"This is a required field.","This is a required field."
+Select,Select
+Copied!,Copied!
+"Queue #","Queue #"
+"Manage Queues","Manage Queues"
+"Mageplaza Quickbooks Online","Mageplaza Quickbooks Online"
+Enable,Enable
+"Select Yes to enable this module","Select Yes to enable this module"
+Environment,Environment
+"Client ID","Client ID"
+"Client Secret","Client Secret"
+"Redirect URI","Redirect URI"
+"Copy and paste this value to Authorized Redirect URIs field on Quickbooks Client ID Details","Copy and paste this value to Authorized Redirect URIs field on Quickbooks Client ID Details"
+"Please save Client ID, Client Secret, Authorized Redirect URIs before Connect","Please save Client ID, Client Secret, Authorized Redirect URIs before Connect"
+"Queue Log/Sync Schedule","Queue Log/Sync Schedule"
+"Delete queue log after","Delete queue log after"
+"day(s). If empty, Log will no logger be deleted","day(s). If empty, Log will no logger be deleted"
+"Sync Schedule","Sync Schedule"
+"Number of Objects Sync Per Time","Number of Objects Sync Per Time"
+"The value is allowed to range from 1 to 1000. If empty or zero, schedule is not run.","The value is allowed to range from 1 to 1000. If empty or zero, schedule is not run."
+"Are you sure you want to add the selected customers?","Are you sure you want to add the selected customers?"
+"Add items","Add items"
+"Delete items","Delete items"
+"Are you sure you want to delete selected items?","Are you sure you want to delete selected items?"
+Synchronize,Synchronize
+"Synchronize items","Synchronize items"
+"Are you sure you want to synchronize selected items?","Are you sure you want to synchronize selected items?"
+Event,Event
+"Total Sync","Total Sync"
+"Created Date","Created Date"
+"Add New","Add New"
+"Add Data to Queue","Add Data to Queue"
+"Add To Queue","Add To Queue"
+"Add to queue Items","Add to queue Items"
+"Change Status","Change Status"
+"Total Object","Total Object"
+"Total Pending","Total Pending"
+Edit,Edit
+"Are you sure you want to add the selected product?","Are you sure you want to add the selected product?"
+"Are you sure you want to add the selected Invoice?","Are you sure you want to add the selected Invoice?"
+"Are you sure you want to add the selected Order?","Are you sure you want to add the selected Order?"

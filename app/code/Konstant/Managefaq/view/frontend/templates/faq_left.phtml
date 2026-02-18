@@ -1,0 +1,12 @@
+<div class="category_wrapper">
+    <?php $categories = $block->getCategory()->getData(); ?>
+	<div class="categoryList">
+		<ul>
+			<?php foreach($categories as $category) {?>
+			<li><a href="?id=<?php echo $category['id'] ?>"><?php echo $category['title']; ?></a></li>
+		<?php } ?>
+		</ul>
+
+		
+	</div>
+</div>

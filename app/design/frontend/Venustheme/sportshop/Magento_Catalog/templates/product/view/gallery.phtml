@@ -1,0 +1,104 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+$_product = $block->getProduct();
+$data = $this->helper('Ves\Themesettings\Helper\Data');
+$ves = $this->helper('Ves\Themesettings\Helper\Theme');
+$show_newlabel = $ves->getProductPageCfg('element_settings/show_newlabel');
+$show_salelabel = $ves->getProductPageCfg('element_settings/show_salelabel');
+?>
+<?php // Sale Icon, New Icon Block ?>
+<?php if($show_newlabel || $show_salelabel){ ?>
+<div class="icon">
+    <?php
+    if($show_salelabel) {
+        $specialprice = $_product->getSpecialPrice();
+        $specialPriceFromDate = $_product->getSpecialFromDate();
+        $specialPriceToDate = $_product->getSpecialToDate();
+        $today =  time();
+        if ($specialprice) {
+            if($today >= strtotime( $specialPriceFromDate) && $today <= strtotime($specialPriceToDate) || $today >= strtotime( $specialPriceFromDate) && is_null($specialPriceToDate)) {
+                ?>
+                <span class="onsale"><span><?php echo __("Sale");?></span></span>
+                <?php
+            }
+        }
+    }
+    if($show_newlabel) {
+        $is_new = $data->checkProductIsNew( $_product );
+        if($is_new) { ?>
+        <span class="new-icon"><span><?php echo __("New");?></span></span>
+        <?php
+    }
+}
+?>
+</div>
+<?php } ?>
+<div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+    <div data-role="loader" class="loading-mask">
+        <div class="loader">
+            <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>"
+            alt="<?php /* @escapeNotVerified */ echo __('Loading...') ?>">
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?php /* @escapeNotVerified */ echo $block->getMagnifier(); ?>,
+                "data": <?php /* @escapeNotVerified */ echo $block->getGalleryImagesJson(); ?>,
+                "options": {
+                    "nav": "<?php /* @escapeNotVerified */ echo $block->getVar("gallery/nav"); ?>",
+                    "loop": <?php /* @escapeNotVerified */ echo $block->getVar("gallery/loop"); ?>,
+                    "keyboard": <?php /* @escapeNotVerified */ echo $block->getVar("gallery/keyboard"); ?>,
+                    "arrows": <?php /* @escapeNotVerified */ echo $block->getVar("gallery/arrows"); ?>,
+                    "allowfullscreen": 1,
+                    "showCaption": true,
+                    "width": <?php /* @escapeNotVerified */ echo $block->getImageAttribute('product_page_image_medium', 'width'); ?>,
+                    "thumbwidth": <?php /* @escapeNotVerified */ echo $block->getImageAttribute('product_page_image_small', 'width'); ?>,
+                    "thumbheight": <?php /* @escapeNotVerified */ echo $block->getImageAttribute('product_page_image_small', 'height')
+                    ?: $block->getImageAttribute('product_page_image_small', 'width'); ?>,
+                    "height": <?php /* @escapeNotVerified */ echo $block->getImageAttribute('product_page_image_medium', 'height')
+                    ?: $block->getImageAttribute('product_page_image_medium', 'width'); ?>,
+                    "transitionduration": <?php /* @escapeNotVerified */  echo $block->getVar("gallery/transition/duration"); ?>,
+                    "transition": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/transition/effect"); ?>",
+                    "navarrows": <?php /* @escapeNotVerified */  echo $block->getVar("gallery/navarrows"); ?>,
+                    "navtype": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/navtype"); ?>",
+                    "navdir": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/navdir"); ?>"
+                },
+                "fullscreen": {
+                    "nav": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/fullscreen/nav"); ?>",
+                    "loop": <?php /* @escapeNotVerified */  echo $block->getVar("gallery/fullscreen/loop"); ?>,
+                    "navdir": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/fullscreen/navdir"); ?>",
+                    "arrows": true,
+                    "showCaption": true,
+                    "transitionduration": <?php /* @escapeNotVerified */  echo $block->getVar("gallery/fullscreen/transition/duration"); ?>,
+                    "transition": "<?php /* @escapeNotVerified */  echo $block->getVar("gallery/fullscreen/transition/effect"); ?>"
+                },
+                "breakpoints": <?php /* @escapeNotVerified */ echo $block->getBreakpoints(); ?>
+            }
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery'
+    ], function($){
+        setTimeout(function (){
+        $('.gallery-placeholder.loading-mask').css({"z-index":""});
+        $('.gallery-placeholder .loading-mask').hide();
+        }, 2000);
+    });
+</script>

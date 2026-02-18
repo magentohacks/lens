@@ -1,0 +1,42 @@
+<?php
+    /* return; disabled in module */
+    $_aloHelper = $this->helper('Magiccart\Campaignbar\Helper\Data');
+    $config     = $_aloHelper->getConfigModule("header");
+    $campaign   = $_aloHelper->getConfigModule("header/campaign");
+    $campaign   = $_aloHelper->getConfigArraySerialized($campaign);
+?>
+<campaign-bar
+    data-mage-init='{"magiccartCampaignbar": {}}'
+    class="campaign-header full_width" 
+    data-slow-appear="2000"
+    class="show"
+    style=" --alo-healing-speed: <?php echo $config['speed']?>s;
+        --bg-campaign-bar: <?php echo $config['bg-color']?>;
+        --font-size: <?php echo $config['font-size']?>px; 
+        --cl-text: <?php echo $config['text-color']?>;
+    "
+>
+    <div class="text-horizontal-running slide-left d-flex gap-60">
+        <div class="wrap-text d-flex gap-60">
+            <?php 
+                foreach ($campaign as $text) {
+                    if( isset($text['content']) && isset($text['enabled'])) {
+                        echo '<div class="text-item d-flex gap-60 align-items-center">' . $text['content'] . '</div>';
+                    }
+                } 
+            ?>
+        </div>
+		<div class="wrap-text d-flex gap-60">
+            <?php 
+                foreach ($campaign as $text) {
+                    if( isset($text['content']) && isset($text['enabled'])) {
+                        echo '<div class="text-item d-flex gap-60 align-items-center">' . $text['content'] . '</div>';
+                    }
+                } 
+            ?>
+        </div>
+    </div>
+    <span class="close-button close-rotate close-x icon-x">
+      <span style="display:none">X</span>
+    </span>
+  </campaign-bar>

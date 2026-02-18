@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- /**
+ * @Author: nguyen
+ * @Date:   2020-02-12 14:01:01
+ * @Last Modified by:   nguyen
+ * @Last Modified time: 2020-04-28 18:55:34
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magepow_productzoom>
+            <general>
+                <enabled>1</enabled>
+                <container></container>
+                <hoverBoundingBox>false</hoverBoundingBox>
+                <zoomType>window</zoomType>
+                <zoomFactor>3</zoomFactor>
+                <zoomTouch>off</zoomTouch>
+                <touchDelay>90</touchDelay>
+                <zoomWidth>0</zoomWidth>
+                <zoomHeight>0</zoomHeight>
+                <marginWindow>1</marginWindow>
+                <borderRadius>-1</borderRadius>
+                <borderSize>0</borderSize>
+                <zIndex>999</zIndex>
+                <sourceAttribute>data-zoom</sourceAttribute>
+                <originalImage>true</originalImage>
+                <ZoomIgnore>.zoom-ignore</ZoomIgnore>
+                <backgroundBoundingBox>#666</backgroundBoundingBox>
+                <backgroundMask>#fff</backgroundMask>
+                <bgOpacity>0.2</bgOpacity>
+                <loaderColor>#ff3300</loaderColor>
+                <borderColor>#e6e6e6</borderColor>
+                <zoomEffect></zoomEffect>
+                <effectDuration>600</effectDuration>
+            </general>
+        </magepow_productzoom>    
+    </default>
+</config>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <rma>
+            <general>
+                <return_period>30</return_period>
+                <reasons>
+defective:Defective product
+wrong_size:Wrong size
+wrong_color:Wrong color
+wrong_address:Wrong address
+cancel:Cancelation
+                </reasons>
+                <requests>
+exchange:Exchange
+refund:Refund
+                </requests>
+                <return_addres>
+Please configure me
+in stores > configuration > Rma
+</return_addres>
+            </general>
+            <notification>
+                <email_identity>general</email_identity>
+                <automatic_notification>1</automatic_notification>
+                <email_template_requested>rma_notification_email_template_requested</email_template_requested>
+                <email_template_accepted>rma_notification_email_template_accepted</email_template_accepted>
+                <email_template_processing>rma_notification_email_template_processing</email_template_processing>
+                <email_template_complete>rma_notification_email_template_complete</email_template_complete>
+                <email_template_message>rma_notification_email_template_message</email_template_message>
+            </notification>
+            <admin_notification>
+                <email_identity>general</email_identity>
+                <email_template>rma_admin_notification_email_template</email_template>
+            </admin_notification>
+            <front>
+                <enable>1</enable>
+                <request>1</request>
+                <allowed_statuses>processing,complete</allowed_statuses>
+            </front>
+        </rma>
+    </default>
+</config>

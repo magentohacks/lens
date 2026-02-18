@@ -1,0 +1,17 @@
+.category_wrapper{ background:#d0d0d0; margin-top:0px; padding: 10px;}
+.categoryList{ padding-top:0px}
+.categoryList ul{ padding:0px; margin:0px;}
+.categoryList ul li {
+    background: #f0f0f0 none repeat scroll 0 0;
+    color: #333;
+    font-size: 16px;
+    list-style: outside none none;
+    margin: 4px 0 0;
+    padding: 9px 14px;
+}
+.categoryList ul li:hover{ background:#e5e5e5; tranisition:ease-in all 0.5s;}
+.categoryList ul li a{ color:#333; text-decoration:none;}
+
+#accordion  .que{ background: #3999e3 none repeat scroll 0 0;color: #fff; padding: 15px; margin:0;}
+#accordion  .que:hover{ background:#006bb4;}
+.ans{ padding:15px;}

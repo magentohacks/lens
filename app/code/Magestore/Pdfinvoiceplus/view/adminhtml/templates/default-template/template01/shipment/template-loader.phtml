@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\TemplateBuilder\Shipment $block */
+
+$color = 'ff6c00';
+$pdfTemplateObject = $block->getPdfTemplateObject();
+$additionalInfo = $block->getAdditionalInfo();
+$businessInfo = $block->getBusinessInfo();
+?>
+<?php echo $block->getBarcodeStyleHtml(); ?>
+<style>
+    <?php echo $block->getDefaultCssContent(); ?>
+    <?php echo $block->getCssContents(); ?>
+</style>
+<style>
+    #container-inner {
+        padding-bottom: <?php if($additionalInfo['footer_height']) echo $additionalInfo['footer_height'];?>px;
+    }
+
+    .footer-template01.pdf-heading-background,
+    .template01 .pdf-heading-background {
+        background-color: <?php echo '#' . $color; ?>;
+    }
+
+</style>
+<div id="container-inner" class="template01 container-inner pdf-container-inner">
+    <header name="myheader">
+        <div class="header-content pdf-header-template pdf-heading-border-bottom"
+             style="float:left;width:100%; border-bottom: 8px solid <?php echo '#' . $color; ?>;padding-bottom: 25px; padding-top: 10px;">
+            <div class='box-logo ajaxupload ajaxupload-logo' style="width:160px; margin-top: 20px;text-align: left; float: left"
+                 info-img="company_logo">
+                <?php echo ($businessInfo->getData('company_logo'))
+                        ? '<img width="160" src="' . $block->getConvertedCompanyLogo() . '" />' : ''; ?>
+            </div>
+
+            <!-- Box informations-->
+            <?php echo $block->getBoxInformationsHtml() ?>
+            <!-- End Box informations-->
+            <div class="barcode" style="float:right;text-align: right;">
+                    <barcode code="<?php echo $block->getBarcode(); ?>"
+                             type="<?php echo $pdfTemplateObject->getData('barcode_type'); ?>"></barcode>
+            </div>
+
+        </div>
+    </header>
+    <div id="main-content" class="main-content">
+        <div contextmenu-type="main" class="top-title" style="width: 100%;clear: both;">
+            <div style="float:left;width:49%">
+                <div class="color-theme-text pdf-heading-text contenteditable " title="Click to edit, right-click to insert variable"
+                     contenteditable="true"
+                     style="/*font-family: 'Ubuntu Regular';*/text-align:left; font-size: 40px;font-weight: normal; text-transform: uppercase;">
+                    <?php echo $block->translate($block->getPdfPageTitle()); ?>
+                </div>
+            </div>
+            <div style="text-align: right;width:49%;float:right;">
+                <span contenteditable="true" title="Click to edit, right-click to insert variable"
+                      class="pdf-body-text color-text contenteditable" style="/*font-family: 'Ubuntu Medium';*/font-size: 26px;">#<?php echo $block->bindVariableName('increment_id') ?></span><br/>
+                <span contenteditable="true" title="Click to edit, right-click to insert variable"
+                      class="pdf-body-text color-text contenteditable" style="color: #010101;font-size: 18px;"><?php echo $block->bindVariableName('created_at') ?></span>
+            </div>
+        </div>
+        <div class="info-cus">
+            <div style="width:49%;float:left" class="billing-box">
+                <div class="title pdf-heading-background">
+                    <div contenteditable="true" title="Click to edit, right-click to insert variable"
+                         class="title-color pdf-heading-text contenteditable " style="padding:0 20px">
+                        <?php echo $block->translate('Sold to') . '&nbsp;:' ?></div>
+                </div>
+                <div contextmenu-type="main" class="pdf-body-text content contenteditable">
+                    <address contenteditable="true" title="Click to edit, right-click to insert variable">
+                        <?php echo $block->bindVariableName('billing_address') ?>
+                    </address>
+                </div>
+            </div>
+
+            <div style="width:49%;float:right;margin-left: 0" class="shipping-add-box">
+                <div class="title pdf-heading-background">
+                    <div contenteditable="true" title="Click to edit, right-click to insert variable"
+                         class="title-color pdf-heading-text contenteditable " style="padding:0 20px">
+                        <?php echo $block->translate('Ship to') . '&nbsp;:' ?>
+                    </div>
+                </div>
+                <div contextmenu-type="main" class="pdf-body-text content contenteditable">
+                    <address contenteditable="true" title="Click to edit, right-click to insert variable">
+                        <?php echo $block->bindVariableName('shipping_address') ?>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-cus" style="padding-bottom: 5px;">
+            <div style="width:49%;float:left;" class="payment-box">
+                <div class="title pdf-heading-background">
+                    <div contenteditable="true" title="Click to edit, right-click to insert variable"
+                         class="title-color pdf-heading-text contenteditable "
+                         style="padding:0 20px"><?php echo $block->translate('Payment Method') ?></div>
+                </div>
+                <div contextmenu-type="main" class="pdf-body-text content contenteditable"
+                     title="Click to edit, right-click to insert variable" contextmenu-type="order"
+                     contenteditable="true">
+                    <?php echo $block->bindVariableName('payment_method') ?>
+                </div>
+            </div>
+
+            <div style="width:49%;float:right;" class="shipping-box">
+                <div class="title pdf-heading-background">
+                    <div contenteditable="true" title="Click to edit, right-click to insert variable"
+                         class="title-color pdf-heading-text contenteditable "
+                         style="padding:0 20px"><?php echo $block->translate('Shipping Method') ?></div>
+                </div>
+                <div contextmenu-type="main" title="Click to edit, right-click to insert variable"
+                     contenteditable="true" class="pdf-body-text content contenteditable">
+                    <?php echo $block->bindVariableName('shipping_method') ?>
+                    <br/>
+                    ( <?php echo $block->translate('Total shipping charges') . '&nbsp;:' ?><?php echo $block->bindVariableName('total_charge') ?> )
+                    <?php echo $block->getTrackingTableHtml() ?>
+                </div>
+            </div>
+        </div>
+
+        <!--Table Items -->
+        <?php echo $block->getShipmentTableItemsHtml() ?>
+        <!--End Table Items -->
+
+        <div class="after-item" style="width:100%;display:inline-block;padding-top: 10px">
+            <div contextmenu-type="main" class="note pdf-body-text color-text contenteditable"
+                 title="Click to edit, right-click to insert variable" contenteditable="true"
+                 style="float:left;width:47%;padding:10px" info-text="note">
+                <?php echo ($additionalInfo->getData('notes')) ? $additionalInfo->getData('notes') : ''; ?>
+            </div>
+        </div>
+        <div contextmenu-type="main" class="term term-conditions term-conditions-box">
+            <p title="Click to edit, right-click to insert variable" class="barcode-order pdf-body-text color-text contenteditable"
+               contenteditable="true" info-text="terms_conditions"><?php echo $additionalInfo->getData('terms_conditions'); ?></p>
+        </div>
+    </div>
+
+</div>
+<div id="footer-template01" class="footer-template01 pdf-heading-background"
+     style="height: <?php echo $additionalInfo['footer_height']; ?>px;">
+    <div contextmenu-type="main" title="Click to edit, right-click to insert variable" contenteditable="true"
+         class="color-text pdf-body-text contenteditable" style="width: 100%; " info-text="footer">
+        <?php if ($additionalInfo->getData('footer')) echo $additionalInfo->getData('footer'); ?>
+    </div>
+</div>
+<script type="text/javascript">
+    if(typeof require != 'undefined') {
+        require(['jquery'], function ($) {
+            $(document).on('changeHeadingBackground', function (event, data) {
+                var color = data.color;
+                $('.pdf-heading-background, .table-item-head').css("background-color", color);
+                $('.pdf-heading-border-bottom').css("border-bottom-color", color);
+                $('.pdf-heading-border').css("border-color", color);
+            }).on('changeBodyBlockBackground', function (event, data) {
+                var color = data.color;
+                $('.pdf-body-background').css("background-color", color);
+            }).on('changeHeadingTextColor', function (event, data) {
+                var color = data.color;
+                $(".pdf-heading-text").css("color", color);
+            }).on('changeBodyTextColor', function (event, data) {
+                var color = data.color;
+                $(".pdf-body-text").css("color", color);
+            });
+        });
+    }
+</script>

@@ -1,0 +1,41 @@
+<?php
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+$helper = $this->helper('Magepow\InfiniteScroll\Helper\Data');
+$isEnabled      = $helper->getConfigModule('general/enabled');
+if(!$isEnabled) return;
+$data = $helper->getConfigModule('general');
+$exclude  = ['container'];
+foreach ($data as $key => $value) {
+    if(in_array($key, $exclude)) continue;
+
+    if(is_numeric($value)){
+        $data[$key] = (float) $value;
+        continue;
+    }
+    $value = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    if(!is_null($value)){
+        $data[$key] = $value; 
+    }
+}
+
+$loadingImage   = $helper->getConfigModule('general/src');
+$imgPath        = 'magepow/infinitescroll/'.$loadingImage;
+if ($loadingImage) {
+    $data['src'] = $block->getMedia($imgPath);
+}else{
+    $data['src'] = $this->getViewFileUrl('images/loader-1.gif');
+}
+/* Option */
+if(isset($data['textTrigger'])) $data['textTriggerPrev'] = $data['textTrigger'];
+if(isset($data['loadingText'])) $data['htmlSpinner']     = '<div class="ias-spinner"><img src="{src}"/><span>' . $data['loadingText'] . '</span></div>';
+if(isset($data['textTrigger'])) $data['htmlTriggerNext'] = '<div class="ias-trigger ias-trigger-next"><button class="load-more action primary btn btn-primary">' . $data['textTrigger'] . '</button></div>';
+if(isset($data['textTrigger'])) $data['htmlTriggerPrev'] = '<div class="ias-trigger ias-trigger-prev"><button class="load-more action primary btn btn-primary">' . $data['textTrigger'] . '</button></div>';
+if(isset($data['textNoneLeft']) && $data['textNoneLeft']) $data['htmlNoneLeft']    = '<div class="ias-noneleft">' . $data['textNoneLeft'] . '</div>';
+?>
+
+<script type="application/json" id="magepowapps-infinitescroll-settings"
+    data-plan="1"
+    data-mage-init='{"magepowInfinitescroll": {}}'
+>
+<?php echo is_array($data) ? $jsonHelper->jsonEncode($data) : '{}' ?>
+</script>

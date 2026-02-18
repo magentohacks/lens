@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="prescriptions">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Lens Prescriptions</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">data.prescriptions</item>
+                <item name="sortOrder" xsi:type="number">70</item>
+            </item>
+        </argument>
+       <field name="power">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\PowerPrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Power Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="cylinder">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\CylinderPrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Cylinder Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="axis">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\AxisPrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Axis Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="addition">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\AdditionPrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Addition Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="dominance">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\DominancePrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Dominance Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="basecurve">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\BasecurvePrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Base Curve Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+        <field name="diameter">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Lens\Manager\Model\Form\Source\DiameterPrescriptions</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" translate="true" xsi:type="string">Diameter Prescriptions</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

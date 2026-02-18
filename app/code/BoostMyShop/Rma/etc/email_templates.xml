@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+
+    <template id="rma_notification_email_template_requested" label="RMA requested" file="customer/rma_email_template_requested.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+    <template id="rma_notification_email_template_accepted" label="RMA accepted" file="customer/rma_email_template_accepted.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+    <template id="rma_notification_email_template_processing" label="RMA processing" file="customer/rma_email_template_processing.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+    <template id="rma_notification_email_template_complete" label="RMA complete" file="customer/rma_email_template_complete.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+    <template id="rma_notification_email_template_message" label="RMA message" file="customer/rma_email_template_message.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+
+    <template id="rma_admin_notification_email_template_request" label="RMA request admin notification" file="admin/rma_admin_email_template_request.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+    <template id="rma_admin_notification_email_template_message" label="RMA message admin notification" file="admin/rma_admin_email_template_message.html" type="html" module="BoostMyShop_Rma" area="frontend"/>
+
+</config>

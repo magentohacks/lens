@@ -1,0 +1,111 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+
+?>
+<?php
+$_aloHelper   = $this->helper('Magiccart\Alothemes\Helper\Data');
+$urlMedia = $_aloHelper->getStoreManager()->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+?>
+<div class="block newsletter block-subscribe popup" style="display:none;">
+	<div id="popup-newsletter" data-url-media="<?php echo $urlMedia; ?>" >
+        <form class="form subscribe"
+            novalidate
+            action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-popup-validate-detail">
+            <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('newsletter_popup')->toHtml();?>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+	require(['jquery', 'mage/cookies', 'Magento_Ui/js/modal/modal', 'Magento_Customer/js/customer-data'], 
+		function($, cookie, modal, customerData){
+			if(!parseInt(Themecfg.newsletter.enabled)) return;
+	        
+	        (function(selector){
+	            var popupCookie = $.cookie('popupNewsletterOff'),
+					overlay = Themecfg.newsletter.overlayColor;
+	            if(!popupCookie || popupCookie == 'undefined'){
+	                var $content = $(selector),
+						color   = Themecfg.newsletter.background_color,
+						timeDelay = parseInt(Themecfg.newsletter.timeDelay),
+						autoClose = Themecfg.newsletter.autoClose,
+						timeClose = timeDelay + parseInt(Themecfg.newsletter.timeClose),
+						popup   = $('#popup-newsletter', $content),
+						imageUrl = `${popup.data('url-media')}magiccart/newsletter/${Themecfg.newsletter.background_image}`,
+						pwidth  = Themecfg.newsletter.width,
+						pheight = Themecfg.newsletter.height;
+	                pwidth   = typeof pwidth  !== 'undefined' ? pwidth : 800;
+	                pheight  = typeof pheight !== 'undefined' ? pheight : 400;
+	                overlay  = typeof overlay !== 'undefined' ? overlay : '#363636';
+	                if(Themecfg.newsletter.background_image) popup.css('background-image', 'url(' + imageUrl + ')');
+	                else if(color) popup.css('background-color', color);
+	                var popupOff = false;
+					$(window).on('resize scroll', function() {
+						/* Optimize speed */
+						if(popupOff) return;
+		                setTimeout( function() {
+							if(!document.body.classList.contains('_has-modal')){
+								modal({
+									type: 'popup',
+									modalClass: 'popup-newsletter',
+									responsive: true,
+									autoOpen: true,
+									buttons: false
+								}, popup);
+								$(".modal-popup .modal-inner-wrap").css({ "width":pwidth, "height":pheight }); 
+							}
+		                }, timeDelay);
+		                popupOff = true;
+					});
+	                if(Themecfg.newsletter.autoClose > 0) setTimeout(function(){$.fancybox.close()}, timeClose);
+	                $('.subscribe-bottom input', popup).on('click', function(){
+	                    if($(this).parent().find('input:checked').length){
+	                        $.cookie('popupNewsletterOff', true);
+	                    } else {
+	                        $.cookie('popupNewsletterOff', undefined);
+	                    }
+	                });
+	                if(Themecfg.newsletter.firstOnly > 0) $.cookie('popupNewsletterOff', true);
+	                popup.find('.actions button').on('click', function(){
+	                    $.cookie('popupNewsletterOff', true);
+	                    $.cookie('popupNewsletterMessages', true, {domain: document.domain});
+	                });
+					
+					$(document).on('click', '.popup-newsletter .action-close', function() {
+	                	$('.popup-newsletter').removeClass('_show').siblings('.modals-overlay').hide();
+	                	$('body').removeClass('_has-modal');
+					});
+	            } else {
+					if($.cookie('popupNewsletterMessages')){
+						var messages = $.cookieStorage.get('mage-messages');
+						if(messages.length){
+							var $messages = $('.messages').attr('id', 'popupNewsletterMessages').wrap( "<div></div>" );
+							setTimeout(function () {
+								modal({
+									type: 'popup',
+									modalClass: 'popup-messages',
+									responsive: true, 
+									buttons: false                       	
+								}, $messages);
+								$messages.modal('openModal');
+								
+								$.cookie('popupNewsletterMessages', '', {domain: document.domain});
+							}, 1000);
+							setTimeout(function () {
+								$messages.modal('closeModal');
+							}, 5000);
+						}
+					}
+	            }
+
+	        })(".block-subscribe.popup");
+	});
+</script>

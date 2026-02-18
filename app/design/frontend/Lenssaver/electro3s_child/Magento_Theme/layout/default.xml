@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-container">
+            <container name="desktop-footer" label="Desktop Footer" htmlTag="div" htmlClass="desktop-footer" />
+			
+			<container name="footer-top" label="Footer Top" htmlTag="div" htmlClass="block-footer-top" before="-">
+                <block class="Magento\Cms\Block\Block" name="block_footer_top">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_footer_top</argument>
+                    </arguments>
+                </block>
+            </container>
+			
+			
+            <container name="footer-bottom" label="Footer Bottom" htmlTag="div" htmlClass="block-footer-bottom" after="footer-top">
+                <block class="Magento\Cms\Block\Block" name="block_footer_bottom">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_footer_bottom</argument>
+                    </arguments>
+                </block>
+            </container>
+			
+		 <container name="footer-newsletter" label="Footer Newsletter" htmlTag="div" htmlClass="block-footer-newsletter" after="footer-bottom">
+                <block class="Magento\Cms\Block\Block" name="new_newsletter">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">new_newsletter</argument>
+                    </arguments>
+                </block>
+            </container>
+			
+               <container name="footer-links-company" label="Footer Links" htmlTag="div" htmlClass="footer-links-company" after="footer-bottom">
+                <container name="sections.company" label="Page Footer Company" htmlTag="div" htmlClass="container">
+                    <container name="sections.main" label="Page Footer Main" htmlTag="div" htmlClass="company-inner clearfix">
+                        <container name="sections.innner" label="Page Footer Inner" htmlTag="div" htmlClass="company-top clearfix">
+                            <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                            <block class="Magento\Cms\Block\Block" name="footer_links_company">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">footer_links</argument>
+                                </arguments>
+                            </block>
+                            <block class="Magento\Cms\Block\Block" name="footer_payment">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">payment</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                </container>
+            </container>
+           
+			
+			
+            <container name="mobileaa-footer" label="Mobile Footer" htmlTag="div" htmlClass="mobile-footer">
+                <block class="Magento\Cms\Block\Block" name="mobile_footer">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_mobile_footer</argument>
+                    </arguments>
+                </block>        
+            </container>
+        </referenceContainer>
+	    
+		<move element="footer-newsletter" destination="footer-top" after="-" />  
+		
+        <!--move element="footer-top" destination="desktop-footer" before="-" /> 
+		
+        <move element="footer-bottom" destination="desktop-footer" after="footer-top" />    
+        <move element="footer-links-company" destination="desktop-footer" after="-" /-->    
+    </body>
+
+</page>

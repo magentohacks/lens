@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\TemplateBuilder\TableItem $block */
+?>
+<table id="table-item" class="table-data" width="100%" style="font-size: 14px;" cellspacing="0" cellpadding="6">
+    <thead>
+    <tr>
+        <?php foreach ($block->getItemMap() as $itemTitle) : ?>
+            <th class="table-item-head color-theme items-color label pdf-heading-border-bottom pdf-heading-text dynamic-text-color contenteditable contenttranslateable"
+                title="Click to edit, right-click to insert variable"
+                contenteditable="true" width="21%">
+                <?php echo $block->escapeHtml($itemTitle); ?>
+            </th>
+        <?php endforeach; ?>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- ITEMS HERE -->
+    <!-- ##productlist_start##-->
+    <tr class="items-tr pdf-body-background">
+        <?php foreach ($block->getItemMap() as $key => $itemMeta) : ?>
+            <td contextmenu-type="item" class="pdf-body-text pdf-body-background item-col color-text background-items contenteditable "
+                title="Click to edit, right-click to insert variable" contenteditable="true" align="left">
+                <?php echo $key ?>
+            </td>
+        <?php endforeach; ?>
+    </tr>
+    <!--##productlist_end##-->
+</table>

@@ -1,0 +1,88 @@
+.mage-tooltip, .mage-tooltip:hover {
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+.Zebra_Tooltip_Message {
+    width: 500px;
+}
+
+/* select design */
+.pdf-invoice-popup-load-template {
+    width: 200px;
+    height: 280px;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: #ebebeb;
+}
+
+.pdf-invoice-popup-load-template:hover {
+    background-color: #cac6e6;
+}
+
+.pdf-invoice-popup-load-template img:hover {
+}
+
+.pdf-invoice-popup-load-template img {
+    border: 1px solid #bbb;
+    max-width: 200px;
+    max-height: 242px;
+}
+
+.pdf-invoice-popup-load-template-content ul{
+    list-style: outside none none;
+}
+
+.pdf-invoice-template-description {
+    height: 36px;
+}
+
+#pdf-invoice-popup-load-template-ds-2 {
+    width: 600px;
+}
+
+.wrap-title {
+    width: 100%;
+}
+
+.wrap-title .template_color {
+    float: left;
+    width: 50%;
+    color: #ff6c00;
+    margin-right: 20px;
+    text-align: left;
+    display: inline;
+}
+
+.wrap-title .template_color .title {
+    float: left;
+    width: 100px;
+}
+
+.wrap-title .template_color .image {
+    float: left;
+    width: 100px;
+
+}
+
+.box-image-view {
+    height: 245px;
+    overflow: hidden;
+}
+
+.image-template-view {
+    float: right;
+    width: 320px;
+    height: 373px;
+    text-align: center;
+    position: absolute;
+    top: 148px;
+    display: none;
+    margin-left: 20px;
+    padding: 5px 20px 5px 20px;
+    left: 526px;
+}
+
+/*end*/

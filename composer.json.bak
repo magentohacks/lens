@@ -1,0 +1,76 @@
+{
+    "name": "magento/project-community-edition",
+    "description": "eCommerce Platform for Growth (Community Edition)",
+    "type": "project",
+    "version": "2.3.4",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "magento/product-community-edition": "2.3.4",
+        "composer/composer": "@alpha",
+        "magento/magento-composer-installer": "^0.1.11",
+        "eadesignro/module-pdfgenerator": "^1.0",
+        "stripe/stripe-php": "^7.50",
+        "magemojo/m2-ce-cron": "1.2.9"
+    },
+    "require-dev": {
+        "allure-framework/allure-phpunit": "^2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "dg/bypass-finals": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "lusitanian/oauth": "^0.8",
+        "magento/magento-coding-standard": "*",
+        "magento/magento2-functional-testing-framework": "^4.2.1",
+        "pdepend/pdepend": "^2.10",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/phpunit": "^9.5",
+        "sebastian/phpcpd": "^6.0",
+        "symfony/finder": "^5.4"
+    },
+    "config": {
+        "use-include-path": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Magento\\Framework\\": "lib/internal/Magento/Framework/",
+            "Magento\\Setup\\": "setup/src/Magento/Setup/",
+            "Magento\\": "app/code/Magento/",
+            "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
+        },
+        "psr-0": {
+            "": "app/code/"
+        },
+        "files": [
+            "app/etc/NonComposerComponentRegistration.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Magento\\Sniffs\\": "dev/tests/static/framework/Magento/Sniffs/",
+            "Magento\\Tools\\": "dev/tools/Magento/Tools/",
+            "Magento\\Tools\\Sanity\\": "dev/build/publication/sanity/Magento/Tools/Sanity/",
+            "Magento\\TestFramework\\Inspection\\": "dev/tests/static/framework/Magento/TestFramework/Inspection/",
+            "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "prefer-stable": true,
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        },
+        "magento2-pdf-generator2": {
+            "type": "git",
+            "url": "git@github.com:EaDesgin/magento2-pdf-generator2.git"
+        }
+    },
+    "extra": {
+        "magento-force": "override"
+    }
+}

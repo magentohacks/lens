@@ -1,0 +1,33 @@
+<?php 
+$scriptString = <<<script
+	require([
+	    'jquery',
+	    'magepow/lazyload',
+	    'domReady!'
+	    ], function ($, LazyLoad) {
+		"use strict";
+		document.body.querySelectorAll('.lazyload:not(.loaded)').forEach(img => {
+			img.addEventListener("load", (event) => {
+		        if(img.classList.contains( "loaded" )) return;
+		        if(img.getAttribute('src') == img.dataset.src){img.classList.add('loaded');}
+		        else {new LazyLoad([img]);}
+		        if($.equalheight) $.fn.equalheight();				
+			});
+			new LazyLoad([img]);
+		});
+	    document.body.addEventListener('contentUpdated', function () {
+		    document.body.querySelectorAll('.lazyload:not(.loaded)').forEach(img => {
+				img.addEventListener("load", (event) => {
+			        if(img.classList.contains( "loaded" )) return;
+			        if(img.getAttribute('src') == img.dataset.src){img.classList.add('loaded');}
+			        else {new LazyLoad([img]);}
+			        if($.equalheight) $.fn.equalheight();				
+				});
+				new LazyLoad([img]);
+			});
+	    });
+	    document.body.classList.remove('loading_body');
+	});
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>

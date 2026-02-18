@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <pdfinvoiceplus>
+            <general>
+                <enable>1</enable>
+                <use_for_multi_stores>0</use_for_multi_stores>
+                <disable_core_printing>0</disable_core_printing>
+                <show_print_quote>0</show_print_quote>
+                <allow_attach_pdf_to_email>1</allow_attach_pdf_to_email>
+                <show_print_quote>0</show_print_quote>
+                <auto_send_invoice_status>complete</auto_send_invoice_status>
+                <pdf_page_number>1</pdf_page_number>
+            </general>
+            <additional_info>
+                <footer_height>20</footer_height>
+            </additional_info>
+        </pdfinvoiceplus>
+    </default>
+</config>

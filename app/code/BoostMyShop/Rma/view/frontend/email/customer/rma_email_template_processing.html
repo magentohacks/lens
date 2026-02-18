@@ -1,0 +1,17 @@
+<!--@subject {{var company_name}} - Your Return Request #{{var rma_reference}} is in process @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Dear {{var rma_customer_name}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>Our customer service has received your products for the return #{{var rma_reference}} : we will update you soon about the progress</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

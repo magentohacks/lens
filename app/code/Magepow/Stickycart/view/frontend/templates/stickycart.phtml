@@ -1,0 +1,110 @@
+
+<?php
+/*
+ * @category: Magepow
+ * @copyright: Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @licence: http://www.magepow.com/license-agreement
+ * @author: MichaelHa
+ * @create date: 2019-07-15 17:19:50
+ * @LastEditors: MichaelHa
+ * @LastEditTime: 2020-03-12 21:18:27
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+
+$helper           = $this->helper('Magepow\Stickycart\Helper\Data');
+$_product         = $block->getProduct();
+$excludeProducts  = $helper->getExcludeProducts();
+$arrayProducts    = explode(',', (string) $excludeProducts);
+
+if (in_array($_product->getId(), $arrayProducts))
+  return;
+if ( !$_product->isSaleable() ){
+  return;
+}
+$buttonTitle   = __('Add to Cart');
+if ($_product->getTypeId() == 'bundle'){
+  $buttonTitle = __('Customize and Add to Cart');
+}
+$_imageHelper  = $this->helper('Magento\Catalog\Helper\Image');
+$widthtImage   = $helper->getWidthImage();
+$heightImage   = $helper->getHeightImage();
+$imageUrl      = $_imageHelper->init($_product, 'product_base_image')
+                ->constrainOnly(TRUE)
+                ->keepAspectRatio(TRUE)
+                ->keepTransparency(TRUE)
+                ->keepFrame(FALSE)
+                ->resize($widthtImage, $widthtImage)->getUrl();
+
+$logo = $block->getLayout()->getBlock('logo');
+?>
+<sticky-cart class="stickyCart"
+  data-mage-init='{"magepowStickycart": {}}'
+  data-type-product="<?php echo $block->escapeHtml($_product->getTypeId()) ?>"
+  data-scroll-height="<?php echo $block->escapeHtml($helper->getConfigModule('general/height_scroll')) ?>"
+  data-hidden-bottom="<?php echo $block->escapeHtml($helper->getConfigModule('general/hidden_bottom')) ?>"
+>
+  <div class="stickyChild">
+  <?php if($helper->getConfigModule('general/show_logo')) : ?>
+    <div class="contentHide sticky-logo">
+      <a href="<?= $block->escapeUrl($logo->getUrl('')) ?>">
+      <img src="<?= $block->escapeUrl($logo->getLogoSrc()) ?>"
+           title="<?= $block->escapeHtmlAttr($logo->getLogoAlt()) ?>"
+           alt="<?= $block->escapeHtmlAttr($logo->getLogoAlt()) ?>"
+      /></a>
+    </div>
+  <?php endif ?>
+    <div class="contentHide">
+      <div class="clSticky">
+        <div class="imgBorder">
+          <div class="borderImg">
+            <img class="stickyImg" src="<?php echo $imageUrl; ?>">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentHide">
+      <div class="clSticky" id="timerSticky">
+        <div class="stickyProductName"><?php echo $block->escapeHtml($_product->getName()) ?></div>
+        <div class="product-info-price">
+          <?= $block->getProductPriceHtml(
+              $_product,
+              \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+              \Magento\Framework\Pricing\Render::ZONE_ITEM_VIEW,
+              [
+                  'price_id_suffix' => '_clone'
+              ]
+          ) ?>
+        </div>
+      </div>
+    </div>
+    <div class="contentHide">
+      <div class="clSticky" id="parentQtySticky">
+          <div class="quantity">
+            <input  name="qty"
+                    type="number" 
+                    min="1" 
+                    value="<?= $block->getProductDefaultQty() * 1 ?>"
+                    title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                    data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                    id="qtySticky"
+                    class="qty form-input px-2 py-2 w-20 text-center"
+            >
+            <div class="btn-plus">
+              <button  type="button" class="increase items" onclick="var result = document.getElementById('qtySticky'); var qtySticky = result.value; if( !isNaN( qtySticky )) result.value++;return false;">
+                <i class="fa fa-angle-up"></i>
+              </button>
+              <button  type="button" class="reduced items" onclick="var result = document.getElementById('qtySticky'); var qtySticky = result.value; if( !isNaN( qtySticky ) && qtySticky > 1 ) result.value--;return false;">
+                <i class="fa fa-angle-down"></i>
+              </button>  
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="contentShow">
+      <div class="clSticky">
+        <button id="btnSticky" class="action button btn btn-primary" title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"><span><?= $block->escapeHtml($buttonTitle) ?></span></button>
+      </div>
+    </div>
+  </div>
+</sticky-cart>

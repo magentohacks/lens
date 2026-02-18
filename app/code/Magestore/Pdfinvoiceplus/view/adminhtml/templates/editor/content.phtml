@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\Design\Editor\Content $block */
+?>
+<div id="container-html"
+     data-mage-init='{
+        "designContainer": {
+            "indicatorImageUrl": "<?php echo $block->getIndicatorImageUrl(); ?>",
+            "ajaxUploadLogoUrl": "<?php echo $block->getAjaxUploadLogoUrl(); ?>",
+            "variableOption": {
+                "print_type": "<?php echo $block->getDesignType() ?>",
+                "orderVariableUrl": "<?php echo $block->getVariablesUrl('order'); ?>",
+                "invoiceVariableUrl": "<?php echo $block->getVariablesUrl('invoice'); ?>",
+                "creditmemoVariableUrl": "<?php echo $block->getVariablesUrl('creditmemo'); ?>",
+                "shipmentVariableUrl": "<?php echo $block->getVariablesUrl('shipment'); ?>",
+                "quoteVariableUrl": "<?php echo $block->getVariablesUrl('quote'); ?>",
+                "formkey": "<?php echo $block->getFormKey() ?>"
+            }
+        }
+     }'
+     style="margin-top: 50px;position: relative;">
+    <?php echo $block->getPdfTemplateHtml(); ?>
+</div>
+<div id="loading-mask" class="loading-mask" style="display:none">
+    <p class="loader" id="loading_mask_loader">
+        <img src="<?php echo $block->getViewFileUrl('images/loader-1.gif'); ?>" alt="<?php echo __('Loading') ?>...">
+        <br><?php echo __('Please wait') ?>...
+    </p>
+</div>
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+        $(function() {
+            $("contenteditable").attr("contenteditable","true");
+        });
+    });
+</script>

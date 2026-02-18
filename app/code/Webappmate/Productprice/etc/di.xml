@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+<!-- <type name="Magento\Catalog\Model\Product">
+
+<plugin name="change_product_price" type="Webappmate\Productprice\Plugin\Productprice" sortOrder="1" />
+</type> -->
+<!-- <preference for="\Magento\Catalog\Pricing\Render\FinalPriceBox" type="\Webappmate\Productprice\Block\Catalog\Pricing\Render\FinalPriceBox" /> -->
+   
+
+</config>

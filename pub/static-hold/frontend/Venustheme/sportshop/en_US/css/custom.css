@@ -1,0 +1,244 @@
+.primary a:visited,.primary .alink:visited
+{
+    color:#fff!important;
+}
+#reorder-history-new{
+    cursor:pointer;
+}
+ @media(min-width:768px) and (max-width:1199px){
+    .header-content .col-md-offset-3.col-md-9.col-sm-9.custom-width {
+        float: right;
+        width: 50%;
+    }
+    .cms-index-index .col-lg-12.col-md-4.col-sm-6.col-xs-12.col-warning {
+        width: 100%;
+    }
+    .cms-index-index .product-items .product-block.hometab.col-lg-3 {
+        width: 50%;
+        float: left;
+    }
+    .cms-index-index .hometab-content .video-widget-bg, .col-info div {
+        height: auto !important;
+    }
+    .row-inner.clearfix.footer-border-bottom .col-lg-3.col-md-4.col-sm-6.col-xs-12 {
+        height: 85px;
+    }
+    .ves-container {
+        float: left;
+        width: 100%;
+    }
+    
+}
+@media(max-width:1023px){
+    .row.row-level-1 .imageslider-widget {
+        display: none;
+    }
+    .customtabs.productlist-easytab-play {
+        margin-top: -25px;
+    }
+    .quantity-number.pull-left input {
+        height: 40px;
+    }
+    .quantity-wrapper.pull-left {
+    position: absolute;
+    right: 15px;
+}
+}
+@media(min-width:768px) and (max-width:772px){
+    .row-inner.clearfix.footer-border-bottom .col-lg-3.col-md-4.col-sm-6.col-xs-12 {
+        height: 150px;
+    }
+    .sportshop_layout2_home .customtabs .tab {
+        width: 15.24%;
+        float:left;
+    }
+     .sportshop_layout2_home .customtabs .etabs .tab{
+         display:block;
+     }
+     #search_mini_form input#search{
+         margin:0;
+     }
+     
+}
+@media(max-width:767px){
+    .block-content form#search_mini_form {
+        display: none;
+    }
+    div.page-header .ves-header2 .logo-wrapper {
+        text-align: center;
+        width: 100%;
+        float: left;
+        height: 55px;
+    }
+    div.page-header .ves-header2#ves-header{
+            height: 80px;
+    }
+}
+@media(min-width:992px) and (max-width:1199px){
+    .row.row-level-1 .imageslider-widget {
+        display: none;
+    }
+    div.page-header .custom-links li:first-child {
+        display: none;
+    }
+    .section-item-content div .ves-megamenu {
+        float: left;
+        margin-top: 20px;
+    }
+    .shift-menu.ves-menutop.clearfix.col-md-offset-3.col-sm-offset-0.col-xs-offset-0.col-md-9.col-sm-12.col-xs-12.sticky-item {
+        float: left;
+        margin-left: 0;
+        width: 100%;
+    }
+    .catalog-category-view .column.main .products.wrapper .product-item, .catalogsearch-result-index .column.main .products.wrapper .product-item {
+        float: left;
+        width: 50% !important;
+    }
+     .catalog-category-view .column.main .products.wrapper .product-item, .catalogsearch-result-index .column.main .products.wrapper .product-item {
+        float: left;
+        width: 50% !important;
+    }
+     .catalog-category-view .column.main .products.wrapper .product-item:nth-child(2n+2), .catalogsearch-result-index .column.main .products.wrapper .product-item:nth-child(2n+2) {
+        clear:both;
+    } 
+     
+}
+.onestepcheckout-index-index .page-title-wrapper {
+    width: 1170px;
+}
+.osc-place-order-wrapper.col-mp.mp-lg-6.mp-md-6.mp-sm-12.mp-xs-12 p {
+    text-align: center;
+}
+.osc-place-order-wrapper.col-mp.mp-lg-6.mp-md-6.mp-sm-12.mp-xs-12 {
+    width: 100%;
+    margin-top: -60px;
+}
+.osc-place-order-wrapper button.action.primary.checkout span {
+    font-size: 40px;
+    line-height: 40px;
+   
+}
+.checkout-index-index .osc-place-order-wrapper button.action.primary.checkout {
+     background:#FF5500 !important;
+    
+}
+.osc-place-order-wrapper.col-mp.mp-lg-6.mp-md-6.mp-sm-12.mp-xs-12 p {
+    text-align: center;
+}
+.checkout-index-index div.page-header .ves-header2 .logo-wrapper {
+    line-height: 125px;
+    width: 100%;
+}
+.checkout-index-index .header-content.clearfix {
+    height: 125px;
+}
+.checkout-index-index .col-md-offset-3.col-md-9.col-sm-9.custom-width {
+    visibility: hidden;
+    display: none;
+}
+.checkout-index-index .shift-menu.ves-menutop.clearfix.col-md-offset-3.col-sm-offset-0.col-xs-offset-0.col-md-9.col-sm-12.col-xs-12.sticky-item {
+    display: none;
+}
+.checkout-index-index .footer-top .ves-container {
+    display: none;
+}
+.checkout-index-index .footer-top .ves-container:last-child {
+    display: block;
+}
+.checkout-index-index p.checkout-description, .checkout-index-index h1.page-title  {
+    text-align: center;
+    width: 100%;
+}
+.checkout-cart-index div[name="shippingAddress.region"], .checkout-cart-index  div[name="shippingAddress.country_id"], .checkout-cart-index  div[name="shippingAddress.postcode"], .checkout-cart-index  div[name="shippingAddress.region_id"], .checkout-cart-index fieldset.fieldset.estimate{
+    display: none;
+}
+.checkout-cart-index .cart-summary .block .item-options .field .radio + .label {
+    display: inline-block;
+    margin: 0;
+    overflow: inherit;
+}
+.s-hidden {
+    visibility:hidden;
+    padding-right:10px;
+}
+.select {
+    cursor:pointer;
+    display:inline-block;
+    position:relative;
+    font:normal 11px/22px Arial, Sans-Serif;
+    color:black;
+    width: 158px;
+    border:1px solid #ccc;
+}
+.styledSelect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    padding: 6px 10px;
+    font-size: 15px;
+}
+.styledSelect.disabled {
+    opacity:0.5;
+}
+.no_display {
+    display: none!important;
+}
+.styledSelect:after {
+    content:"";
+    width:0;
+    height:0;
+    border:5px solid transparent;
+    border-color:black transparent transparent transparent;
+    position:absolute;
+    top:9px;
+    right:6px;
+}
+.styledSelect:active, .styledSelect.active {
+    background-color:#eee;
+}
+.options {
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    z-index:999;
+    margin:0 0;
+    padding:0 0;
+    font-size: 14px;
+    list-style:none;
+    border:1px solid #ccc;
+    background-color:white;
+    -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+}
+ul.options {
+    height: 300px;
+    overflow-y:scroll;
+    background: #eee;
+}
+.options li {
+    padding:0 6px;
+    margin:0 0;
+    padding:0 10px;
+}
+.options li:hover {
+    background-color:#39f;
+    color:white;
+}
+
+ul.options span li{
+    width:50%;
+    background: #fff;
+    display: inline-block;
+}
+ul.options span:nth-child(1) li {
+    width:100%;
+}
+ul.options span {
+    display:block;
+}

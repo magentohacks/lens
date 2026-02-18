@@ -1,0 +1,22 @@
+{
+    "name": "solwin/applycoupon",
+    "description": "Discount coupon code link extension that apply automatic discount coupon code for customers on the shopping cart page. This extension helps to increase user engagement with your store and earn loyalty and money in an effective way.",
+    "type": "magento2-module",
+    "version": "1.0.7",
+    "authors": [
+        {
+            "name": "Solwin",
+            "email": "stdabhoya@yahoo.com",
+            "homepage": "https://www.solwininfotech.com/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Solwin\\Applycoupon\\": ""
+        }
+    }
+}

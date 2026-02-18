@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <customshipmenteurope>
+                <active>1</active>
+                <sallowspecific>0</sallowspecific>
+                <model>Kraftors\Customshipmenteurope\Model\Carrier</model>
+                <name>Europe Delivery</name>
+                <price>10.00</price>
+                <title>Europe Delivery</title>
+                <handling_type>F</handling_type>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+            </customshipmenteurope>
+        </carriers>
+    </default>
+</config>

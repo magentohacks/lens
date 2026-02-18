@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <link src="//code.jquery.com/ui/1.11.4/jquery-ui.js"/>
+        <css src="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+		<css src="Konstant_Managefaq::css/custom_faq.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+			<block class="Konstant\Managefaq\Block\Index" name="faq" template="Konstant_Managefaq::managefaq.phtml"></block>
+		</referenceContainer>
+		<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+		<referenceBlock name="wishlist_sidebar" remove="true"/>
+		<referenceContainer name="sidebar.additional">
+            <block class="Konstant\Managefaq\Block\Category" name="faq.sidebar"
+                   template="Konstant_Managefaq::faq_left.phtml"></block>
+        </referenceContainer>
+    </body>
+</page>

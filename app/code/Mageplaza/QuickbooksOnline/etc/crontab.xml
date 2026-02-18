@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickbooksOnline
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="mp_quickbooks_delete" instance="Mageplaza\QuickbooksOnline\Cron\DeleteQueue" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+        <job name="mp_quickbooks_sync" instance="Mageplaza\QuickbooksOnline\Cron\SyncQueue" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+        <job name="mp_quickbooks_sync_daily" instance="Mageplaza\QuickbooksOnline\Cron\SyncQueueDaily" method="execute">
+            <schedule>* 1 * * *</schedule>
+        </job>
+        <job name="mp_quickbooks_sync_weekly" instance="Mageplaza\QuickbooksOnline\Cron\SyncQueueWeekly" method="execute">
+            <schedule>0 0 * * 0</schedule>
+        </job>
+        <job name="mp_quickbooks_sync_monthly" instance="Mageplaza\QuickbooksOnline\Cron\SyncQueueMonthly" method="execute">
+            <schedule>0 0 1 * *</schedule>
+        </job>
+    </group>
+</config>

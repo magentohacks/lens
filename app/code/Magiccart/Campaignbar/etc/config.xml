@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- /**
+ * Magiccart 
+ * @category    Magiccart 
+ * @copyright   Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2016-02-23 18:59:34
+ * @@Modify Date: 2020-09-20 27:45:31
+ * @@Function:
+ */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magiccart_campaignbar>
+            <header>
+                <enabled>1</enabled>
+                <speed>35</speed>
+                <font-size>14</font-size>
+                <bg-color>#ffe8e8</bg-color>
+                <text-color>#111111</text-color>
+                <campaign><![CDATA[{"_1750071365985_985":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750071372865_865":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750071374687_687":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750072908661_661":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750155377351_351":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"}}]]></campaign>
+            </header>
+            <footer>
+                <enabled>1</enabled>
+                <speed>20</speed>
+                <font-size>14</font-size>
+                <bg-color>#fed700</bg-color>
+                <text-color>#111111</text-color>
+                <width>600</width>
+                <bottom>30</bottom>
+                <zIndex>9</zIndex>
+                <campaign><![CDATA[{"_1750071365985_985":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750071372865_865":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750071374687_687":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750072908661_661":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"},"_1750155377351_351":{"content":"<a href=\"https:\/\/magepow.com\/magento-cloud\" title=\" \" target=\"_blank\" aria-label=\"link\"> <span class=\"flex\">\ud83d\ude0d &nbsp; Checkout magento cloud VPS power resource and height speed<\/span> <\/a>","enabled":"1"}}]]></campaign>
+            </footer>
+        </magiccart_campaignbar>
+    </default>
+</config>

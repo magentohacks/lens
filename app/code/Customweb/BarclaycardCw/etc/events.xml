@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="sales_order_place_after">
+		<observer name="barclaycardcw_order_place_after" instance="Customweb\BarclaycardCw\Observer\OrderPlaceAfter" />
+	</event>
+	<event name="checkout_submit_all_after">
+		<observer name="barclaycardcwcheckout_submit_after" instance="Customweb\BarclaycardCw\Observer\CheckoutSubmitAfter" />
+	</event>
+	<event name="sales_order_payment_capture">
+		<observer name="barclaycardcw_order_payment_capture" instance="Customweb\BarclaycardCw\Observer\OrderPaymentCapture" />
+	</event>
+	<event name="email_order_set_template_vars_before">
+    	<observer name="barclaycardcw_email_order_vars" instance="Customweb\BarclaycardCw\Observer\EmailOrderVars" />
+    </event>
+	
+	<event name="customweb_barclaycardcw_transaction_save_after">
+        <observer name="customweb_barclaycardcw_transaction_grid_sync_insert" instance="CustomwebBarclaycardCwIndexGridSyncInsert" />
+    </event>
+    <event name="customweb_barclaycardcw_transaction_delete_after">
+        <observer name="customweb_barclaycardcw_transaction_grid_sync_remove" instance="CustomwebBarclaycardCwIndexGridSyncRemove" />
+    </event>
+    <event name="config_data_dev_grid_async_indexing_disabled">
+        <observer name="customweb_barclaycardcw_transaction_grid_async_insert" instance="CustomwebBarclaycardCwIndexGridAsyncInsertObserver" />
+    </event>
+    
+    <event name="controller_action_predispatch_checkout_onepage_index">
+    		<observer name="customweb_barclaycardcw_cancel_payment" instance="Customweb\BarclaycardCw\Observer\CancelPayment" />
+    </event>
+</config>

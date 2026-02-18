@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magepow_infinitescroll>
+            <general>
+                <enabled>1</enabled>
+                <product>1</product>
+                <blog>1</blog>
+                <delay>600</delay>
+                <container>.main</container>
+                <item>.product-item, .post-holder, .amblog-post-container</item>
+                <pagination>.pages-items, .pager__list, .amblog-links</pagination>
+                <nextSelector>.pages-item-next, .next, .amblog-link</nextSelector>
+                <autoLink>1</autoLink>
+                <loadingText><![CDATA[<em>Loading - please wait...</em>]]></loadingText>
+                <!-- <textNoneLeft><![CDATA[<em>You've reached the end of the item.</em>]]></textNoneLeft> -->
+                <offset>-1</offset>
+                <textTrigger>Load more</textTrigger>
+            </general>
+        </magepow_infinitescroll>
+    </default>
+</config>

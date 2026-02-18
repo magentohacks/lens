@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category    MP
+* @package     MP_AutoApplyCoupon
+* @copyright   MagePhobia (http://www.magephobia.com)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_front_send_response_before">
+        <observer name="apply_coupon_observer" instance="MP\AutoApplyCoupon\Observer\AutoApplyCouponObserver" />
+    </event>
+</config>

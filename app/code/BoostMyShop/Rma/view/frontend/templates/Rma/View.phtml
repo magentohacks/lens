@@ -1,0 +1,91 @@
+
+
+<h2><?php echo __('Details'); ?></h2>
+
+<div class="order-date">
+    <?php if ($this->getRma()->getOrder()): ?>
+        <p><span class="label"><strong>Order #:</strong></span> <date><?php echo $this->getRma()->getOrder()->getincrement_id();?></date></p>
+    <?php endif; ?>
+    <p><span class="label"><strong>Status:</strong></span> <date><?php echo $this->getRma()->getrma_status();?></date></p>
+    <?php if ($this->getRma()->getstatus() == \BoostMyShop\Rma\Model\Rma\Status::accepted): ?>
+        <p><span class="label"><strong>Valid until:</strong></span> <date><?php echo $this->getRma()->getrma_expire_at ();?></date></p>
+    <?php endif; ?>
+    <?php if ($this->getRma()->getrma_customer_comments()): ?>
+        <p><span class="label"><strong>Your comments:</strong></span> <date><?php echo $this->getRma()->getrma_customer_comments();?></date></p>
+    <?php endif; ?>
+    <?php if ($this->getRma()->getrma_public_comments()): ?>
+        <p><span class="label"><strong>Customer service comments:</strong></span> <date><?php echo $this->getRma()->getrma_public_comments();?></date></p>
+    <?php endif; ?>
+</div>
+
+<?php if ($this->getRma()->getrma_status() == \BoostMyShop\Rma\Model\Rma\Status::accepted): ?>
+    <p>
+            <a class="action print"
+               href="<?php echo $this->getPrintUrl(); ?>"
+               onclick="this.target='_blank';">
+                <span>Download return form</span>
+            </a>
+    </p>
+<?php endif; ?>
+
+    <div class="order-details-items ordered">
+
+        <div class="order-title">
+            <strong>Items Ordered</strong>
+        </div>
+
+        <div class="table-wrapper order-items">
+            <table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
+                <caption class="table-caption">Items Ordered</caption>
+                <thead>
+                    <tr>
+                        <th class="col name">Product</th>
+                        <th class="col sku">SKU</th>
+                        <th class="col qty">Qty</th>
+                        <th class="col qty">Reason</th>
+                        <th class="col qty">Request</th>
+                        <th class="col qty">Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->getRma()->getAllItems() as $item): ?>
+                        <tr>
+                            <td class="col name" data-th="Product Name">
+                                <strong class="product name product-item-name"><?php echo $item->getri_name(); ?></strong>
+                            </td>
+                            <td class="col sku a-center" data-th="Sku"><?php echo $item->getri_sku(); ?></td>
+                            <td class="col sku a-center" data-th="Quantity"><?php echo $item->getri_qty(); ?></td>
+                            <td class="col sku a-center" data-th="Reason"><?php echo $this->getReasonLabel($item->getri_reason()); ?></td>
+                            <td class="col sku a-center" data-th="Request"><?php echo $this->getRequestLabel($item->getri_request()); ?></td>
+                            <td class="col sku" data-th="Comments"><?php echo $item->getri_comments(); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+<h2><?php echo __('Messages'); ?></h2>
+
+<form id="form_msg" action="<?php echo $this->getPostMessageUrl(); ?>" method="POST">
+    <input type="hidden" name="rma_id" value="<?php echo $this->getRma()->getId(); ?>">
+    <p><strong><?php echo __('Post a new message'); ?></strong></p>
+    <textarea name="message" id="message" style="width: 100%"></textarea>
+</form>
+
+<div style="float: right">
+    <button type="button" role="add-address" title="Post message" class="action primary add" onclick="document.getElementById('form_msg').submit();"><span><?php echo __('Post message'); ?></span></button>
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<?php foreach($this->getRma()->getMessages() as $message): ?>
+
+    <div class="rma-msg-<?php echo $message->getrmm_author(); ?>">
+        <p><strong><?php echo $message->getrmm_date(); ?>, by <?php echo $message->getrmm_author(); ?> </strong></p>
+        <p><?php echo $message->getrmm_message(); ?></p>
+    </div>
+
+<?php endforeach; ?>

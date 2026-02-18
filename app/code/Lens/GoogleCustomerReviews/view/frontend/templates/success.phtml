@@ -1,0 +1,32 @@
+<?php
+/**
+ * @var \Lens\GoogleCustomerReviews\Block\Success $block
+ */
+?>
+<?php if ($block->shouldDisplay()): ?>
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+
+<script>
+  window.renderOptIn = function() {
+    window.gapi.load('surveyoptin', function() {
+      var config = {
+        // REQUIRED FIELDS
+        "merchant_id": <?= $block->escapeJs($block->getMerchantId()) ?>,
+        "order_id": "<?= $block->escapeJs($block->getOrderId()) ?>",
+        "email": "<?= $block->escapeJs($block->getCustomerEmail()) ?>",
+        "delivery_country": "<?= $block->escapeJs($block->getDeliveryCountry()) ?>",
+        "estimated_delivery_date": "<?= $block->escapeJs($block->getEstimatedDeliveryDate()) ?>"
+      };
+      
+      // OPTIONAL FIELDS
+      <?php $products = $block->getProducts(); ?>
+      <?php if (!empty($products)): ?>
+      config.products = <?= json_encode($products, JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
+      <?php endif; ?>
+      
+      window.gapi.surveyoptin.render(config);
+    });
+  }
+</script>
+<?php endif; ?>
+

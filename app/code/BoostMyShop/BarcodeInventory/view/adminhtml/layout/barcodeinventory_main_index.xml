@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @copyright Copyright (c) 2014 X.commerce, Inc. (http://www.magentocommerce.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Use Require instead :)
+            <link src="BoostMyShop_BarcodeInventory::js/barcode_inventory.js"/>
+        -->
+
+        <link src="BoostMyShop_BarcodeInventory::css/barcode_inventory.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="BoostMyShop\BarcodeInventory\Block\Index" name="barcodeinventory_index" />
+        </referenceContainer>
+    </body>
+</page>

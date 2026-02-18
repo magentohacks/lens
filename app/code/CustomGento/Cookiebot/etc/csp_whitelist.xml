@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="cookiebot" type="host">consent.cookiebot.com</value>
+                <value id="cookiebot_eu" type="host">consent.cookiebot.eu</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="cookiebot" type="host">consentcdn.cookiebot.com</value>
+                <value id="cookiebot_eu" type="host">consentcdn.cookiebot.eu</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="cookiebot" type="host">consentcdn.cookiebot.com</value>
+                <value id="cookiebot_eu" type="host">consentcdn.cookiebot.eu</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="cookiebot" type="host">imgsct.cookiebot.com</value>
+                <value id="cookiebot_eu" type="host">imgsct.cookiebot.eu</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

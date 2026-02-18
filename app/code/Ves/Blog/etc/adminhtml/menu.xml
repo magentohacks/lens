@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Venustheme
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Venustheme
+ * @package    Ves_Blog
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.venustheme.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		
+		<add id="Ves_Blog::blog" title="Ves Blog" module="Ves_Blog" sortOrder="19" resource="Magento_Backend::blog_elements"/>
+
+		<add id="Ves_Blog::post_head_manage" title="Post" module="Ves_Blog" sortOrder="10" parent="Ves_Blog::blog" resource="Ves_Blog::posts"/>
+
+		<add id="Ves_Blog::post_new" title="Add New Post" module="Ves_Blog" sortOrder="10" parent="Ves_Blog::post_head_manage" action="vesblog/post/new" resource="Ves_Blog::post_new"/>
+
+		<add id="Ves_Blog::post_manage" title="Post Management" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::post_head_manage" action="vesblog/post/index" resource="Ves_Blog::posts"/>
+
+		<add id="Ves_Blog::post_head_category_manage" title="Categories" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::blog" resource="Ves_Blog::category"/>
+		
+		<add id="Ves_Blog::post_group_add_new" title="Add New Category" module="Ves_Blog" sortOrder="10" parent="Ves_Blog::post_head_category_manage" action="vesblog/category/new" resource="Ves_Blog::category_new"/>
+
+		<add id="Ves_Blog::post_group_manage" title="Category Management" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::post_head_category_manage" action="vesblog/category/index" resource="Ves_Blog::category"/>
+
+		<add id="Ves_Blog::head_comment_manage" title="Comments" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::blog" resource="Ves_Blog::comment"/>
+
+		<add id="Ves_Blog::comment_manage" title="Comment Management" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::head_comment_manage" action="vesblog/comment/index" resource="Ves_Blog::comment"/>
+
+		<!-- <add id="Ves_Blog::head_tag_manage" title="Tags" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::post" resource="Ves_Blog::tag"/>
+
+		<add id="Ves_Blog::tag_manage" title="Tag Management" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::head_tag_manage" action="vesblog/comment/index" resource="Ves_Blog::tag"/> -->
+		
+		<add id="Ves_Blog::post_head_settings" title="Settings" module="Ves_Blog" sortOrder="20" parent="Ves_Blog::blog" resource="Ves_Blog::config_blog"/>
+
+		<add id="Ves_Blog::configuration" title="Configuration" module="Ves_Blog" sortOrder="6" parent="Ves_Blog::post_head_settings" action="adminhtml/system_config/edit/section/vesblog" resource="Ves_Blog::config_blog"/>
+	</menu>
+</config>

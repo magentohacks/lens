@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    max-width: 100%;
+    margin: 0 auto;
+    /*font-family: "Ubuntu Regular", "Ubuntu Light", arial;*/
+    font-size-adjust: none;
+    width: 100%;
+}
+
+#container-inner {
+    position: relative;
+    width: 90%;
+    height: auto;
+    padding: 0px;
+    margin: 0 auto;
+    border: 0px;
+    word-wrap: normal;
+}
+
+.template01 .main-content {
+    width: 100%;
+}
+
+.template01 .header-content div span {
+    display: block;
+    clear: left;
+}
+
+.template01 p {
+    margin: 0px;
+}
+
+table {
+    border-spacing: 0 !important;
+}
+
+.template01 .table-item-head {
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    border-right: 1px solid #fff;
+    /*font-family:'Ubuntu';*/
+    background-color: #ff6c00;
+}
+
+.template01 th:last-child {
+    border-right: none !important;
+}
+
+.template01 .table-data .item-col {
+    background: #ffe9d9;
+    padding: 12px 10px;
+    color: #2f2f2f;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.template01 .items td.blanktotal {
+    background-color: #FFFFFF;
+    border: 0mm none #fff;
+    border-top: 0.1mm solid #fff;
+    border-right: 0.1mm solid #fff;
+}
+
+.template01 .items td.totals {
+    background: none repeat scroll 0 0 #ffe9d9;
+    border: 0 none;
+    text-align: right;
+    padding: 5px 20px;
+}
+
+.template01 .top-title span {
+    display: block;
+    font-size: 15px;
+    color: #000;
+}
+
+.template01 .title-color {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 20px;
+    /*float:left;*/
+}
+
+.template01 div.title {
+    border-radius: 0 0 0 0;
+    margin-bottom: 0;
+    height: 16px;
+    padding: 5px 0;
+    position: relative;
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+.template01 .info-cus {
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.template01 .content {
+    float: left;
+    font-size: 14px;
+    padding: 12px 20px;
+    width: 92%;
+}
+
+.template01 .shipping-box, .shipping-add-box {
+    float: right;
+}
+
+.template01 .table-data tbody td.label {
+    color: #2f2f2f;
+    /*font-family: 'Ubuntu';*/
+    font-weight: bold;
+    font-size: 16px;
+    padding-right: 30%;
+}
+
+.template01 td:last-child {
+    border-right: none !important;
+}
+
+.template01 .note {
+    width: 40%;
+    float: left;
+}
+
+.template01 .order-grandtotals {
+    width: 55%;
+    float: right;
+    background: #ffe9d9;
+}
+
+.barcode:before {
+    content: "";
+    display: block;
+    width: 160px;
+    height: 100px;
+    background-repeat: no-repeat !important;
+}
+
+/* total */
+
+.template01 .totals {
+    float: right;
+    width: 44%;
+}
+
+.template01 .body-total {
+    width: 100%;
+    height: auto;
+    float: right;
+}
+
+.template01 .total-row {
+    width: 100%;
+    text-align: right;
+    float: right;
+    border-bottom: 1px solid #fff;
+    padding: 5pt 10pt 5pt 0pt;
+    background: #ffe9d9;
+}
+
+.template01 .total-label {
+    /*font-family: 'Ubuntu';*/
+    font-size: 11pt;
+    color: #2F2F2F;
+    width: 45%;
+    float: left;
+    height: 22pt;
+}
+
+.template01 .total-value {
+    font-size: 11pt;
+    width: 45%;
+    height: 22pt;
+    float: right;
+}
+
+.template01 .grand-total, .template01 .grand-total-value, .template01 .grand-total-label {
+    /*font-family: 'Ubuntu';*/
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.template01 .grand-total-value {
+    color: #bf2323;
+}
+
+.template01 .color-theme-text {
+    color: rgb(255, 108, 0);
+    /*font-family: "Ubuntu Regular";*/
+    text-align: left;
+    font-size: 40px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.template01 .term-conditions {
+    margin-top: 20px;
+    margin-bottom: 124px;
+}
+
+.footer-template01{
+    font-size: 14px;
+    width: 90%;
+    left: 5%;
+    overflow: hidden;
+    position: absolute;
+    border: 0px none;
+    bottom: 20px;
+    color: #2f2f2f;
+    text-align: center;
+    background-color: #ff6c00;
+}
+
+.pdf-footer .theme-color{
+    background-color: #ff6c00;
+}
+
+/*infomations*/
+.general-info {
+    display: block;
+    width: 100%;
+    float: left;
+    /*font-family: 'Ubuntu Light';*/
+    font-size: 15px;
+}
+
+.general-info .info-label {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.general-info .info-value {
+    display: inline-block;
+}
+
+/*box information*/
+.template01 .box-infomations {
+    width: 50%;
+    color: #000;
+    font-size: 14px;
+    text-align: left;
+    float: left;
+    padding-left: 22px
+}
+
+.template01 .box-infomations .info-label {
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.template01 .box-infomations .company-name {
+    font-weight: bold;
+    font-size: 16px;
+    /*font-family: 'Ubuntu';*/
+    text-transform: uppercase;
+}
+
+/*End box information*/

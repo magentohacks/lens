@@ -1,0 +1,130 @@
+<?php
+  namespace Kraftors\Updateorder\Controller\Index;
+ 
+  class Index extends \Magento\Framework\App\Action\Action
+  {
+
+	protected $order;
+
+  protected $_orderCollectionFactory;
+
+
+    public function __construct(
+        \Magento\Framework\App\Action\Context $context,
+        \Magento\Sales\Model\Order $order,
+        \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orderCollectionFactory
+	)
+    {
+ 	      $this->order = $order;
+        $this->_orderCollectionFactory = $orderCollectionFactory;
+        return parent::__construct($context);
+    }
+     
+    public function execute()
+    {
+
+      #Order Updated from Increment Id 100001376 (Order ID 193) to 100018145 (Order ID 16299)
+
+      //$orders = $this->order->getCollection()->addFieldToFilter("increment_id", array("gteq"=>"100001376"))->addFieldToFilter("increment_id", array("lteq"=>"100018145"));
+
+      //$orders = $this->order->getCollection()->addFieldToFilter("entity_id", array("gteq"=>"193"))->addFieldToFilter("entity_id", array("lteq"=>"16299"));
+      
+       //$orders = $this->order->getCollection()->addFieldToFilter("entity_id", array("gteq"=>"193"))->addFieldToFilter("entity_id", array("lteq"=>"7347"));
+       
+      //$orders = $this->order->getCollection()->addFieldToFilter("entity_id", array("gteq"=>"7348"))->addFieldToFilter("entity_id", array("lteq"=>"16299")); 
+
+      #Order Updated from Increment Id 100018146 (Order ID 16300) to 100034924 (Order ID 31960)
+
+      //$orders = $this->order->getCollection()->addFieldToFilter("increment_id", array("gteq"=>"100018146"))->addFieldToFilter("increment_id", array("lteq"=>"100034924"));
+
+    //$orders = $this->order->getCollection()->addFieldToFilter("entity_id", array("gteq"=>"16300"))->addFieldToFilter("entity_id", array("lteq"=>"23659"));
+
+      $orders = $this->order->getCollection()->addFieldToFilter("entity_id", array("gteq"=>"23660"))->addFieldToFilter("entity_id", array("lteq"=>"31960"));
+
+      echo "Number of previous orders = ".$orders->count();
+
+
+      /*foreach($orders as $order){
+
+        echo "<br/> Order ID = ".$order->getId();
+      }
+
+      echo "Number of previous orders = ".$orders->count();*/
+
+      //$order = $this->order->load(29880);
+      echo "<pre>";
+      //print_r($order->getData());
+
+      $i = 1;
+
+      foreach($orders as $order){
+
+      $orderItems = $order->getItems();
+      //print_r($orderItems);exit;
+
+      foreach($orderItems as $orderItems){
+
+            echo "<br/>";          
+            $product_options = $orderItems->getProductOptions();
+
+            //print_r($product_options); exit;
+
+            if(isset($product_options['options'][3])){
+
+                if($product_options['options'][3]['label'] == 'Cylinder'){
+
+                    echo "S.No.".$i++.", Order Id = ".$order->getId().", Increment Id = ".$order->getIncrementId().", Cylinder = ".$product_options['options'][3]['value'];
+                    //echo "<br/> Cylinder Value = ".$product_options['options'][3]['value'];
+
+                    if($product_options['options'][3]['value'] == '+0.75')
+                    {
+                        $product_options['options'][3]['value'] = '-0.75';
+                    }
+                    if($product_options['options'][3]['value'] == '+1.25')
+                    {
+                        $product_options['options'][3]['value'] = '-1.25';
+                    }
+                    if($product_options['options'][3]['value'] == '+1.50')
+                    {
+                        $product_options['options'][3]['value'] = '-1.50';
+                    }
+                    if($product_options['options'][3]['value'] == '+1.75')
+                    {
+                        $product_options['options'][3]['value'] = '-1.75';
+                    }
+                    if($product_options['options'][3]['value'] == '+2.00')
+                    {
+                        $product_options['options'][3]['value'] = '-2.00';
+                    }
+                    if($product_options['options'][3]['value'] == '+2.25')
+                    {
+                        $product_options['options'][3]['value'] = '-2.25';
+                    }
+                    if($product_options['options'][3]['value'] == '+2.75')
+                    {
+                        $product_options['options'][3]['value'] = '-2.75';
+                    }
+                    if($product_options['options'][3]['value'] == '-0,75')
+                    {
+                        $product_options['options'][3]['value'] = '-0.75';
+                    }
+                    if($product_options['options'][3]['value'] == '-1,25')
+                    {
+                        $product_options['options'][3]['value'] = '-1.25';
+                    }
+                    if($product_options['options'][3]['value'] == '-1,75')
+                    {
+                        $product_options['options'][3]['value'] = '-1.75';
+                    }
+
+                    //$orderItems->setProductOptions($product_options)->save();
+
+                }
+                
+            }
+        }
+      }
+
+	  } 
+  }
+

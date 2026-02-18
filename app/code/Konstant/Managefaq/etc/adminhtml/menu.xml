@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Konstant_Managefaq::managefaq" title="FAQ" module="Konstant_Managefaq" sortOrder="22" resource="Konstant_Managefaq::managefaq"/>
+
+        <add id="Konstant_Managefaq::managefaq_managefaq" title="FAQ Manager" module="Konstant_Managefaq" sortOrder="10" parent="Konstant_Managefaq::managefaq" resource="Konstant_Managefaq::managefaq_managefaq"/>
+		
+		<add id="Konstant_Managefaq::managefaq_category" title="Manage Category" module="Konstant_Managefaq" sortOrder="10" parent="Konstant_Managefaq::managefaq_managefaq" action="managefaqadmin/category" resource="Konstant_Managefaq::managefaq_category"/>
+		
+		<add id="Konstant_Managefaq::managefaq_faq" title="Manage FAQ" module="Konstant_Managefaq" sortOrder="10" parent="Konstant_Managefaq::managefaq_managefaq" action="managefaqadmin/faq" resource="Konstant_Managefaq::managefaq_faq"/>
+    </menu>
+</config>

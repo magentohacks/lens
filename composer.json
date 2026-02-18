@@ -1,0 +1,100 @@
+{
+    "name": "magento/project-community-edition",
+    "description": "eCommerce Platform for Growth (Community Edition)",
+    "type": "project",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "magento/composer-dependency-version-audit-plugin": true,
+            "magento/magento-composer-installer": true,
+            "magento/inventory-composer-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true,
+            "php-http/discovery": true
+        }
+    },
+    "require": {
+        "amasty/module-mage-248-fix": "^1.0",
+        "amasty/module-one-step-checkout-pro-subscription-package": "2.7.1",
+        "amasty/module-subscriptions-recurring-payments-subscription-package": "2.3.0",
+        "cweagans/composer-patches": "^1.7",
+        "laminas/laminas-loader": "^2.11",
+        "laminas/laminas-mail": "^2.25",
+        "laminas/laminas-mime": "^2.12",
+        "laminas/laminas-stdlib": "^3.21",
+        "magento/product-community-edition": "2.4.8-p3",
+        "sansec/magento2-module-shield": "^1.0",
+        "stripe/stripe-php": "^14.10",
+        "symfony/process": "^6.4"
+    },
+    "require-dev": {
+        "allure-framework/allure-phpunit": "^2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "dg/bypass-finals": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "lusitanian/oauth": "^0.8",
+        "magento/magento-coding-standard": "*",
+        "magento/magento2-functional-testing-framework": "^4.2.1",
+        "pdepend/pdepend": "^2.10",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.9",
+        "phpunit/phpunit": "^9.5",
+        "sebastian/phpcpd": "^6.0",
+        "symfony/finder": "^6.4"
+    },
+    "conflict": {
+        "gene/bluefoot": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magento\\Framework\\": "lib/internal/Magento/Framework/",
+            "Magento\\Setup\\": "setup/src/Magento/Setup/",
+            "Magento\\": "app/code/Magento/",
+            "Zend\\Mvc\\Controller\\": "setup/src/Zend/Mvc/Controller/"
+        },
+        "psr-0": {
+            "": [
+                "app/code/",
+                "generated/code/"
+            ]
+        },
+        "files": [
+            "app/etc/NonComposerComponentRegistration.php"
+        ],
+        "exclude-from-classmap": [
+            "**/dev/**",
+            "**/update/**",
+            "**/Test/**"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Magento\\Sniffs\\": "dev/tests/static/framework/Magento/Sniffs/",
+            "Magento\\Tools\\": "dev/tools/Magento/Tools/",
+            "Magento\\Tools\\Sanity\\": "dev/build/publication/sanity/Magento/Tools/Sanity/",
+            "Magento\\TestFramework\\Inspection\\": "dev/tests/static/framework/Magento/TestFramework/Inspection/",
+            "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
+        }
+    },
+    "version": "2.4.8-p3",
+    "minimum-stability": "stable",
+    "repositories": {
+        "amasty": {
+            "type": "composer",
+            "url": "https://composer.amasty.com/community"
+        },
+        "0": {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    },
+
+    "extra": {
+        "magento-force": "override"
+    }
+}

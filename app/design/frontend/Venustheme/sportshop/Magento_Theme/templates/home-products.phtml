@@ -1,0 +1,121 @@
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  $coreSession = $objectManager->get('Magento\Framework\Session\SessionManagerInterface'); 
+  $coreSession->start();
+  $getting_val =  $coreSession->getData('sidepart', array());
+  //print_r($getting_val);
+  $product_name = '';
+  $extra = '';
+  if ($getting_val) {
+  	// code...
+ 
+    $product_Id = $getting_val[0];
+    $product_price = $getting_val[1];
+    $extra = $getting_val[2];
+     $product_name = $getting_val[3];
+     }
+  //$coreSession->unset();
+//echo "string";
+
+$categoryArray = array('Featured','Daily','Two_Weekly','Monthly','Astigmatism','Multifocal'); 
+$productArray = array(
+					'Featured'=>array('1','44','12','11','10','62','43','2'),
+					'Daily'=>array('79','1','10','61','103','22','22','43'),
+					'Two_Weekly'=>array('98','58','39','10'),
+					'Monthly'=>array('64','78','4','8','45','52','90','86'),
+					'Astigmatism'=>array('99','97','35','25','89','6','84'),
+					'Multifocal'=>array('91','17','7','55','33','39','59','16')
+				);
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$store = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore();
+$abstractProductBlock = $block->getLayout()->createBlock('\Magento\Catalog\Block\Product\AbstractProduct');
+
+?>
+<style>
+	.product-item-info {
+    padding-bottom: 25px;
+}
+.customtabs {
+	display: none;
+}
+.customtabs.show {
+	display: block;
+	margin-top: 10px;
+}
+.customtabs.block.widget.ves-widget.productlist-widget.productlist-easytab-play.show .tab a {
+    display: inline-block !important;
+}
+</style>
+<div class="container">
+	<div class="customtabs block widget ves-widget productlist-widget productlist-easytab-play show">
+		<ul class="">
+			<?php $x = 0; foreach($categoryArray as $categories) { ?>
+			<li class="tab <?php if($x == 0) {echo 'active';} ?>"><a data-toggle="tab" href="#<?php echo $categories; ?>"><?php echo str_replace("_"," ",$categories); ?></a></li> 
+			<?php $x++; } ?>
+		</ul>
+		<div class="tab-content">
+			<?php $y = 0;  ?>
+			<?php foreach ($categoryArray as $categories) { ?>
+				<div id="<?php echo $categories; ?>" class="tab-pane fade <?php if($y == 0) {echo 'in active';} ?>">
+					<?php foreach($productArray as $key => $product_ids) { ?>
+						<?php if($key == $categories) {  ?>
+							<?php foreach($product_ids as $ids) {  ?>
+								<?php $product = $objectManager->create('Magento\Catalog\Model\Product')->load($ids); ?>
+								<div class="product-block hometab col-lg-3 321 111">
+									<div class="product-item-info">
+										<?php 
+										 if ($product->getName() == $product_name) {  //echo "hello check"; ?>
+       <a class="product-item-link" href="<?php echo $product->getProductUrl(); ?><?php echo $extra; ?>">
+        <?php  }else{  //echo "aaa"; ?>
+       <a class="product-item-link" href="<?php echo $product->getProductUrl(); ?>">
+          <?php } ?>
+										
+											<div class="product-image">
+												<div class="product-img">
+													<?php $imageurl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' .$product->getImage(); ?>
+													<img src="<?php echo $imageurl; ?>" alt="<?php echo $product->getName(); ?>">
+												</div>
+											</div>
+											<div class="product-item-details">
+												<div class="product-item-name"> 
+													<?php echo $product->getName(); ?>
+												</div>
+												<?php $priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data'); 
+												//echo $priceHelper->currency($product->getFinalPrice(), true, false); ?>
+												<?php //echo $abstractProductBlock->getProductPrice($product); ?>
+												<div class="price-box price-final_price">
+													<span class="price-container price-final_price tax weee">
+														<span data-price-type="finalPrice" class="price-wrapper ">
+															<?php if ($product->getName() == $product_name) {  //echo "hello check"; ?>
+        <span class="price"><?php echo $priceHelper->currency($product_price, true, false);?></span>
+        <?php  }else{  //echo "aaa"; ?>
+        <span class="price"><?php echo $priceHelper->currency($product->getFinalPrice(), true, false);?></span>
+          <?php } ?>
+															
+														</span>
+													</span>
+												</div>
+											</div>
+										</a>
+										<div style="text-align:center;">
+											<?php  if ($product->getName() == $product_name) {  //echo "hello check"; ?>
+      <button class="action productlist-fancybox view-buy-button" type="button" title="<?php /* @escapeNotVerified */ echo __('View & Buy') ?>" onclick="location.href='<?php echo $product->getProductUrl() ?><?php echo $extra; ?>'">
+												<?php echo __('View & Buy'); ?>
+											</button>
+        <?php  }else{  //echo "aaa"; ?>
+       <button class="action productlist-fancybox view-buy-button" type="button" title="<?php /* @escapeNotVerified */ echo __('View & Buy') ?>" onclick="location.href='<?php echo $product->getProductUrl() ?>'">
+												<?php echo __('View & Buy'); ?>
+											</button>
+          <?php } ?>
+																						 
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+						<?php } ?> 
+					<?php } ?>
+				</div>
+				<?php $y++; ?>
+			<?php } ?>
+		</div>
+	</div>
+</div>

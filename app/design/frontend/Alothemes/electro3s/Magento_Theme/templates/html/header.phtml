@@ -1,0 +1,144 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header $block
+ */
+?>
+<?php 
+ $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+ $customerSession = $objectManager->get('Magento\Customer\Model\SessionFactory')->create();
+?>
+<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&subset=latin-ext" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+<header class="page-header alothemes">
+    <div class="header header-sticker">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="header-top-left">
+						<div class="welcometop"><?php echo $this->getChildHtml('welcometop'); ?></div>
+					</div>
+					<div class="header-top-right">
+						<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-shop-link')->toHtml();?>
+						<div class="header-top-link header-account">
+							<div class="toggle-tab">
+								<span class="ec ec-user icon-acc"></span>	
+								<span><?php echo __("My account")?></span>								
+							</div>
+							<div class="toggle-content">
+								<?php echo $this->getChildHtml('header.links'); ?>
+							</div>
+						</div>
+						<div class="header-top-link">
+							<?php echo $this->getChildHtml('store_language'); ?>
+							<?php echo $this->getChildHtml('currency'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-content menu-mobile">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5 col-6 col-logo">
+						<div class="container-logo">
+							<div class="nav-toggle-mobile">
+								<span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span><i class="fa fa-bars"></i></span>
+							</div>					
+							<div class="content-logo">
+								<div class="header-logo">
+									<?php echo $this->getChildHtml('logo'); ?>
+								</div>							
+							</div>
+							<div class="col-nav-vmenu"><?php echo $this->getChildHtml('vmenu'); ?></div>
+						</div>
+					</div>
+					
+
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 content-search tool-topsearch alo-toggle toggle-tab-mobile">
+						<div class="search-area">
+							<?php echo $this->getChildHtml('top.search'); ?>
+						</div>
+					</div>
+
+					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12 col-cart">
+						<div class="header-icons">
+							<ul class="top-link-product">
+								<?php //echo $this->getChildHtml('catalog.compare.link'); ?>
+								<li>
+									<a title="<?php echo __('Compare') ?>" href="<?php echo $this->getUrl('catalog/product_compare') ?>" target="_blank" class="btn-compare icon icon-compare compare"><i class="ec ec-compare"></i><span><?php echo __('Compare') ?></span></a>
+								</li>
+								<li>
+									<a title="<?php echo __('Wishlist') ?>" href="<?php echo $this->getUrl('wishlist') ?>" target="_blank" class="wishlist icon icon-favorites">
+										<i class="ec ec-favorites"></i><span><?php echo __('Wishlist') ?></span>
+									</a>
+								</li>
+								<li>
+									<?php echo $this->getChildHtml('minicart'); ?>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="row row-bottom">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 col-nav-top">
+						<div class="content-nav-top">
+							<?php echo $this->getChildHtml('navigation.sections'); ?>
+							<?php echo $this->getChildHtml('catalog.topnav'); ?>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+</header>
+<script type="text/javascript">
+	require([
+		'jquery',
+		'magiccart/wow'
+        ], function($){
+        $( document ).ready(function() {
+        	new WOW().init();
+        });
+    });
+	require([
+		'jquery'
+        ], function($){
+        $( document ).ready(function() {
+        	$(".block-title-vmagicmenu").on("click", function(){
+				if($(".block-title-vmagicmenu").hasClass( "active")) {
+					$(".block-title-vmagicmenu").removeClass("active");
+					$("html").removeClass("open-nav-vertical");
+				}else{
+					$(".block-title-vmagicmenu").addClass("active");
+					$("html").addClass("open-nav-vertical");
+				}
+				
+			});
+			
+        });
+    });
+    
+</script>
+
+
+
+
+
+
+

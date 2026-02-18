@@ -1,0 +1,116 @@
+
+                              
+  Magento System Information  
+                              
+
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| name             | value                                                                                                                                                                                                                                                                                                |
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Name             | Magento                                                                                                                                                                                                                                                                                              |
+| Version          | 2.3.3                                                                                                                                                                                                                                                                                                |
+| Edition          | Community                                                                                                                                                                                                                                                                                            |
+| Root             | /srv/public_html                                                                                                                                                                                                                                                                                     |
+| Application Mode | developer                                                                                                                                                                                                                                                                                            |
+| Session          | memcache                                                                                                                                                                                                                                                                                             |
+| Crypt Key        | lklgq2ajev5vyt2mbsjm0ab1nwvtfeam                                                                                                                                                                                                                                                                     |
+| Install Date     | Sat, 24 Sep 2016 05:09:28 -0500                                                                                                                                                                                                                                                                      |
+| Cache Backend    | Cm_Cache_Backend_Redis                                                                                                                                                                                                                                                                               |
+| Vendors          | Magento, MSP, Amazon, BoostMyShop, Cart2Cart, Customweb, Dotdigitalgroup, Ecommercegorilla, Elgentos, Hemage, Klarna, Konstant, Kraftors, Lof, MP, MagePsycho, MageVision, MageWorx, Magecheckout, Magecomp, Mageplaza, Magestore, Meetanshi, Solwin, Temando, Trezo, Trustpilot, Vertex, Ves, Yotpo |
+| Attribute Count  | 178                                                                                                                                                                                                                                                                                                  |
+| Customer Count   | 24201                                                                                                                                                                                                                                                                                                |
+| Category Count   | 93                                                                                                                                                                                                                                                                                                   |
+| Product Count    | 154361                                                                                                                                                                                                                                                                                               |
++------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+                   
+  Magento Modules  
+                   
+
++---------------------------------------+------------------+
+| Name                                  | (Schema) Version |
++---------------------------------------+------------------+
+| MSP_ReCaptcha                         | 1.5.0            |
+| Amazon_Core                           | 3.2.13           |
+| Amazon_Login                          | 3.2.13           |
+| Amazon_Payment                        | 3.2.13           |
+| BoostMyShop_OrderPreparation          | 0.0.8            |
+| Cart2Cart_PasswordMigrationToMagento2 | 1.0.0            |
+| Customweb_Base                        | 1.0.1            |
+| Customweb_BarclaycardCw               | 1.0.4            |
+| Dotdigitalgroup_Email                 | 3.3.0            |
+| Ecommercegorilla_Newsletter           | 1.0.0            |
+| Elgentos_LargeConfigProducts          | 0.1.3            |
+| Hemage_CheckoutNewsletterSubscription | 1.0.0            |
+| Klarna_Core                           | 5.2.2            |
+| Klarna_Ordermanagement                | 5.0.7            |
+| Klarna_Kp                             | 6.3.4            |
+| Konstant_Managefaq                    | 1.0.0            |
+| Kraftors_Customshipment               | 1.0.0            |
+| Kraftors_Customshipmenteurope         | 1.0.0            |
+| Kraftors_Lenspecification             | 1.0.0            |
+| Kraftors_Setdefaultbilling            | 0.0.1            |
+| Kraftors_Updateorder                  | 0.0.1            |
+| Kraftors_Updateproduct                | 0.0.1            |
+| Lof_All                               | 1.0.1            |
+| Lof_SmtpEmail                         | 1.0.1            |
+| MP_AutoApplyCoupon                    | 2.0.0            |
+| MSP_TwoFactorAuth                     | 3.1.0            |
+| MagePsycho_Easypathhints              | 1.0.2            |
+| MageVision_FreeShippingAdmin          | 2.2.1            |
+| MageWorx_SearchSuiteAutocomplete      | 2.0.0            |
+| Magecheckout_ZopimChat                | 1.0.0            |
+| Magecomp_Cookiecompliance             | 1.0.0            |
+| Magecomp_Deleteorder                  | 1.0.0            |
+| Mageplaza_AbandonedCart               | 1.0.0            |
+| Mageplaza_Osc                         | 2.1.3            |
+| Mageplaza_RewardPoints                | 1.2.0            |
+| Mageplaza_RewardPointsPro             | 1.1.0            |
+| Mageplaza_RewardPointsUltimate        | 1.0.0            |
+| Mageplaza_SocialLogin                 | 1.0.0            |
+| Magestore_OneStepCheckout             | 2.0.0            |
+| Magestore_Pdfinvoiceplus              | 1.0.0            |
+| Meetanshi_Flatshipping                | 1.0.5            |
+| Solwin_Applycoupon                    | 1.0.7            |
+| Solwin_Core                           | 1.0.0            |
+| Temando_Shipping                      | 1.6.0            |
+| Trezo_InternalPayment                 | 1.0.0            |
+| Trustpilot_Reviews                    | 2.0.0            |
+| Vertex_Tax                            | 100.4.0          |
+| Ves_All                               | 1.0.1            |
+| Ves_BaseWidget                        | 0.1.0            |
+| Ves_Blog                              | 1.0.0            |
+| Ves_Brand                             | 0.1.0            |
+| Ves_ImageSlider                       | 1.0.0            |
+| Ves_Megamenu                          | 1.0.4            |
+| Ves_PageBuilder                       | 0.1.0            |
+| Ves_Productlist                       | 1.0.0            |
+| Ves_Setup                             | 1.0.0            |
+| Ves_Themesettings                     | 1.0.0            |
+| Yotpo_Yotpo                           | 3.0.0            |
++---------------------------------------+------------------+
+
+                       
+  Magento Cache Types  
+                       
+
++------------------------+--------------------------------+---------+
+| Name                   | Type                           | Enabled |
++------------------------+--------------------------------+---------+
+| config                 | Configuration                  | 1       |
+| layout                 | Layouts                        | 1       |
+| block_html             | Blocks HTML output             | 1       |
+| collections            | Collections Data               | 1       |
+| reflection             | Reflection Data                | 1       |
+| db_ddl                 | Database DDL operations        | 1       |
+| compiled_config        | Compiled Config                | 1       |
+| eav                    | EAV types and attributes       | 1       |
+| customer_notification  | Customer Notification          | 1       |
+| config_integration     | Integrations Configuration     | 1       |
+| config_integration_api | Integrations API Configuration | 1       |
+| google_product         | Google Product Cache           | 0       |
+| full_page              | Page Cache                     | 1       |
+| config_webservice      | Web Services Configuration     | 1       |
+| translate              | Translations                   | 1       |
+| vertex                 | Vertex                         | 0       |
++------------------------+--------------------------------+---------+
+ 

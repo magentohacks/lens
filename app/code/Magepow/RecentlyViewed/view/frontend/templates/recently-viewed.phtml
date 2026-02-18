@@ -1,0 +1,39 @@
+<?php
+/**
+ * templates/recently-viewed.phtml
+ *
+ * @copyright Copyright © 2021 Magepow. All rights reserved.
+ * @author    Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ */
+?>
+<?php
+$helper = $this->helper("Magepow\RecentlyViewed\Helper\Data");
+if(!$helper->getConfigModule("general/enabled")) return;
+$store = $helper->getStoreManager()->getStore();
+$selector = 'alo-content-slider'. uniqid();
+?>
+<div class="magepow-recently-viewed">
+    <recently-viewed  
+        data-mage-init='{"magepowRecentlyViewed": {}}'
+        data-ajax='<?php echo $this->getAjaxCfg() ?>'
+        data-limit="<?php echo $this->getData('limit') ?>"
+        data-scope_id="<?php echo $store->getId() ?>"
+        data-url="<?php /* @escapeNotVerified */ echo $this->getUrl('magepow_recentlyviewed/index/product', ['_secure' => $this->getRequest()->isSecure()])?>"
+    >
+        <div class="wrap-title d-flex flex-column align-items-center text-center mb-40 clear-both">
+            <h3 class="title" role="heading"><?php echo $block->getData('title') ?></h3>
+        </div>
+        <grid-slider class="<?= $selector ?> ajax"
+            data-mage-init='{"gridSlider": {}}'
+            <?php foreach ($this->getFrontendCfg() as $opt) :?>
+                data-<?php /* @escapeNotVerified */ echo $opt ?>='<?php /* @escapeNotVerified */ echo $this->getData($opt) ?>'
+            <?php endforeach;?>
+        >
+        </grid-slider>
+    </recently-viewed>
+</div>

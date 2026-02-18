@@ -1,0 +1,52 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickbooksOnline
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+?>
+
+<div class="actions actions-connect">
+    <button class="primary actions-connect" type="button" id="<?= /** @noEscape */ $block->getHtmlId() ?>">
+        <span><?= /** @noEscape */ $block->escapeHtml($block->getButtonLabel()) ?></span>
+    </button>
+</div>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        var connectButton = $("#mpquickbooks_general_connect"),
+            clientId      = $('#mpquickbooks_general_client_id').val(),
+            clientSecret  = $('#mpquickbooks_general_client_secret').val();
+
+        if (!clientId || !clientSecret) {
+            connectButton.addClass('disabled');
+        }
+
+        connectButton.click(function () {
+            var parameters = "location=yes,height=650,width=800,scrollbars=yes,status=yes";
+            parameters += ",left=" + (screen.width - 800) / 2 + ",top=" + (screen.height - 650) / 2;
+
+            window.open(
+                "<?= $block->escapeJs($block->getAccessTokenUrl()) ?>",
+                "_blank",
+                parameters
+            )
+        });
+    });
+</script>

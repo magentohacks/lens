@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magestore" translate="label" sortOrder="20">
+            <label>magestore</label>
+        </tab>
+        <section id="pdfinvoiceplus" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>PDF Invoice Plus</label>
+            <tab>magestore</tab>
+            <resource>Magestore_Pdfinvoiceplus::config_pdfinvoiceplus</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Enable/Disable PDF Invoice Plus extension</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_for_multi_stores" translate="label comment" type="select" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use for multi-stores</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="disable_core_printing" translate="label comment" type="select" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Disable Magento core printing</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_print_quote" translate="label comment" type="select" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Print Quote button on Minicart </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allow_attach_pdf_to_email" translate="label comment" type="select" sortOrder="4"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allow attach PDF files to email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="auto_send_invoice_status" translate="label comment" type="select" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto send email with pdf invoice when order status changes to</label>
+                    <source_model>Magestore\Pdfinvoiceplus\Model\Order\Status</source_model>
+                </field>
+                <field id="pdf_font" translate="label comment" type="select" sortOrder="6"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Choose font for PDF file</label>
+                    <source_model>Magestore\Pdfinvoiceplus\Model\Config\FontList</source_model>
+                </field>
+                <field id="pdf_page_number" translate="label comment" type="select" sortOrder="7"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add page number to PDF file</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="business_info" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Business Information</label>
+                <field id="company_name" translate="label comment" type="text" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Company Name</label>
+                </field>
+                <field id="company_address" translate="label comment" type="text" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address</label>
+                </field>
+                <field id="vat_number" translate="label comment" type="text" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>VAT Number</label>
+                </field>
+                <field id="vat_office" translate="label comment" type="text" sortOrder="4"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>VAT Office</label>
+                </field>
+                <field id="business_id" translate="label comment" type="text" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Business ID</label>
+                </field>
+                <field id="company_logo" translate="label comment" type="image" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Company Logo</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">magestore/pdfinvoice/logo</upload_dir>
+                    <base_url type="media" scope_info="1">magestore/pdfinvoice/logo</base_url>
+                    <comment>
+                        <![CDATA[The most ideal logo size is 160x40 pixels. Logo will be used in PDF and HTML document (jpeg, tiff, png). ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="business_contact" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Business Contact</label>
+                <field id="company_email" translate="label comment" type="text" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email</label>
+                </field>
+                <field id="company_phone" translate="label comment" type="text" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Phone</label>
+                </field>
+                <field id="company_fax" translate="label comment" type="text" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fax</label>
+                </field>
+            </group>
+            <group id="additional_info" translate="label" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Information</label>
+                <field id="notes" translate="label comment" type="textarea" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notes</label>
+                </field>
+                <field id="terms_conditions" translate="label comment" type="textarea" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Term And Conditions</label>
+                </field>
+                <field id="footer" translate="label comment" type="textarea" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer</label>
+                </field>
+                <field id="footer_height" translate="label comment" type="text" sortOrder="4"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Height</label>
+                    <validate>validate-number integer</validate>
+                    <comment>
+                        <![CDATA[px]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="variable" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Variables</label>
+                <field id="customer_variables" translate="label comment" type="select" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Customer</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="order_variables" translate="label comment" type="select" sortOrder="2"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Order</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="order_items_variables" translate="label comment" type="select" sortOrder="3"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order item variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\OrderItems</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="invoice_variables" translate="label comment" type="select" sortOrder="4"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Invoice variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Invoice</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="invoice_items_variables" translate="label comment" type="select" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Invoice item variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\InvoiceItems</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="creditmemo_variables" translate="label comment" type="select" sortOrder="6"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Creditmemo variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Creditmemo</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="creditmemo_items_variables" translate="label comment" type="select" sortOrder="7"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Creditmemo item variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\CreditmemoItems</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="shipment_variables" translate="label comment" type="select" sortOrder="8"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipment variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Shipment</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="shipment_items_variables" translate="label comment" type="select" sortOrder="9"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipment item variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\ShipmentItems</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="quote_variables" translate="label comment" type="select" sortOrder="10"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quote variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\Quote</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="quote_items_variables" translate="label comment" type="select" sortOrder="11"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quote items variables</label>
+                    <frontend_model>Magestore\Pdfinvoiceplus\Block\Adminhtml\Configurations\QuoteItems</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

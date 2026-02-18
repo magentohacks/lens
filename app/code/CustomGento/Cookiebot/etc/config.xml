@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <web>
+            <cookiebot>
+                <enabled>0</enabled>
+                <id/>
+                <data_culture/>
+                <use_eu_cdn>0</use_eu_cdn>
+                <use_google_consent_mode>1</use_google_consent_mode>
+            </cookiebot>
+        </web>
+    </default>
+</config>

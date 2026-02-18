@@ -1,0 +1,478 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<style>
+ #demo {
+	text-align: center;
+    margin: 20px;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 500;
+	color: black;
+ }
+ #demo .hj_time_text {
+	color:	green;
+	font-weight: 700;
+ }
+ .do_not_show {
+	display: none;
+ }
+ .hemag_stock_status {
+	 margin-bottom:5px
+ }
+ .warning_message {
+	 color:	red;
+	 text-align: center;
+ }
+</style>
+<?php
+/** @var $block \Magento\ConfigurableProduct\Block\Product\View\Type\Configurable*/
+$_product    = $block->getProduct();
+$_attributes = $block->decorateArray($block->getAllowAttributes());
+?>
+
+<?php
+/*Code to Fetch the Attribute set Id & Name*/
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$attributeSet = $objectManager->create('Magento\Eav\Api\AttributeSetRepositoryInterface');
+$attributeSetRepository = $attributeSet->get($_product->getAttributeSetId());
+$attribute_set_name = $attributeSetRepository->getAttributeSetName();
+/*code ends here*/
+?>
+<?php if($attribute_set_name == 'Contact_Lens' || $attribute_set_name == 'Contact_Lens_Coloured' || $attribute_set_name == 'Contact_Lens_Multifocal' || $attribute_set_name == 'Contact_Lens_Multifocal_Dominance' || $attribute_set_name == 'Contact_Lens_Toric'):?>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="pres_crip"><?php echo __('Enter Your Prescription');?></div>
+		<div class="col-xs-4 col-sm-4 col-md-2 col-lg-3 pres_box">
+			<ul>
+				<li style="padding-top: 5px;"><?php echo __('Eye');?></li>
+				<?php foreach ($_attributes as $_attribute): ?>
+				<li style="padding-top: 10px;"><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></li>
+				<?php endforeach;?>
+				<li style="padding-top: 5px;"><?php echo __('No. of boxes');?></li>
+			</ul>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-2 col-lg-4 frst_box" id="right_main">
+			<ul>
+				<li><input type="checkbox" checked="checked" id="right_checked"><label class="rgt_eye"><?php echo __('Right Eye');?></label></li>
+				<?php foreach ($_attributes as $_attribute): ?>
+				<li>
+					<select style="border: 1px solid #00adef;color: #00adef;" name="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-selector="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+							class="super-attribute-select-right">
+						<option value=""><?php /* @escapeNotVerified */ echo __('Select') ?></option>
+					</select>
+				</li>
+				<?php endforeach;?>
+				<li>
+					<div class="quantity-adder">
+						<div class="quantity-number pull-left">
+							<!--<input class="frst_qty" type="number"
+							name="right[qty]"
+							id="qty1"
+							maxlength="12"
+							value="<?php /* @escapeNotVerified */ echo 1;//echo $block->getProductDefaultQty() * 1 ?>"
+							title="<?php /* @escapeNotVerified */ echo __('Quantity') ?>" class="input-text qty"
+							data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+							/>-->
+							<select class="frst_qty" name="right[qty]" id="qty1" title="<?php /* @escapeNotVerified */ echo __('Quantity') ?>" class="input-text qty" data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" style="width: 150px !important">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							</select>
+						</div>
+						<!--<div class="quantity-wrapper pull-left">
+							<span class="add-up add-action fa fa-plus" data-parentqty="true" style="border: 1px solid #00adef;color: #00adef;"></span>  
+							<span class="add-down add-action fa fa-minus" data-parentqty="true" style="border: 1px solid #00adef;color: #00adef;"></span>
+						</div>-->
+					</div>
+					<script type="text/javascript">
+						require(["jquery"], function(){
+							jQuery(window).ready( function(){
+								jQuery(".quantity-adder .add-action").click( function() { 
+									if (jQuery(this).hasClass('add-up')) {
+										jQuery(".quantity-adder .frst_qty").val( parseInt(jQuery(".quantity-adder .frst_qty").val()) + 1 );
+									} else {
+										if (parseInt(jQuery(".quantity-adder .frst_qty").val())  > 1) {
+											jQuery(".quantity-adder .frst_qty").val( parseInt(jQuery(".quantity-adder .frst_qty").val()) - 1 );
+										}
+									}
+								} );
+							})
+						}); 
+					</script>    
+				</li>
+			</ul>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-2 col-lg-4 sec_box" id="left_main">
+			<ul>
+				<li><input type="checkbox" checked="checked" id="left_checked"><label class="lft_eye"><?php echo __('Left Eye');?></label></li>
+				<?php foreach ($_attributes as $_attribute): ?>
+				<li>
+					<select style="border: 1px solid #00adef;color: #00adef;" name="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-selector="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-validate="{required:true}"
+							id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+							class="super-attribute-select">
+						<option value=""><?php /* @escapeNotVerified */ echo __('Select') ?></option>
+					</select>
+				</li>
+				<?php endforeach;?>
+				<li>
+					<div class="quantity-adder1">
+						<div class="quantity-number pull-left">
+						<select class="sec_qty" name="left[qty]" id="qty2" title="<?php /* @escapeNotVerified */ echo __('Quantity') ?>" class="input-text qty" data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" style="width: 150px !important" data-validate="{required:true}">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							</select>
+						<!-- <input class="sec_qty" type="number"
+							name="left[qty]"
+							id="qty2"
+							maxlength="12"
+							value="<?php /* @escapeNotVerified */ //echo 1;//echo $block->getProductDefaultQty() * 1 ?>"
+							title="<?php /* @escapeNotVerified */ echo __('Quantity') ?>" class="input-text qty"
+							data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+							/>-->
+						</div>
+						<!--<div class="quantity-wrapper pull-left">
+							<span class="add-up add-action fa fa-plus" data-parentqty="true" style="border: 1px solid #00adef;color: #00adef;"></span>  
+							<span class="add-down add-action fa fa-minus" data-parentqty="true" style="border: 1px solid #00adef;color: #00adef;"></span>
+						</div>-->
+					</div>
+					<script type="text/javascript">
+						require(["jquery"], function(){
+							jQuery(window).ready( function(){
+							jQuery(".quantity-adder1 .add-action").click( function(){
+								if( jQuery(this).hasClass('add-up') ) {  
+									jQuery(".quantity-adder1 .sec_qty").val( parseInt(jQuery(".quantity-adder1 .sec_qty").val()) + 1 );
+								}else {
+									if( parseInt(jQuery(".quantity-adder1 .sec_qty").val())  > 1 ) {
+										jQuery(".quantity-adder1 .sec_qty").val( parseInt(jQuery(".quantity-adder1 .sec_qty").val()) - 1 );
+									}
+								}
+							} );
+						})
+						});
+					</script>
+					
+				</li>
+			</ul>
+		</div>
+	</div>
+	<?php
+		/*$customOption = $objectManager->create('Magento\Catalog\Api\Data\ProductCustomOptionInterface');
+		$customOption->setTitle('Text')
+			->setType('area')
+			->setIsRequire(true)
+			->setSortOrder(1)
+			->setPrice(1.00)
+			->setPriceType('fixed')
+			->setMaxCharacters(50)
+			->setProductSku($product->getSku());
+		$customOptions[] = $customOption;
+		$product->setOptions($customOptions)->save();*/
+	?>
+	<?php /*$_product->addCustomOption('right_eye', "true"); ?>
+	<?php $_product->addCustomOption('left_eye', "true");*/ ?>
+	<div style="clear:both;">&nbsp;</div> 
+		<script type="text/x-magento-init">
+			{
+				"#product_addtocart_form": {
+					"configurable": {
+						"spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+						"onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_ConfigurableProduct') ?: 'false'; ?>
+					},
+			"customconfigurable": {
+						"spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+						"onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_ConfigurableProduct') ?: 'false'; ?>
+					}
+				}
+			}
+
+		</script>
+		<script>
+			jQuery(document).ready(function(){
+				jQuery('#right_checked').click(function () {
+					isChecked = jQuery(this).is(':checked');
+					if(isChecked){
+						<?php $_product->addCustomOption('right_eye', "true"); ?>
+						jQuery('#right_main').find('select').removeAttr('disabled');
+						jQuery('#right_main').find('.frst_qty').removeAttr('disabled');
+					}else{
+						jQuery('#right_main').find('select').prop('disabled','disabled');
+						jQuery('#right_main').find('.frst_qty').prop('disabled','disabled');	
+					}
+				});
+				jQuery('#left_checked').click(function () {
+					isChecked = jQuery(this).is(':checked');
+					if(isChecked){
+						jQuery('#left_main').find('select').removeAttr('disabled');
+						jQuery('#left_main').find('.sec_qty').removeAttr('disabled');
+					}else{
+						jQuery('#left_main').find('select').prop('disabled','disabled');
+						jQuery('#left_main').find('.sec_qty').prop('disabled','disabled');	
+					}
+
+				});
+				
+				var diameter = jQuery('#attribute163 > option').length;   
+			
+				if(diameter==2)
+				{
+					jQuery('#left_main').find('select #attribute163').removeAttr('disabled');
+					jQuery('#right_main').find('select #attribute163').removeAttr('disabled');
+					jQuery("#attribute162").val(jQuery("#attribute162 option").eq(2).val());
+					// jQuery("#attribute163").val(jQuery("select  #attribute163 option:eq(1)").val());
+				}
+			});
+		</script>	
+<?php else:?>
+	<?php if ($_product->isSaleable() && count($_attributes)):?>
+		<?php foreach ($_attributes as $_attribute): ?>
+			<div class="field configurable required">
+				<label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+					<span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+				</label>
+				<div class="control">
+					<select name="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-selector="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-validate="{required:true}"
+							id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+							class="super-attribute-select">
+						<option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+					</select>
+				</div>
+			</div>
+		<?php endforeach; ?>
+		<?php foreach ($_attributes as $_attribute): ?>
+			<div class="field configurable required">
+				<label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+					<span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+				</label>
+				<div class="control">
+					<select name="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-selector="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+							data-validate="{required:true}"
+							id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+							class="super-attribute-select-right">
+						<option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+					</select>
+				</div>
+			</div>
+		<?php endforeach; ?>
+		<script type="text/x-magento-init">
+			{
+				"#product_addtocart_form": {
+					"configurable": {
+						"spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+						"onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_ConfigurableProduct') ?: 'false'; ?>
+					}
+				}
+			}
+		</script>
+	<?php endif;?>
+<?php endif;?>	
+    
+<div class="time-to-free-delivery">
+	<p id="demo" class="do_not_show"></p>
+	<p class="warning_message">
+		<span class='dispatch_warning'>Please select prescription for Dispatch Date</span>
+	</p>
+</div>
+<script>
+	jQuery(document).ready(function(){
+		jQuery('.product-options-bottom').after(jQuery(".time-to-free-delivery"));
+	})
+	var start = new Date;
+	var date = new Date();
+	start.setHours(17, 0, 0); // 5pm
+	function pad(num) {
+		return ("0" + parseInt(num)).substr(-2);
+	}
+    function tick() {
+        var showFlag = false;
+        var now = new Date;
+        var remain = ((start - now) / 1000);
+        var hh = pad((remain / 60 / 60) % 60);
+        var mm = pad((remain / 60) % 60);
+        var ss = pad(remain % 60);
+        var stockStatus = "<p><span class='hemag_stock_status'>-- In Stock --</span></p>";
+        var dispatchToday = "<span class='hj_normal_text'>Order within </span> <span class='hj_time_text'>"+ hh + ":" + mm + ":" + ss + "</span><span class='hj_normal_text'> for Dispatch Today</span>";
+        var dispatchTomorrow = "<span class='hj_normal_text'>This Order will be Dispatched Tomorrow</span>";
+        var dispatchLater = "<span class = 'dispatch_later'>The product will be dispatched in</span></br><span>< 1-2 working days</span>"
+        if (<?php echo $_product->isSaleable();?>) {  
+            if (now < start) {
+                var messageString = stockStatus + dispatchToday;
+            } else {
+                var messageString = stockStatus + dispatchTomorrow;
+            }
+        } else {
+            var messageString = dispatchLater;
+        }
+        document.getElementById('demo').innerHTML = messageString;
+        setTimeout(tick, 1000);
+    }
+  	// var isRightChecked = isLeftChecked = true;
+	jQuery('#right_checked').click(function () {
+		updateMessage();
+	})
+	jQuery('#left_checked').click(function () {
+		updateMessage();
+	})
+	jQuery("#right_main select").on('change', function(){
+		updateMessage();
+	})
+	jQuery("#left_main select").on('change', function(){
+		updateMessage();
+	})
+	// 	isRightChecked = jQuery(this).is(':checked');
+	// 	if (!isRightChecked) {
+	// 		jQuery('#right_main select').val(''); 
+	// 		setTimeout(function(){ jQuery('#right_main #qty1').val(1); }, 3000);
+    //     } else {
+	// 		jQuery('#demo').addClass('do_not_show');
+	// 		jQuery(".warning_message").removeClass('do_not_show');
+	// 	}
+	// });
+	// jQuery('#left_checked').click(function () {	
+	// 	isLeftChecked = jQuery(this).is(':checked');
+    //     if (!isLeftChecked) {
+	// 		jQuery('#left_main select').val('');
+	// 		setTimeout(function(){ jQuery('#left_main #qty2').val(1); }, 3000);
+    //     } else {
+	// 		jQuery('#demo').addClass('do_not_show');
+	// 		jQuery(".warning_message").removeClass('do_not_show');
+	// 	}
+	// });
+
+	// jQuery( "select" ).on('change', function() {
+	// 	if (isRightChecked && isLeftChecked) {
+	// 		if (jQuery(this).attr('id') != "attribute164" && jQuery(this).attr('id') != "qty1" && jQuery(this).attr('id') != "qty2") {
+	// 			jQuery('#demo').addClass('do_not_show');
+	// 			jQuery(".warning_message").removeClass('do_not_show');
+	// 			// document.addEventListener('DOMContentLoaded', tick);
+	// 		} else {
+	// 			if (jQuery('#right_main #attribute164').val() > 0 && jQuery('#left_main #attribute164').val() > 0) {
+	// 				jQuery('#demo').removeClass('do_not_show');
+	// 				jQuery(".warning_message").addClass('do_not_show');
+	// 			}
+	// 		}
+	// 	} else {
+	// 		if (!isRightChecked) {
+	// 			if (jQuery(this).attr('id') != "attribute164") {
+	// 				jQuery('#demo').addClass('do_not_show');
+	// 				jQuery(".warning_message").removeClass('do_not_show');
+	// 				// document.addEventListener('DOMContentLoaded', tick);
+	// 			} else {
+	// 				if (jQuery('#left_main #attribute164').val() > 0) {
+	// 					jQuery('#demo').removeClass('do_not_show');
+	// 					jQuery(".warning_message").addClass('do_not_show');
+	// 				}
+	// 			}
+	// 		} else {
+	// 			if (jQuery(this).attr('id') != "attribute164") {
+	// 				jQuery('#demo').addClass('do_not_show');
+	// 				jQuery(".warning_message").removeClass('do_not_show');
+	// 				// document.addEventListener('DOMContentLoaded', tick);
+	// 			} else {
+	// 				if (jQuery('#right_main #attribute164').val() > 0) {
+	// 					jQuery('#demo').removeClass('do_not_show');
+	// 					jQuery(".warning_message").addClass('do_not_show');
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+    // });
+
+	// var rightFlag = false;
+	// var leftFlag = false;
+	// jQuery('#right_checked').click(function () {
+	// 	jQuery('#right_main select').each(function() {
+	// 		if (jQuery(this).val() == '') {
+	// 			rightFlag = false;
+	// 			return false;
+	// 		}
+	// 	})
+	// 	rightFlag = true;
+	// 	updateMessage();
+	// }
+	// jQuery('#left_checked').click(function () {
+	// 	jQuery('#left_main select').each(function()  {
+	// 		if (jQuery(this).val() == '') {
+	// 			leftFlag = false;
+	// 			return false;
+	// 		}
+	// 	})
+	// 	leftFlag = true;
+	// 	updateMessage();
+	// }
+
+	function updateMessage() {
+		var rightFlag = true;
+		var leftFlag = true;
+		var isRightChecked = jQuery('#right_checked').is(':checked');
+		var isLeftChecked = jQuery('#left_checked').is(':checked');
+		if (isRightChecked) {
+			jQuery('#right_main select').each(function() {
+				if (jQuery(this).val() == "") {
+					rightFlag = false;
+					return false;
+				}
+			});
+		} else {
+			rightFlag = true;
+		}
+		if (isLeftChecked) {
+			jQuery('#left_main select').each(function() {
+				if (jQuery(this).val() == "") {
+					leftFlag = false;
+					return false;
+				}
+			});
+		} else {
+			leftFlag = true;
+		}
+		if (!isRightChecked && !isLeftChecked) {
+			jQuery('#demo').addClass('do_not_show');
+			jQuery(".warning_message").removeClass('do_not_show');
+		} else {
+			if (rightFlag && leftFlag) {
+				jQuery('#demo').removeClass('do_not_show');
+				jQuery(".warning_message").addClass('do_not_show');
+			} else {
+				jQuery('#demo').addClass('do_not_show');
+				jQuery(".warning_message").removeClass('do_not_show');
+			}
+		}
+	}
+
+
+
+
+    document.addEventListener('DOMContentLoaded', tick);
+</script>

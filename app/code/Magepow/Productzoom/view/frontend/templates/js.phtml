@@ -1,0 +1,63 @@
+<?php
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+$helper     = $this->helper('Magepow\Productzoom\Helper\Data');
+$data       = $helper->getConfigModule('general');
+$exclude  = ['container', 'zoomTouch'];
+foreach ($data as $key => $value) {
+    if(in_array($key, $exclude)) continue;
+
+    if(is_numeric($value)){
+        $data[$key] = (float) $value;
+        continue;
+    }
+    $value = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    if(!is_null($value)){
+        $data[$key] = $value; 
+    }
+}
+
+if(isset($data['zoomType']) && $data['zoomType'] != 'window'){
+    $data['hoverBoundingBox'] = false;
+}
+?>
+
+<script type="application/json" id="magepowapps-zoom-settings"
+  data-mage-init='{"magepowProductzoom": {}}'
+>
+  <?php echo is_array($data) ? $jsonHelper->jsonEncode($data) : '{}' ?>
+</script>
+
+<style>
+  :root{
+    --drift-bg-opacity: <?php echo $data['bgOpacity'] ?? 0.3; ?>;
+  }
+  
+  .magezoom-init .drift-pane, .magezoom-init .drift-zoom-pane, .magezoom-init .drift-bounding-box {
+    z-index:  <?php echo $data['zIndex'] ?? 999; ?>;
+  }
+  .magezoom-init .drift-zoom-pane.drift-opening {
+    opacity: var(--drift-bg-opacity);
+    <?php echo $data['backgroundMask'] ? "background-color: " . $data['backgroundMask'] : '' ?>
+  }
+  .magezoom-init .drift-zoom-pane {
+    border: <?php echo $data['borderSize'] ?>px solid <?php echo $data['borderColor'] ?>;
+    <?php echo $data['borderRadius'] ? "border-radius: " . $data['borderRadius'] : '' ?>
+  }
+  .magezoom-init .drift-bounding-box {
+    opacity: var(--drift-bg-opacity);
+    <?php echo $data['backgroundBoundingBox'] ? "background-color: " . $data['backgroundBoundingBox'] . ";" : '' ?>
+    <?php ($data['borderRadius'] != -1) ? "border-radius: " . $data['borderRadius'] : '' ?>
+  }
+  .magezoom-init .drift-zoom-pane-loader:before,
+  .magezoom-init .drift-zoom-pane-loader:after{
+    <?php echo $data['loaderColor'] ? "background-color: " . $data['loaderColor'] : '' ?>
+  }
+  .magezoom-init .drift-zoom-pane.drift-inline {
+    <?php echo ($data['zoomWidth'] > 0) ? "width: " . $data['zoomWidth'] . "px;" : '' ?>
+    <?php echo ($data['zoomHeight'] > 0) ? "height: " . $data['zoomHeight'] . "px;" : '' ?>
+    <?php echo ($data['borderRadius'] != -1) ? "border-radius: " . $data['borderRadius'] . "%;" : 'border-radius: 50%' ?>
+  }
+  .magezoom-init .drift-zoom-pane img {
+    <?php /* echo $data['originalImage'] ? "background-color: #fff" : '' */ ?>
+  }
+</style>

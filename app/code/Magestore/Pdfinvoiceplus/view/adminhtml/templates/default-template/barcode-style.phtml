@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\TemplateBuilder\BarcodeStyle $block */
+
+?>
+<style>
+    .barcode-type-ean128a:before,
+    .barcode-type-c93:before,
+    .barcode-type-msi:before,
+    .barcode-type-codabar:before,
+    .barcode-type-code11:before,
+    .barcode-type-c39:before,
+    .barcode-type-s25:before,
+    .barcode-type-c128a:before
+    {
+        background: url("<?php echo $block->getBarcodeImageUrl('EAN128A.jpg') ?>") no-repeat !important;
+    }
+
+    .barcode-type-imb:before,
+    .barcode-type-rm4scc:before,
+    .barcode-type-kix:before
+    {
+        background: url("<?php echo $block->getBarcodeImageUrl('IMB.jpg') ?>") no-repeat !important;
+    }
+
+    .barcode-type-postnet:before,
+    .barcode-type-planet:before
+    {
+        background: url("<?php echo $block->getBarcodeImageUrl('POSTNET.jpg') ?>") no-repeat !important;
+    }
+
+
+    .barcode-type-qr:before {
+        background: url("<?php echo $block->getBarcodeImageUrl('QR.jpg') ?>") no-repeat !important;
+    }
+
+    .barcode-type-ean13:before {
+        background: url("<?php echo $block->getBarcodeImageUrl('EAN13.jpg') ?>") no-repeat !important;
+    }
+
+    .barcode-type-upca:before {
+        background: url("<?php echo $block->getBarcodeImageUrl('UPCA.jpg') ?>") no-repeat !important;
+    }
+
+    .barcode-type-ean8:before {
+        background: url("<?php echo $block->getBarcodeImageUrl('EAN8.jpg') ?>") no-repeat !important;
+    }
+</style>

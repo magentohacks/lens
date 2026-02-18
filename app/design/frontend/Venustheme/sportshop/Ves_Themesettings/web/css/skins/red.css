@@ -1,0 +1,73 @@
+a:hover, a:focus,
+a:visited, .alink:visited,
+.nav-toggle:before,
+/*.block-search .label:before,*/
+.page-footer li a:hover,
+.copyright a,
+.ourservice-block:hover .fa,
+.ves-megamenu li.level0 .fa,
+.product-info-main .social-links a:hover, 
+.block-bundle-summary .social-links a:hover,
+.product-item-info .product-item-name a:hover,
+div .ves-megamenu .dropdown-menu a:hover, 
+div .ves-megamenu .dropdown-menu .subgroup.level1 > a:hover, 
+div .ves-megamenu .dropdown-menu .subgroup .subgroup .dropdown-mega a:hover,
+div .ves-megamenu.menu-click li:hover a:hover,
+div .ves-megamenu.menu-hover li:hover a:hover,
+.cart.table-wrapper .actions-toolbar > .action-edit:before, 
+.cart.table-wrapper .actions-toolbar > .action-delete:before,
+.ves-menutop .ves-megamenu .dropdown-menu a:hover, 
+.ves-menutop .ves-megamenu .dropdown-menu .subgroup.level1 > a:hover, 
+.ves-menutop .ves-megamenu .dropdown-menu .subgroup .subgroup .dropdown-mega a:hover,
+.sidebar .block.filter .filter-options .filter-options-content a:hover
+{color: #f14a46;}
+
+.ves-menutop .ves-megamenu li.level0:hover > a, 
+.ves-menutop .ves-megamenu li.level0.active > a, 
+.ves-menutop .ves-megamenu li.level0 > a.active,
+.product.data.items > .item.title.active > .switch
+{color: #f14a46 !important;}
+
+.product-info-main .product-addto-links a:hover, 
+.block-bundle-summary .product-addto-links a:hover,
+div.page-header .ves-header3 .block-search input:hover, 
+div.page-header .ves-header3 .block-search input:focus,
+.col-success .product-block .product-image .product-item-actions a:hover, 
+.col-success .product-block .product-image .product-item-actions button:hover, 
+.col-success .product-block .product-image .product-item-actions a:focus, 
+.col-success .product-block .product-image .product-item-actions button:focus {
+    border-color: #f14a46;
+}
+
+.cms-index-index .ves-post.post-item .post-summary a:hover{border-color: #f14a46 !important;}
+
+.button,
+button.primary,
+button.subscribe,
+button.action-apply,
+button.clear, button.update,
+.action.primary,
+.ves-contact .media .fa,
+.add-to-cart:hover,
+.add-to-wishlist:hover,
+.add-to-compare:hover,
+.quick-view:hover,
+.friend:hover,
+.cart-container .form-cart .action.continue,
+.owl-carousel .owl-dots .owl-dot.active span, 
+.owl-carousel .owl-theme .owl-dots .owl-dot:hover span,
+.cms-index-index .col-primary .owl-item:nth-child(2n+2) .ves-post.post-item .post-meta,
+.minicart-wrapper .action.showcart span.w-item .total-qty,
+.cms-index-index .ves-post.post-item .post-summary a:hover,
+.scrollup {
+ background-color: #f14a46 !important;
+}
+
+.action.primary:hover,
+.button:hover, .button:focus{
+ background-color: #e00e2e !important;
+}
+
+.scrollup:hover{
+   background-color: #e00e2e;
+}

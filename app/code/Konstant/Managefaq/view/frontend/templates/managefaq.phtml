@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <?php $faqs = $block->getFaq()->getData(); ?>
+	<div id="accordion">
+		<?php foreach($faqs as $faq) {?>
+				<h3 class="que"><?php echo $faq['question']; ?></h3>
+				<div class="ans"><?php echo $faq['answer'] ?></div>
+		<?php } ?>
+	</div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#accordion").accordion();
+});
+</script>

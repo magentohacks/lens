@@ -1,0 +1,24 @@
+<div style="float: left;">
+    <?php echo __('Import tracking file'); ?> :
+    <select name="import_template">
+        <option></option>
+        <?php foreach($this->getTemplates() as $template): ?>
+            <option value="<?php echo $template->getId(); ?>"><?php echo $template->getct_name(); ?></option>
+        <?php endforeach; ?>
+    </select>
+    <input type="file" name="import_file">
+    <br>
+    <?php echo __('Export tracking file'); ?> :
+    <select name="export[template]">
+        <option></option>
+        <?php foreach($this->getTemplates() as $template): ?>
+            <option value="<?php echo $template->getId(); ?>"><?php echo $template->getct_name(); ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<div style="float: right;">
+    <button title="save" type="button" class="action-default scalable action-primary save" onclick="jQuery('#shipping_form').submit();" >
+        <span><?php echo __('Save'); ?></span>
+    </button>
+</div>

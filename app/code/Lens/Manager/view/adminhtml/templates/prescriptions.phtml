@@ -1,0 +1,19 @@
+<div class="import-prescriptions">
+    <div class="header">
+      <h4>Prescriptions CSV File:</h4>
+    </div>
+    <div style= "margin-bottom:10px">
+        <form class="import-prescriptions-form" action="<?= $block->getUrl('lens/import/prescriptions'); ?>" method="POST" enctype="multipart/form-data">
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <input type="file" required class="required-entry" name="csv" />
+            <button type="submit">Import</button>
+        </form>
+    </div>
+    <div>
+        <form class="import-prescriptions-form" action="<?= $block->getUrl('lens/import/updateprescriptionsqty'); ?>" method="POST" enctype="multipart/form-data">
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <input type="file" required class="required-entry" name="csvupdate" />
+            <button type="submit">Update Prescriptions Quantity</button>
+        </form>
+    </div>
+</div>

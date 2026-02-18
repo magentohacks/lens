@@ -1,0 +1,11 @@
+{
+  "name": "boostmyshop/module-barcode-inventory",
+  "description": "Update product stock using a barcode scanner",
+  "type": "magento2-module",
+  "version": "1.0.3",
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "BoostMyShop\\BarcodeInventory\\": ""}
+  }
+}

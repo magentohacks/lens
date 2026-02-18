@@ -1,0 +1,128 @@
+.ias-trigger-next,
+.ias-spinner,
+.ias-noneleft {
+    display: block;
+    width: 100%;
+    padding: 30px 0;
+    font-size: 1em;
+    clear: both;
+}
+
+.ias-spinner {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    display: block;
+}
+
+.ias-noneleft {
+    text-align: center;
+    color: #333;
+    letter-spacing: 0px;
+}
+
+.ias-spinner img,
+.ias-noneleft img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ias-trigger-next {
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.load-more {
+    border: none;
+    margin: 0 auto;
+}
+
+.load-more:hover {
+    background: #0491ff;
+}
+
+.ias-trigger-prev {
+    text-align: center;
+    cursor: pointer;
+}
+
+.ias-spinner img {
+    height: auto;
+    min-width: 40px;
+    max-width: 400px;
+    margin-bottom: 7px;
+}
+
+.infinitescroll-pro .toolbar-bottom {
+    display: none
+}
+
+body.catalog-category-view,
+body.catalogsearch-result-index,
+body.amblog-index-index,
+body.amblog-index-category {
+    overflow-x: unset;
+}
+
+body.amblog-index-index .amblog-pager-container,
+body.amblog-index-category .amblog-pager-container {
+    display: none;
+}
+/* Style for toolbar */
+.infinitescroll-pro .toolbar:nth-child(n + 3) {
+    display: none;
+}
+
+.infinitescroll-off .toolbar:nth-child(n + 3) {
+    display: block;
+}
+/* Back to Top */
+.ias-noneleft .x-back-to-top {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.ias-noneleft .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.ias-noneleft .arrow span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: x-top 2s infinite;
+}
+
+.ias-noneleft .arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+@keyframes x-top {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+}

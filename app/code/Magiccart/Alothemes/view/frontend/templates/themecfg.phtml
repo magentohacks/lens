@@ -1,0 +1,62 @@
+<?php 
+/**
+ * Magiccart 
+ * @category 	Magiccart 
+ * @copyright 	Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license 	http://www.magiccart.net/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2016-04-31 17:55:44
+ * @@Modify Date: 2018-07-06 18:21:28
+ * @@Function:
+ */
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+//echo $this->getThemecfg() 
+if( $url = $this->getLivereload() ) echo '<script type="text/javascript" src="' .$url . '/livereload.js"></script>';
+$cfg = $this->_themeCfg;
+$font   = $cfg['font'];
+$html = '';
+/* get Lib Font */
+if($font['google']){
+	$html  .= '<link rel="preconnect" href="https://fonts.googleapis.com">';
+	$html  .= '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+	$html  .= '<link as="style" rel="stylesheet preload prefetch" href="//fonts.googleapis.com/css?family='.str_replace(' ', '+', $font['google']).':ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" media="all" crossorigin="anonymous" />';
+}
+/*
+if($this->_rtl){
+	$asset  = $this->assetRepository->createAsset('css/rtl.css');
+	$rtl    = $asset->getUrl();
+	echo '<link  rel="stylesheet" type="text/css"  media="all" href="' . $rtl . '" />';
+}
+*/
+if(!$this->cssFile) {
+	$html .= '<style type="text/css">' . $this->generalCss() . '</style>';
+} else {
+	echo '<link as="style" rel="stylesheet preload prefetch" media="all" href="' . $this->getExtraCssUrl() . '" crossorigin="anonymous" />';
+}
+$html  .= "\n"; // break line;
+$cfg['general']['baseUrl'] = $this->getBaseUrl();
+$optRm = array('font', 'grid', 'related', 'upsell', 'crosssell', 'labels', 'timer', 'categorysearch', 'grid_widget', 'recently_grid_widget', 'recentorder', 'category_page', 'product_page', 'flags');
+foreach ($optRm as $opt) { unset($cfg[$opt]); }
+echo $html;
+$timer = $this->_themeCfg['timer'];
+// if(!$timer['enabled']) return;
+$layout = '<span class="number day">%%D%%</span><span class class="colon">:</span><span class="number hour">%%H%%</span><span class="colon">:</span><span class="number min">%%M%%</span><span class="colon">:</span><span class="number sec">%%S%%</span>';
+
+$layoutcaption = '<div class="timer-box"><span class="number day">%%D%%</span><span class="title">' . __('Days') . '</span></div><div class="timer-box"><span class="number hour">%%H%%</span><span class="title">' . __('Hrs')  . '</span></div><div class="timer-box"><span class="number min">%%M%%</span><span  class="title">' . __('Mins') . '</span></div><div class="timer-box"><span class="number sec">%%S%%</span><span  class="title">' . __('Secs') . '</span></div>';	
+if($timer['caption']){
+	$layout = $layoutcaption;
+}
+?>
+<div class="preloading"><div class="loading"></div></div>
+<?php
+$Themecfg = $jsonHelper->jsonEncode($cfg);
+$timeout  = __('Time out!');
+$scriptString = <<<script
+	var Themecfg 				= $Themecfg;
+	var alo_timer_layout 		= '$layout';
+	var alo_timer_layoutcaption = '$layoutcaption';
+	var alo_timer_timeout 		= '<span class="timeout">$timeout</span>';
+script;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>
+<script type="text/x-magento-init">{"body": {"alothemes": {}}}</script> 

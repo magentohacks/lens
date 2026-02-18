@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="checkout-success">
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p><?php echo __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+        <?php  else :?>
+            <p><?php echo __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+        <?php endif;?>
+            <p><?php /* @escapeNotVerified */ echo __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+    <?php endif;?>
+
+    <?php echo $block->getAdditionalInfoHtml() ?>
+<?php
+$indcermentid = $block->getOrderId();
+$lid = $block->getRealOrderId();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$order = $objectManager->create('Magento\Sales\Api\Data\OrderInterface')->load($lid);
+$price = number_format((float)$order->getGrandTotal(), 2, '.', '');
+$itemdata = array();
+//Loop through each item and fetch data
+foreach ($order->getAllItems() as $item)
+{
+	if($item->getProductType() != 'simple'){
+	  $itemmain = array();
+	  $price_item =  number_format((float)$item->getPrice(), 2, '.', '');
+	  $itemmain['productname'] = $item->getName();
+	  $itemmain['productid'] = $item->getId();
+	  $itemmain['quantity'] = $item->getQtyOrdered();
+	  $itemmain['price'] = $price_item;
+	  array_push($itemdata, $itemmain);
+	} 
+}
+$jsonarray = json_encode($itemdata);
+?>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?php /* @escapeNotVerified */ echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span></a>
+        </div>
+    </div>
+</div> 
+
+<script type="text/javascript">
+
+    var _kkstrack = {
+
+      merchantInfo : [{ country:"uk", merchantId:"100479481" }],
+
+      orderValue: '<?php echo $price ?>',
+
+      orderId: '<?php echo $indcermentid ?>',
+
+      basket:  <?php echo $jsonarray ?>
+
+    };
+
+    (function() {
+
+      var s = document.createElement('script');
+
+      s.type = 'text/javascript';
+
+      s.async = true;
+
+      s.src = 'https://s.kk-resources.com/ks.js';
+
+      var x = document.getElementsByTagName('script')[0];
+
+      x.parentNode.insertBefore(s, x);
+
+    })();
+
+</script>

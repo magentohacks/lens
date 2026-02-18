@@ -1,0 +1,20 @@
+{
+  "name": "magestore/pdfinvoiceplus-magento2",
+  "description": "N/A",
+  "type": "magento2-module",
+  "version": "dev-master",
+  "require": {
+    "magestore/pdfinvoiceplus-lib": "1.0.0"
+  },
+  "license": [
+    "OSL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magestore\\Pdfinvoiceplus\\": ""
+    }
+  }
+}

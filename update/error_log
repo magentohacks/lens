@@ -1,0 +1,337 @@
+[05-Nov-2016 08:03:01 America/Chicago] PHP Fatal error:  Can't use method return value in write context in /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php on line 57
+[20-Nov-2016 10:28:21 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 10:28:21 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 10:28:21 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 10:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 10:43:17 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 10:43:17 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 10:43:17 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 10:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 11:28:17 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 11:28:17 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 11:28:17 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 11:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 11:43:20 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 11:43:20 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 11:43:20 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 11:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 11:58:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 11:58:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 11:58:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 11:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 12:03:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 12:03:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 12:03:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 12:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 12:28:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 12:28:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 12:28:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 12:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 12:43:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 12:43:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 12:43:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 12:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 12:58:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 12:58:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 12:58:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 12:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 13:03:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 13:03:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 13:03:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 13:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 13:28:15 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 13:28:15 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 13:28:15 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 13:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 14:03:15 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 14:03:15 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 14:03:15 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 14:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 14:28:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 14:28:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 14:28:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 14:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 14:43:12 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 14:43:12 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 14:43:12 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 14:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 14:58:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 14:58:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 14:58:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 14:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 15:03:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 15:03:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 15:03:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 15:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 15:28:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 15:28:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 15:28:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 15:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 15:58:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 15:58:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 15:58:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 15:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 16:03:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 16:03:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 16:03:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 16:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 16:28:16 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 16:28:16 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 16:28:16 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 16:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 16:43:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 16:43:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 16:43:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 16:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 16:58:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 16:58:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 16:58:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 16:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 17:03:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 17:03:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 17:03:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 17:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 17:28:15 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 17:28:15 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 17:28:15 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 17:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 17:43:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 17:43:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 17:43:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 17:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 17:58:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 17:58:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 17:58:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 17:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 18:03:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 18:03:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 18:03:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 18:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 18:28:15 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 18:28:15 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 18:28:15 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 18:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 18:43:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 18:43:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 18:43:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 18:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 18:58:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 18:58:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 18:58:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 18:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 19:28:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 19:28:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 19:28:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 19:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 19:43:15 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 19:43:15 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 19:43:15 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 19:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 19:58:12 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 19:58:12 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 19:58:12 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 19:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 20:03:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 20:03:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 20:03:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 20:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 20:28:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 20:28:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 20:28:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 20:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 20:43:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 20:43:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 20:43:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 20:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 20:58:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 20:58:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 20:58:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 20:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 21:03:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 21:03:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 21:03:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 21:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 21:28:16 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 21:28:16 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 21:28:16 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 21:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 21:43:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 21:43:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 21:43:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 21:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 21:58:14 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 21:58:14 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 21:58:14 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 21:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142
+[20-Nov-2016 22:03:13 America/Chicago] PHP Warning:  fopen(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_in_progress.flag): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 221
+[20-Nov-2016 22:03:13 America/Chicago] PHP Warning:  file_put_contents(/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt): failed to open stream: No space left on device in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 141
+[20-Nov-2016 22:03:13 America/Chicago] PHP Fatal error:  Uncaught exception 'RuntimeException' with message 'Cannot add status information to "/home/mavissta/lenssaver.mavisstagingserver.com/var/.update_status.txt"' in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php:142
+Stack trace:
+#0 /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php(107): Magento\Update\Status->writeMessageToFile('[2016-11-20 22:...', '/home/mavissta/...')
+#1 /home/mavissta/lenssaver.mavisstagingserver.com/update/cron.php(49): Magento\Update\Status->add('"/home/mavissta...', 'error')
+#2 {main}
+  thrown in /home/mavissta/lenssaver.mavisstagingserver.com/update/app/code/Magento/Update/Status.php on line 142

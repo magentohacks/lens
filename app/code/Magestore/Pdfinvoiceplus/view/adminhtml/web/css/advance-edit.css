@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#tinymce {
+    position: relative;
+}
+
+.menu-list {
+    float: left;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0px 5px 0px 0px;
+    position: relative;
+    text-align: left;
+}
+
+.header-item {
+    list-style: none;
+    float: left;
+    padding: 0px 20px 0px 10px;
+    font-family: "Ubuntu Regular", "Ubuntu Light", arial;
+}
+
+.header-menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: url("../images/design/bg-menu1.png") repeat;
+    opacity: 1;
+    z-index: 999;
+    padding: 0px;
+}
+
+.header-menu ul {
+    display: inline-block;
+    width: 90%;
+    margin: 0 5%;
+}
+
+#reset {
+    background-color: #007db4;
+    border: 0 none;
+    color: #fff;
+    float: left;
+    font-weight: bold;
+    padding: 16px 20px;
+    text-decoration: none;
+}
+
+#reset:hover {
+    background-color: #F0F0EE;
+    color: #007db4;
+    cursor: pointer;
+}
+
+#back {
+    background-color: #007db4;
+    border: 0 none;
+    color: #fff;
+    float: left;
+    font-weight: bold;
+    padding: 16px 20px;
+    text-decoration: none;
+}
+
+#back:hover {
+    background-color: #F0F0EE;
+    color: #007db4;
+    cursor: pointer;
+}
+
+#save {
+    font-weight: bold;
+    border: 0px;
+    padding: 16px 20px;
+    background-color: #ffc000;
+    color: #F0F0EE;
+    position: relative;
+    top: 0px;
+    font-weight: bold;
+    float: left;
+
+}
+
+#save:hover {
+    color: #FFC000;
+    background-color: #F0F0EE;
+    cursor: pointer;
+}
+
+.header-item-logo {
+    float: left;
+    padding-left: 10px;
+    padding-top: 7px;
+    list-style: none outside none;
+
+}
+
+#container-html {
+    padding: 50px 0 0;
+}
+
+/*loading*/
+.loading-mask {
+    display: block;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.5);
+}
+
+.loading-mask .loader > img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    height: auto;
+    max-width: 100%;
+    border: 0;
+}
+/***********/
+
+.note-msg, .notice-msg {
+    background-color: #FAFAEC;
+    border: 1px solid #FCD344;
+    color: #3D6611;
+}

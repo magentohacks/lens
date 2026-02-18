@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="add_custom_print_order_btn" type="Magestore\Pdfinvoiceplus\Plugins\Adminhtml\PrintButton\CustomPrintButton"/>
+    </type>
+    <!--<type name="Magento\Sales\Model\Service\OrderService">-->
+        <!--<plugin name="order_pdf_attachment" type="Magestore\Pdfinvoiceplus\Plugins\Adminhtml\OrderAttachment"/>-->
+    <!--</type>-->
+    <!--<type name="Magento\Sales\Model\Service\InvoiceService">-->
+        <!--<plugin name="invoice_pdf_attachment" type="Magestore\Pdfinvoiceplus\Plugins\Adminhtml\InvoiceAttachment"/>-->
+    <!--</type>-->
+    <!--<type name="Magento\Sales\Model\Service\CreditmemoService">-->
+        <!--<plugin name="creditmemo_pdf_attachment" type="Magestore\Pdfinvoiceplus\Plugins\Adminhtml\CreditmemoAttachment"/>-->
+    <!--</type>-->
+    <!--customization ticket 9138-->
+    <type name="Magento\Sales\Model\Service\ShipmentService">
+        <plugin name="shipment_pdf_attachment" type="Magestore\Pdfinvoiceplus\Plugins\Adminhtml\ShipmentAttachment"/>
+    </type>
+    <!--end customization ticket 9138-->
+    <preference for="Magento\Shipping\Block\Adminhtml\View" type="Magestore\Pdfinvoiceplus\Block\Adminhtml\Shipping\View" />
+    <type name="Magestore\Pdfinvoiceplus\Ui\Component\Action" shared="false"/>
+    <type name="Magestore\Pdfinvoiceplus\Ui\Component\Sale\Order\Action" shared="false"/>
+    <type name="Magento\Ui\Component\Action" shared="false"/>
+</config>

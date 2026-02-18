@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="webappmate_productprice_send_email" instance="Webappmate\Productprice\Cron\SendEmail" method="execute">
+            <schedule>0 10 1 */3 *</schedule> <!-- Runs on the 1st day of every 3rd month at 10am -->
+        </job>
+    </group>
+</config>

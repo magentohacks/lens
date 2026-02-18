@@ -1,0 +1,58 @@
+<?php
+  namespace Kraftors\Updateproduct\Controller\Index;
+ 
+  class Index extends \Magento\Framework\App\Action\Action
+  {
+    public function __construct(
+        \Magento\Framework\App\Action\Context $context)
+    {
+        return parent::__construct($context);
+    }
+     
+    public function execute()
+    {
+        echo 'My Action';
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$_product = $objectManager->get('Magento\Catalog\Model\Product')->load(2100);
+
+	echo "<br/>";
+	echo $_product->getName();
+	echo "<br/>";
+	$_children = $_product->getTypeInstance()->getUsedProducts($_product);
+	echo count($_children);
+	echo "<br/>";
+        foreach ($_children as $child){
+            	$productId = $child->getID();
+		echo $productId;
+		echo "<br/>";
+		/* Get Entitiy Resolver*/
+		$entryResolver = $objectManager->get('Magento\Catalog\Model\Product\Gallery\EntryResolver');
+		/* Get Product Object */
+		$product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+
+		echo $image = $product->getImage();
+		/*$media_gallery = $product->getData('media_gallery');
+		echo "<pre>";
+		print_r($media_gallery);*/
+		
+		/* Get Entry Id Of Product Image Which You Want To Remove */
+		$entryId = $entryResolver->getEntryIdByFilePath($product,$image);
+
+		if($entryId != NULL)
+		{
+			/* Remove Image Using Entry Id */
+			$objectManager->get('Magento\Catalog\Model\Product\Gallery\GalleryManagement')->remove($product->getSku(), $entryId);	
+		}
+
+
+		$productRepository = $objectManager->create('Magento\Catalog\Api\ProductRepositoryInterface');
+		$existingMediaGalleryEntries = $product->getMediaGalleryEntries();
+		foreach ($existingMediaGalleryEntries as $key => $entry) {
+		    unset($existingMediaGalleryEntries[$key]);
+		}
+		$product->setMediaGalleryEntries($existingMediaGalleryEntries);
+		$productRepository->save($product);
+        }
+    } 
+  }
+

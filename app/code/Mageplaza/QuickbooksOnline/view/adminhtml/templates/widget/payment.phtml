@@ -1,0 +1,56 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickbooksOnline
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/**
+ * @var \Mageplaza\QuickbooksOnline\Block\Adminhtml\Sync\Edit\Tab\Payment $block
+ */
+?>
+<div class="entry-edit form-inline" id="mp_mapping">
+    <fieldset class="fieldset admin__fieldset " id="base_fieldset">
+        <legend class="admin__legend legend">
+            <span><?= /** @noEscape */ __('Payment Method List')?></span>
+        </legend><br>
+        <table id="mp-mapping-table" style="width: 100%">
+            <thead>
+            <tr class="grid">
+                <th><?= /** @noEscape */ __('Select')?></th>
+                <th><?= /** @noEscape */ __('Code')?></th>
+                <th><?= /** @noEscape */ __('Title')?></th>
+            </tr>
+            </thead>
+            <tbody id="mapping-body">
+                <?php foreach ($block->getAllPaymentMethod() as $code => $payment): ?>
+                    <tr style="text-align: center">
+                        <td>
+                            <input type="checkbox" name="sync[mapping][]" value="<?= $block->escapeHtml($code) ?>"
+                            <?php if (in_array($code, $block->getPaymentAdded(), true)): ?>
+                                    checked
+                            <?php endif; ?>
+                            >
+                        </td>
+                        <td><?= /** @noEscape */ $code ?></td>
+                        <td><?= /** @noEscape */ $payment ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </fieldset>
+</div>

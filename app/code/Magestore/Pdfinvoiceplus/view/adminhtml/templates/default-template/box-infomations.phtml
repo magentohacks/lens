@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\TemplateBuilder\BoxInformations $block */
+$businessInfo = $block->getBusinessInfo();
+$businessContact = $block->getBusinessContact();
+?>
+<div class="box-infomations autogrow color-text contenteditable"
+     title="Click to edit, Right-click to insert variable" contextmenu-type="main"
+     contenteditable="true">
+
+    <!-- company_name -->
+    <?php if ($businessInfo->getData('company_name')): ?>
+        <span class="info-label pdf-heading-text color-text dynamic-text-color company-name" title="Click to edit, right-click to insert variable"
+              info-text="company_name">
+                        <?php echo $businessInfo->getData('company_name') ?>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /company_name -->
+
+    <!-- company_address -->
+    <?php if ($businessInfo->getData('company_address')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong><?php echo $block->translate('Address:') ?> </strong>
+                        <info info-text="company_address"><?php echo $businessInfo->getData('company_address') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /company_address -->
+
+    <!-- company_email -->
+    <?php if ($businessContact->getData('company_email')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong ><?php echo $block->translate('Email:') ?> </strong>
+                        <info info-text="company_email"> <?php echo $businessContact->getData('company_email') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /company_email -->
+
+    <!-- company_telephone -->
+    <?php if ($businessContact->getData('company_phone')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong><?php echo $block->translate('Tel:') ?> </strong>
+                        <info info-text="company_telephone"><?php echo $businessContact->getData('company_phone') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /company_telephone -->
+
+    <!-- company_fax -->
+    <?php if ($businessContact->getData('company_fax')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable"
+        >
+                        <strong><?php echo $block->translate('Fax:') ?> </strong>
+                        <info info-text="company_fax"><?php echo $businessContact->getData('company_fax') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /company_fax -->
+
+    <!-- business_id -->
+    <?php if ($businessInfo->getData('business_id')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong><?php echo $block->translate('Business Id:') ?> </strong>
+                        <info info-text="business_id"><?php echo $businessInfo->getData('business_id') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /business_id -->
+
+    <!-- vat_number -->
+    <?php if ($businessInfo->getData('vat_number')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong><?php echo $block->translate('VAT Number:') ?> </strong>
+                        <info info-text="vat_number"><?php echo $businessInfo->getData('vat_number') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /vat_number -->
+
+    <!-- vat_office -->
+    <?php if ($businessInfo->getData('vat_office')): ?>
+        <span class="info-label pdf-body-text color-text"  title="Click to edit, right-click to insert variable">
+                        <strong><?php echo $block->translate('VAT Office:') ?> </strong>
+                        <info info-text="vat_office"><?php echo $businessInfo->getData('vat_office') ?></info>
+                    </span><br/>
+    <?php endif; ?>
+    <!-- /vat_office -->
+
+</div>

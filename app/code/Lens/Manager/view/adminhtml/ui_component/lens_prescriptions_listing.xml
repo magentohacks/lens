@@ -1,0 +1,135 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">lens_prescriptions_listing.lens_prescriptions_listing_data_source</item>
+            <item name="deps" xsi:type="string">lens_prescriptions_listing.lens_prescriptions_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+    </argument>
+    <dataSource name="lens_prescriptions">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">lens_prescriptions_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">entity_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters" />
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="spinner_columns">
+        <column name="gtin">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sortOrder" xsi:type="number">2</item>
+                    <item name="label" xsi:type="string" translate="true">GTIN Number</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Product SKU</item>
+                </item>
+            </argument>
+        </column>
+        <column name="addition">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Addition</item>
+                </item>
+            </argument>
+        </column>
+        <column name="axis">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Axis</item>
+                </item>
+            </argument>
+        </column>
+        <column name="basecurve">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Base Curve</item>
+                </item>
+            </argument>
+        </column>
+        <column name="cylinder">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Cylinder</item>
+                </item>
+            </argument>
+        </column>
+        <column name="diameter">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Diameter</item>
+                </item>
+            </argument>
+        </column>
+        <column name="dominance">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Dominance</item>
+                </item>
+            </argument>
+        </column>
+        <column name="power">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Power</item>
+                </item>
+            </argument>
+        </column>
+        <column name="quantity">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="label" xsi:type="string" translate="true">Quantity</item>
+                </item>
+            </argument>
+        </column>
+        <column name="update_at" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="label" xsi:type="string" translate="true">Last Updated At</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

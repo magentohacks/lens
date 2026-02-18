@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magiccart
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magepow.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magiccart
+ * @package     Magiccart_Campaignbar
+ * @copyright   Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @license     http://www.magepow.com/license-agreement.html
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<!-- <head>
+		<css src="Magiccart_Campaignbar::css/hyva.css"/>
+    </head> -->
+	<body>
+		<referenceContainer name="page.wrapper">
+	    	<block class="Magiccart\Campaignbar\Block\Bar" ifconfig="magiccart_campaignbar/header/enabled" name="campaignbar.header" before="-" template="campaign-header.phtml" />
+	    </referenceContainer>
+	    <referenceContainer name="before.body.end">
+	    	<block class="Magiccart\Campaignbar\Block\Bar" ifconfig="magiccart_campaignbar/footer/enabled" name="campaignbar.footer" template="campaign-footer.phtml" />
+	    </referenceContainer>
+	</body>
+</page>

@@ -1,0 +1,21 @@
+<!--@subject {{var company_name}} - New message for return #{{var rma_reference}} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Dear {{var rma_customer_name}}</p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>Our customer service post a new message for the return #{{var rma_reference}} : </p>
+            <p>&nbsp;</p>
+            <p><i>{{var rmm_message}} </i></p>
+            <p>&nbsp;</p>
+            <p>You can retrieve the full thread and reply from your customer account</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

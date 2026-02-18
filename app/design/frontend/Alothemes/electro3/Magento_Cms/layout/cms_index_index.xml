@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    	<referenceContainer name="page.top">
+    		<block class="Magento\Cms\Block\Block" name="block.slider"> 
+		        <arguments> 
+		            <argument name="block_id" xsi:type="string">slider-primary-home-3</argument> 
+		        </arguments> 
+		    </block> 
+    	</referenceContainer>
+    	<referenceContainer name="page.bottom.container">
+            
+            <block class="Magento\Cms\Block\Block" name="top.categories.this-month">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">top-categories-this-month</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="block.content.bottom">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block-content-bottom</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>	
+</page>

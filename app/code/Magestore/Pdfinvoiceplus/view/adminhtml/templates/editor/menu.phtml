@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\Design\Editor\Menu $block */
+?>
+<div class="header-menu"
+     data-mage-init='{
+        "menuWrapper": {
+            "saveHtmlUrl": "<?php echo $block->getSaveHtmlUrl(['isAjax' => true]); ?>",
+            "editHtmlUrl": "<?php echo $block->getAdvanceEditHtmlUrl(); ?>",
+            "backUrl": "<?php echo $block->getBackUrl(); ?>",
+            "changeBackgroundUrl": "<?php echo $block->getChangeBackgroundUrl(); ?>",
+            "indicatorImageUrl": "<?php echo $block->getIndicatorImageUrl(); ?>",
+            "saveData": {
+                "template_id": "<?php echo $block->getPdfTemplateId(); ?>",
+                "design_type": "<?php echo $block->getDesignType(); ?>",
+                "form_key": "<?php echo $block->getFormKey(); ?>"
+            },
+            "syncInfoResetUrl": "<?php echo $block->getSyncInfoResetTemplateUrl(); ?>"
+         }
+     }'>
+    <div class="header">
+        <ul style="margin: 0 5%; height: 50px; width: 90%; ">
+            <li class="header-item">
+                <span class="back back-action"><?php echo __('Back'); ?></span>
+            </li>
+            <?php if (!$block->isSizeA6OrA7()): ?>
+                <li class="header-item">
+                    <a class="changebackground"
+                       id="changebackground"
+                       data-upload-image-url="<?php echo $block->getChangeBackgroundUrl(); ?>"
+                       style="text-decoration: none; ">
+                        <?php echo __('Background Image') ?>
+                    </a>
+                </li>
+                <li id='docs' class="header-item">
+                    <div class="container demo-1">
+                        <div class="column">
+                            <div id="dl-menu" data-mage-init='{"dlmenu": {}}' class="dl-menuwrapper">
+                                <button class="dl-trigger">Open Menu</button><?php echo __('  Body Background') ?>
+                                <ul class="dl-menu">
+                                    <li id='docs' class="header-item">
+                                        <?php echo __('Heading Block  ') ?>
+                                        <input id="full" title="<?php echo __('Heading Block  ') ?>"/>
+                                    </li>
+                                    <li id='docs' class="header-item">
+                                        <?php echo __('Body Block  ') ?>
+                                        <input id="backgrounditems" title="<?php echo __('Body Block  ') ?>"/>
+                                    </li>
+                                </ul>
+                            </div><!-- /dl-menuwrapper -->
+                        </div>
+
+                    </div><!-- /container -->
+                </li>
+                <li id='docs' class="header-item">
+                    &nbsp;&nbsp;&nbsp;<?php echo __('Heading Text  ') ?>
+                    &nbsp;&nbsp;&nbsp;<input id="change-title" title="<?php echo __('Heading Text  ') ?>"/>
+                </li>
+                <li id='docs' class="header-item">
+                    <?php echo __('Body Text  ') ?><input id="change-text" title="<?php echo __('Body Text  ') ?>"/>
+                </li>
+            <?php endif; ?>
+
+            <li class="header-item" style="float:right;">
+                <span class="save save-action"><?php echo __('Save'); ?></span>
+            </li>
+            <li class="header-item" style="float:right;">
+                <span class="edit edit-action" title="Click to edit with HTML"><?php echo __('Edit Manually'); ?></span>
+            </li>
+            <li class="header-item" style="float:right;">
+                <span class="load load-action" title="Click to reload default template">
+                    <?php echo __('Reset'); ?>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    window.form_key = '<?php echo $block->getFormKey(); ?>';
+</script>

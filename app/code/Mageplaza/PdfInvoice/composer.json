@@ -1,0 +1,28 @@
+{
+  "name": "mageplaza/module-pdf-invoice",
+  "description": "Magento 2 Pdf Invoice Extension",
+  "require": {
+    "mageplaza/module-core": "^1.5.13",
+    "mpdf/mpdf": "*",
+    "horstoeko/zugferd": "^1.0.115"
+  },
+  "type": "magento2-module",
+  "version": "4.7.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mageplaza",
+      "email": "support@mageplaza.com",
+      "homepage": "https://www.mageplaza.com",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Mageplaza\\PdfInvoice\\": ""
+    }
+  }
+}

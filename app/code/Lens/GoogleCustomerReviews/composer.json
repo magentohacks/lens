@@ -1,0 +1,25 @@
+{
+  "name": "lens/google-customer-reviews",
+  "description": "Magento 2.0 Google Customer Reviews Integration",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+  },
+  "type": "magento2-module",
+  "license": "Commercial",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Lens Google Customer Reviews",
+      "email": "hemant22jain@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Lens\\GoogleCustomerReviews\\": ""
+    }
+  }
+}
+

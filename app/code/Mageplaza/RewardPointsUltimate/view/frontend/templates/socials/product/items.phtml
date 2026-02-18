@@ -1,0 +1,102 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_RewardPointsUltimate
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var Mageplaza\RewardPointsUltimate\Block\Socials\Share\Product $block */
+if ($block->isEnabled()): ?>
+    <div class="rw-header" style="text-align: center; margin: 40px 0;">
+        <h3><?php echo __('EARN REWARDS FOR SHARING YOUR PURCHASE.') ?></h3>
+    </div>
+    <div class="products-grid">
+        <script>
+            require([
+                "prototype",
+                "Mageplaza_RewardPointsUltimate/js/socials"
+            ], function () {
+                mpSocials = new MpSocials();
+            });
+        </script>
+        <?php /* @escapeNotVerified */
+        echo $this->helper('Mageplaza\RewardPointsUltimate\Helper\Data')->getFacebookScript($block->getAppId()); ?>
+        <?php /* @escapeNotVerified */
+        echo $this->helper('Mageplaza\RewardPointsUltimate\Helper\Data')->getTwitterScript(); ?>
+        <?php $iterator = 1; ?>
+        <?php if (count($block->getItems())): ?>
+            <ol class="product-items">
+                <?php $isBindEvent = true ?>
+                <?php foreach ($block->getItems() as $item): ?>
+                    <?php $productUrl = $item->getProduct()->getProductUrl(); ?>
+                    <?php /* @escapeNotVerified */
+                    echo ($iterator++ == 1) ?
+                        '<li data-row="product-item" class="product-item" id="item_' . $item->getId() . '">' :
+                        '</li><li class="product-item" id="item_' . $item->getId() . '">'
+                    ?>
+                    <div class="product-item-info">
+                        <?php foreach ($block->getChildBlocks() as $child): ?>
+                            <?php
+                            $child->setItem($item);
+                            echo $child->toHtml($item);
+                            ?>
+                        <?php endforeach; ?>
+
+                        <div class="mp-socials" style="height: 40px;">
+                            <?php if ($block->isEnabledFacebookShare()): ?>
+                                <div class="fb-share-button" style="float:left;  margin:5px;">
+                                    <a onclick="shareFacebook('<?php /* @escapeNotVerified */
+                                    echo $productUrl; ?>')">
+                                        <img src="<?php /* @escapeNotVerified */
+                                        echo $block->getViewFileUrl('Mageplaza_RewardPointsUltimate::images/facebook.gif') ?>"
+                                             alt="facebook" style="height: 20px;cursor: pointer"/>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($block->isEnabledTwitterShare()): ?>
+                                <?php /* @escapeNotVerified */
+                                echo $this->helper('Mageplaza\RewardPointsUltimate\Helper\Data')
+                                    ->getTwitterButton($block->getUrl('customer/socials/tweet'), $productUrl, $isBindEvent);
+                                $isBindEvent = false;
+                                ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <?php echo ($iterator == count($block->getItems()) + 1) ? '</li>' : '' ?>
+                <?php endforeach; ?>
+                <script>
+                    function shareFacebook(productUrl) {
+                        FB.ui(
+                            {
+                                method: 'share',
+                                href: productUrl,
+                            }, function (response) {
+                                if (Array.isArray(response)) {
+                                    var shareUrl = '<?php /* @escapeNotVerified */ echo $block->getUrl('customer/socials_facebook/share') ?>';
+                                    mpSocials.sendAjax(shareUrl, productUrl);
+                                }
+                            }
+                        );
+                    }
+                </script>
+            </ol>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+

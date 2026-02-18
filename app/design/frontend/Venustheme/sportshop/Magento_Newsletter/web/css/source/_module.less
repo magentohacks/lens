@@ -1,0 +1,91 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//    Common
+//--------------------------------------
+
+& when (@media-common = true) {
+
+//
+//    Newsletter subscription
+//--------------------------------------
+.block.newsletter {text-align: center;
+    .block-title{text-align: center;}
+    .form.subscribe {
+        display: table;
+        width: 100%;
+        position: relative;
+    }
+    .fieldset {
+        display: table-cell;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+    }
+    .field {
+        margin: 0;
+        .control {
+            padding-top: 22px;
+            .lib-icon-font(
+                @icon-envelope,
+                @_icon-font-size: 16px,
+                @_icon-font-line-height: 32px,
+                @_icon-font-color: @form-element-input-placeholder__color
+            );
+            &:before {
+                position: absolute;
+                padding-top: 5px;
+                .rtl-left(10px);
+            }
+            display: block;
+            div.mage-error[generated]{position: absolute; top: 100%;}
+        }
+    }
+    input {
+        .rtl-padding-left(35px);
+        height: 44px;
+        width: 77%;
+        .float-left();
+        color: @theme-color-three;
+        font-size: @font-size-base - 2;
+        font-weight: 300;
+        border: none;
+        .border-radius(3px);
+    }
+    .title {
+        display: none;
+    }
+    .label {
+        width: 100%;
+        span{
+            font-weight: normal;
+            white-space:normal; 
+            line-height: 25px;
+            font-size: @font-size-base + 2;
+            color: rgba(255,255,255,0.7);
+        }
+    }
+    .actions {
+        vertical-align: top;
+        position: absolute;
+        .rtl-right(0);
+        bottom:0;
+    }
+    .action.subscribe {
+        color: @white;
+        font-size: @font-size-base + 1;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-family: 'Poppins', sans-serif;
+        border:0;
+        line-height: 30px;
+        height: 44px;
+        .border-radius(3px);
+    }
+}
+
+}
+

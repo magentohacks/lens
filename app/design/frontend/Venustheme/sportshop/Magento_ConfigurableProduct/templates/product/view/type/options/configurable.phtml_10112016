@@ -1,0 +1,115 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php
+/** @var $block \Magento\ConfigurableProduct\Block\Product\View\Type\Configurable*/
+$_product    = $block->getProduct();
+$_attributes = $block->decorateArray($block->getAllowAttributes());
+?>
+
+<?php //if ($_product->isSaleable() && count($_attributes)):?>
+
+
+<div style="width:100%; float:left;">
+	<div style="font-weight: bold;font-size: 20px;border-bottom:1px solid #00adef;height: 35px;padding: 5px 0px 0px 0px;"><?php echo __('Enter Your Prescription');?></div>
+	<div style="float: left;margin-top: 20px;margin-bottom: 10px;">
+		<ul>
+			<li style="padding-top: 5px;"><?php echo __('Eye');?></li>
+			<?php foreach ($_attributes as $_attribute): ?>
+			<li style="padding-top: 10px;"><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<div style="float: left;margin-left: 15%;margin-top: 20px;margin-bottom: 10px;">
+		<ul>
+			<li><input type="checkbox" checked="checked"><label style="font-weight: normal;font-size: 15px;padding-left: 10px;"><?php echo __('Right Eye');?></label></li>
+			<?php foreach ($_attributes as $_attribute): ?>
+			<li>
+				<select style="border: 1px solid #00adef;color: #00adef;" name="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+				        data-selector="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+				        data-validate="{required:true}"
+				        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+				        class="super-attribute-select-right">
+				    <option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+				</select>
+			</li>
+			<?php endforeach;?>
+			
+		</ul>
+	</div>
+	<div style="float: left;margin-left: 10%;margin-top: 20px;margin-bottom: 10px;">
+		<ul>
+			<li><input type="checkbox" checked="checked"><label style="font-weight: normal;font-size: 15px;padding-left: 10px;"><?php echo __('Left Eye');?></label></li>
+			<?php foreach ($_attributes as $_attribute): ?>
+			<li>
+				<select style="border: 1px solid #00adef;color: #00adef;" name="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+				        data-selector="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+				        data-validate="{required:true}"
+				        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+				        class="super-attribute-select">
+				    <option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+				</select>
+			</li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	
+</div>
+<div style="clear:both;">&nbsp;</div>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+  <!--  <?php foreach ($_attributes as $_attribute): ?>
+        <div class="field configurable required">
+            <label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+                <span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+            </label>
+            <div class="control">
+                <select name="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-selector="left[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-validate="{required:true}"
+                        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select">
+                    <option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+                </select>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <?php foreach ($_attributes as $_attribute): ?>
+        <div class="field configurable required">
+            <label class="label" for="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>">
+                <span><?php echo $block->escapeHtml($_attribute->getProductAttribute()->getStoreLabel()) ?></span>
+            </label>
+            <div class="control">
+                <select name="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-selector="right[super_attribute][<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>]"
+                        data-validate="{required:true}"
+                        id="attribute<?php /* @escapeNotVerified */ echo $_attribute->getAttributeId() ?>"
+                        class="super-attribute-select-right">
+                    <option value=""><?php /* @escapeNotVerified */ echo __('Choose an Option...') ?></option>
+                </select>
+            </div>
+        </div>
+    <?php endforeach; ?>
+-->		
+    <script type="text/x-magento-init">
+        {
+            "#product_addtocart_form": {
+                "configurable": {
+                    "spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+                    "onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_ConfigurableProduct') ?: 'false'; ?>
+                },
+		"customconfigurable": {
+                    "spConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>,
+                    "onlyMainImg": <?php /* @escapeNotVerified */ echo $block->getVar('change_only_base_image', 'Magento_ConfigurableProduct') ?: 'false'; ?>
+                }
+            }
+        }
+    </script>
+<?php endif;?>
+

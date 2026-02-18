@@ -1,0 +1,18 @@
+/**
+ * Main observables equality comparer replacement
+ */
+
+define([
+    'Amasty_CheckoutCore/js/action/is-equal-ignore-functions'
+], function (isEqualIgnoreFunctions) {
+    'use strict';
+
+    return function (quote) {
+        quote.shippingAddress.equalityComparer = isEqualIgnoreFunctions;
+        quote.billingAddress.equalityComparer = isEqualIgnoreFunctions;
+        quote.shippingMethod.equalityComparer = isEqualIgnoreFunctions;
+        quote.paymentMethod.equalityComparer = isEqualIgnoreFunctions;
+
+        return quote;
+    };
+});

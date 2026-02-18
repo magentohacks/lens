@@ -1,0 +1,13 @@
+.catalog-category-view .page-wrapper .product-block .product.product-item-details,
+.vesbrand-brand-view .page-wrapper .product-block .product.product-item-details,
+.catalogsearch-result-index  .page-wrapper .product-block .product.product-item-details {
+    padding: 0px!important;
+}
+#search_mini_form div#search_autocomplete {
+    overflow-y: scroll;
+    height: 250px;
+}
+.onestepcheckout-index-index .table-totals .totals-tax,
+.checkout-cart-index .table.totals .totals-tax {
+    display: none;
+}

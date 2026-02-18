@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Customweb\BarclaycardCw\Api\TransactionRepositoryInterface" type="Customweb\BarclaycardCw\Model\Service\TransactionRepository" />
+	<preference for="Customweb\BarclaycardCw\Api\TransactionManagementInterface" type="Customweb\BarclaycardCw\Model\Service\TransactionManagement" />
+	<preference for="Customweb\BarclaycardCw\Api\Data\TransactionInterface" type="Customweb\BarclaycardCw\Model\Service\Transaction" />
+	<preference for="Customweb\BarclaycardCw\Api\Data\TransactionDataInterface" type="Customweb\BarclaycardCw\Model\Service\TransactionData" />
+	<preference for="Customweb\BarclaycardCw\Api\Data\TransactionSearchResultInterface" type="Magento\Framework\Api\SearchResults" />
+	
+	<preference for="Customweb\BarclaycardCw\Api\GuestCheckoutManagementInterface" type="Customweb\BarclaycardCw\Model\Service\GuestCheckoutManagement" />
+    <preference for="Customweb\BarclaycardCw\Api\CheckoutManagementInterface" type="Customweb\BarclaycardCw\Model\Service\CheckoutManagement" />
+    <preference for="Customweb\BarclaycardCw\Api\Data\AuthorizationDataInterface" type="Customweb\BarclaycardCw\Model\Service\AuthorizationData" />
+    <preference for="Customweb\BarclaycardCw\Api\Data\AuthorizationFormFieldInterface" type="Customweb\BarclaycardCw\Model\Service\AuthorizationFormField" />
+    <preference for="Customweb\BarclaycardCw\Api\Data\PaymentFormInterface" type="Customweb\BarclaycardCw\Model\Service\PaymentForm" />
+	
+	<type name="Magento\Framework\App\Http">
+   		<plugin name="barclaycardcw_bootstrap" type="\Customweb\BarclaycardCw\Plugin\Framework\App\Http"/>
+    </type>
+	
+	<type name="Customweb\BarclaycardCw\Controller\Customer\Aliases">
+        <plugin name="barclaycardcw_authentication" type="\Customweb\BarclaycardCw\Controller\Customer\Plugin\Authentication"/>
+    </type>
+    <type name="Customweb\BarclaycardCw\Controller\Customer\DeleteAlias">
+        <plugin name="barclaycardcw_authentication" type="\Customweb\BarclaycardCw\Controller\Customer\Plugin\Authentication"/>
+    </type>
+	
+    <type name="Magento\Sales\Model\Order">
+        <plugin name="barclaycardcw_transaction_update_flag" type="Customweb\BarclaycardCw\Plugin\Sales\Model\Order"/>
+    </type>
+    <virtualType name="CustomwebBarclaycardCwIndexGridSyncRemove" type="Customweb\BarclaycardCw\Observer\GridSyncRemoveObserver">
+        <arguments>
+            <argument name="entityGrid" xsi:type="object">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CustomwebBarclaycardCwIndexGridSyncInsert" type="Customweb\BarclaycardCw\Observer\GridSyncInsertObserver">
+        <arguments>
+            <argument name="entityGrid" xsi:type="object">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CustomwebBarclaycardCwIndexGridAsyncInsert" type="Magento\Sales\Model\GridAsyncInsert">
+        <arguments>
+            <argument name="entityGrid" xsi:type="object">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CustomwebBarclaycardCwIndexGridAsyncInsertObserver" type="Magento\Sales\Observer\GridAsyncInsertObserver">
+        <arguments>
+            <argument name="asyncInsert" xsi:type="object">CustomwebBarclaycardCwIndexGridAsyncInsert</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="CustomwebBarclaycardCwIndexGridAsyncInsertCron" type="Magento\Sales\Cron\GridAsyncInsert">
+        <arguments>
+            <argument name="asyncInsert" xsi:type="object">CustomwebBarclaycardCwIndexGridAsyncInsert</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="mainTableName" xsi:type="string">customweb_barclaycardcw_transaction</argument>
+            <argument name="gridTableName" xsi:type="string">customweb_barclaycardcw_transaction_grid</argument>
+            <argument name="orderIdField" xsi:type="string">customweb_barclaycardcw_transaction.order_id</argument>
+            <argument name="joins" xsi:type="array">
+            	<item name="sales_order" xsi:type="array">
+                    <item name="table" xsi:type="string">sales_order</item>
+                    <item name="origin_column" xsi:type="string">order_id</item>
+                    <item name="target_column" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <argument name="columns" xsi:type="array">
+                <item name="entity_id" xsi:type="string">customweb_barclaycardcw_transaction.entity_id</item>
+                <item name="store_id" xsi:type="string">customweb_barclaycardcw_transaction.store_id</item>
+                <item name="order_id" xsi:type="string">customweb_barclaycardcw_transaction.order_id</item>
+                <item name="order_increment_id" xsi:type="string">sales_order.increment_id</item>
+                <item name="customer_name" xsi:type="object">CustomerNameAggregator</item>
+                <item name="payment_method" xsi:type="string">customweb_barclaycardcw_transaction.payment_method</item>
+                <item name="authorization_type" xsi:type="string">customweb_barclaycardcw_transaction.authorization_type</item>
+                <item name="increment_id" xsi:type="string">customweb_barclaycardcw_transaction.increment_id</item>
+                <item name="created_at" xsi:type="string">customweb_barclaycardcw_transaction.created_at</item>
+                <item name="updated_at" xsi:type="string">customweb_barclaycardcw_transaction.updated_at</item>
+                <item name="payment_id" xsi:type="string">customweb_barclaycardcw_transaction.payment_id</item>
+                <item name="authorization_amount" xsi:type="string">customweb_barclaycardcw_transaction.authorization_amount</item>
+                <item name="authorization_status" xsi:type="string">customweb_barclaycardcw_transaction.authorization_status</item>
+                <item name="currency" xsi:type="string">customweb_barclaycardcw_transaction.currency</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customweb_barclaycardcw_transaction_grid</argument>
+            <argument name="resourceModel" xsi:type="string">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="barclaycardcw_transaction_grid_data_source" xsi:type="string">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\GridPool">
+        <arguments>
+            <argument name="grids" xsi:type="array">
+                <item name="customweb_barclaycardcw_transaction_grid" xsi:type="object">Customweb\BarclaycardCw\Model\ResourceModel\Authorization\Transaction\Grid</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\SalesSequence\Model\EntityPool">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="barclaycardcw_trx" xsi:type="string">barclaycardcw_trx</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

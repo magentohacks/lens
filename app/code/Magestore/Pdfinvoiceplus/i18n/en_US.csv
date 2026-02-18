@@ -1,0 +1,148 @@
+Insert variable into Order filename,"Insert variable into Order filename"
+Insert variable into Invoice filename,"Insert variable into Invoice filename"
+Insert variable into Credit Memo filename,"Insert variable into Credit Memo filename"
+Name to save PDF order,"Name to save PDF order"
+Information encoded in Barcode on printed Order ,"Information encoded in Barcode on printed Order "
+To save an Order with custom filename, including customer’s name, date, etc.,"To save an Order with custom filename, including customer’s name, date, etc."
+To choose information encoded in barcode on printed order, including customer’s name, date, etc.,"To choose information encoded in barcode on printed order, including customer’s name, date, etc."
+Name to save PDF invoice,"Name to save PDF invoice"
+Information encoded in Barcode on printed Invoice,"Information encoded in Barcode on printed Invoice"
+Name to save PDF credit memo,"Name to save PDF credit memo"
+Information encoded in Barcode on printed Credit Memo,"Information encoded in Barcode on printed Credit Memo"
+ID,"ID"
+Name,"Name"
+Store view,"Store view"
+Status,"Status"
+Action,"Action"
+Template Name,"Template Name"
+Insert Variable,"Insert Variable"
+Name to save PDF file,"Name to save PDF file"
+To save an invoice with custom name including: customer’s name, date, etc.,"To save an invoice with custom name including: customer’s name, date, etc."
+Business ID,"Business ID"
+Address,"Address"
+Logo,"Logo"
+Email,"Email"
+Phone,"Phone"
+Fax,"Fax"
+Note,"Note"
+Footer ,"Footer "
+Terms and Conditions,"Terms and Conditions"
+Choose Template's color,"Choose Template's color"
+Store view(s),"Store view(s)"
+Type of Barcode,"Type of Barcode"
+Show Product Image,"Show Product Image"
+Paper Size,"Paper Size"
+Print Custom PDF File,"Print Custom PDF File"
+The most ideal logo size is 160x40 pixels. Logo will be used in PDF and HTML document (jpeg, tiff, png).,"The most ideal logo size is 160x40 pixels. Logo will be used in PDF and HTML document (jpeg, tiff, png)."
+Use the default color of the template selected in tab Template,"Use the default color of the template selected in tab Template"
+Preview,"Preview"
+Select a Template to apply ,"Select a Template to apply "
+Template is successfully uploaded!,"Template is successfully uploaded!"
+Upload template <choose file> No file chosen,"Upload template <choose file> No file chosen"
+Print Custom PDF Invoice,"Print Custom PDF Invoice"
+Print Custom PDF Credit Memo,"Print Custom PDF Credit Memo"
+Print Custom PDF Order,"Print Custom PDF Order"
+Add New PDF Template,Add New PDF Template
+Save PDF Template,Save PDF Template
+Save and Continue Edit,Save and Continue Edit
+Save and New,Save and New
+PDF Template Information,PDF Template Information
+Insert Variable...,Insert Variable...
+Edit Design,Edit Design
+Preview Design,Preview Design
+Creditmemo,Creditmemo
+Credit Memo Design,Credit Memo Design
+General Information,General Information
+Language,Language
+Select Design,Select Design
+"To choose and preview a template design </br> that you will use.", "To choose and preview a template design </br> that you will use."
+Show Barcode,Show Barcode
+View example,View example
+Barcode Type,Barcode Type
+Orientation,Orientation
+Invoice,Invoice
+Invoice Design,Invoice Design
+Order,Order
+Order Design,Order Design
+" [deleted]"," [deleted]"
+All Store Views,All Store Views
+PDF Invoiceplus,PDF Invoiceplus
+Manage PDF Template,Manage PDF Template
+Customer,Customer
+This PDF Template no longer exists.,This PDF Template no longer exists.
+Save success,Save success
+Something went wrong while saving the PDF Tempalte.,Something went wrong while saving the PDF Tempalte.
+The PDF Tempalte has been saved.,The PDF Tempalte has been saved.
+You deleted the PDF Template.,You deleted the PDF Template.
+"We can't find a PDF Template to delete.", "We can't find a PDF Template to delete."
+New PDF Template,New PDF Template
+Please select PDF Template(s).,Please select PDF Template(s).
+A total of %1 record(s) have been deleted., A total of %1 record(s) have been deleted.
+A total of %1 record(s) have been updated., A total of %1 record(s) have been updated.
+The PDF Template has been saved., The PDF Template has been saved.
+"Can' preview PDF template !", "Can' preview PDF template !"
+You have no creditmemos PDF file., You have no creditmemos PDF file.
+You have no invoices PDF file., You have no invoices PDF file.
+You have no orders PDF file., You have no orders PDF file.
+The class uploader is invalid !, The class uploader is invalid !
+Invalid agurment $object!, Invalid agurment $object!
+Portrait,Portrait
+Landscape,Landscape
+Letter,Letter
+Yes,Yes
+No,No
+Active,Active
+Inactive,Inactive
+Product image,Product image
+Product weight,Product weight
+Product short description,Product short description
+Product url path,Product url path
+Product options,Product options
+Pending,Pending
+Paid,Paid
+Closed,Closed
+Billing Address,Billing Address
+Shipping Address,Shipping Address
+Billing Method,Billing Method
+Order was placed using,Order was placed using
+Shipping Information,Shipping Information
+Payment Method,Payment Method
+Shipping Method,Shipping Method
+Currency,Currency
+Print Custom Order,Print Custom Order
+Print Custom Invoice,Print Custom Invoice
+Print Custom Creditmemo,Print Custom Creditmemo
+Advanced Edit | Template %1, Advanced Edit | Template %1
+Save,Save
+Reset,Reset
+Loading,Loading
+Please wait,Please wait
+Select All,Select All
+Unselect All ,Unselect All
+Edit Design | Template %1, Edit Design | Template %1
+Back,Back
+Background Image,Background Image
+Body Background,Body Background
+Heading Block  ,Heading Block
+Body Block  ,Body Block
+Heading Text  ,Heading Text
+Edit Manually,Edit Manually
+Body Text  ,Body Text
+Print All Refunds,Print All Refunds
+Refund #,Refund #
+Print Refund,Print Refund
+Items Refunded,Items Refunded
+Product Name,Product Name
+SKU,SKU
+Price,Price
+Qty,Qty
+Subtotal,Subtotal
+Discount Amount,Discount Amount
+Row Total,Row Total
+Print All Invoices,Print All Invoices
+Invoice #,Invoice #
+Print Invoice,Print Invoice
+Items Invoiced,Items Invoiced
+Qty Invoiced,Qty Invoiced
+Reorder,Reorder
+Print Order,Print Order

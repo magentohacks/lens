@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+
+        <add id="BoostMyShop_Erp::main_menu" title="Embedded ERP" module="BoostMyShop_Erp" sortOrder="17" resource="BoostMyShop_Erp::main_menu" />
+
+        <add id="BoostMyShop_Erp::home" title="Home" module="BoostMyShop_Erp" parent="BoostMyShop_Erp::main_menu" sortOrder="1" resource="BoostMyShop_Erp::home"/>
+        <add id="BoostMyShop_Erp::products" title="Products" module="BoostMyShop_Erp" parent="BoostMyShop_Erp::home" action="erp/products" sortOrder="1" resource="BoostMyShop_Erp::products"/>
+
+        <remove id="BoostMyShop_Supplier::main_menu" />
+
+        <update id="BoostMyShop_Supplier::operations" parent="BoostMyShop_Erp::main_menu" />
+        <update id="BoostMyShop_AdvancedStock::operation" parent="BoostMyShop_Erp::main_menu" />
+        <update id="BoostMyShop_OrderPreparation::operation" parent="BoostMyShop_Erp::main_menu" />
+
+
+    </menu>
+</config>

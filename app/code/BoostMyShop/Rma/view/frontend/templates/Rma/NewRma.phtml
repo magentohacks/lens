@@ -1,0 +1,71 @@
+<form name="edit_form" id="edit_form"  method="POST" action="<?php echo $this->getSubmitUrl(); ?>">
+    <input type="hidden" name="order_id" value="<?php echo $this->getOrder()->getId(); ?>">
+
+<div class="order-details-items ordered">
+
+    <div class="order-title">
+        <strong>Items Ordered</strong>
+    </div>
+
+    <div class="table-wrapper order-items">
+        <table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
+            <caption class="table-caption">Items</caption>
+            <thead>
+            <tr>
+                <th class="col sku">SKU</th>
+                <th class="col name">Product</th>
+                <th class="col qty">Qty</th>
+                <th class="col qty">Reason</th>
+                <th class="col qty">Request</th>
+                <th class="col qty">Comments</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach($this->getOrder()->getAllItems() as $item): ?>
+                <tr>
+                    <td class="col sku a-center" data-th="SKU"><?php echo $item->getsku(); ?></td>
+                    <td class="col name" data-th="Product Name">
+                        <strong class="product name product-item-name"><?php echo $item->getname(); ?></strong>
+                    </td>
+                    <td class="col sku a-center" data-th="Quantity">
+                        <select name="items[<?php echo $item->getId(); ?>][ri_qty]">
+                            <?php for($i=0;$i<=$item->getqty_ordered();$i++): ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                            <?php endfor; ?>
+                        </select>
+                    </td>
+                    <td class="col sku a-center" data-th="Reason">
+                        <select name="items[<?php echo $item->getId(); ?>][ri_reason]">
+                            <option></option>
+                            <?php foreach($this->getReasons() as $k => $v): ?>
+                                <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td class="col sku a-center" data-th="Request">
+                        <select name="items[<?php echo $item->getId(); ?>][ri_request]">
+                            <option></option>
+                            <?php foreach($this->getRequests() as $k => $v): ?>
+                                <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <td class="col sku" data-th="Comments">
+                        <textarea name="items[<?php echo $item->getId(); ?>][ri_comments]"></textarea>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<p><span class="label"><strong>Additional comments:</strong></span></p>
+<p><textarea name="additional[rma_customer_comments]"></textarea></p>
+
+<div style="float: right">
+    <button type="button" role="add-address" title="Add New Address" class="action primary add" onclick="document.getElementById('edit_form').submit();"><span><?php echo __('Submit request'); ?></span></button>
+</div>
+
+</form>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickbooksOnline
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mpquickbooks" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Quickbooks Online</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_QuickbooksOnline::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to enable this module</comment>
+                </field>
+                <field id="environment" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Environment</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>Mageplaza\QuickbooksOnline\Model\Config\Source\System\Environment</source_model>
+                </field>
+                <field id="client_id" translate="label comment" type="obscure" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client ID</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="redirect_url" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Redirect URI</label>
+                    <frontend_model>Mageplaza\QuickbooksOnline\Block\Adminhtml\System\Config\RedirectUrl</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Copy and paste this value to Authorized Redirect URIs field on Quickbooks Client ID Details</comment>
+                </field>
+                <field id="company_info" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\QuickbooksOnline\Block\Adminhtml\System\Config\CompanyInfo</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="connect" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Connect</button_label>
+                    <button_url>mpquickbooks/auth/callback</button_url>
+                    <frontend_model>Mageplaza\QuickbooksOnline\Block\Adminhtml\System\Config\Button</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment>Please save Client ID, Client Secret, Authorized Redirect URIs before Connect</comment>
+                </field>
+            </group>
+            <group id="queue_schedule" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Queue Log/Sync Schedule</label>
+                <field id="delete_queue_log" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Delete queue log after</label>
+                    <comment>day(s). If empty, Log will no logger be deleted</comment>
+                    <validate>validate-digits validate-digits-range digits-range-1-365</validate>
+                </field>
+                <field id="schedule" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sync Schedule</label>
+                    <source_model>Mageplaza\QuickbooksOnline\Model\Config\Source\System\Schedule</source_model>
+                    <comment>The time to automatically synchronize the data sent to Quickbooks Module</comment>
+                </field>
+                <field id="obj_send_per_time" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Number of Objects Sync Per Time</label>
+                    <validate>validate-digits validate-digits-range digits-range-0-1000</validate>
+                    <comment>The value is allowed to range from 1 to 1000. If empty or zero, schedule is not run.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

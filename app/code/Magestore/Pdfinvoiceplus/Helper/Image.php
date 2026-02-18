@@ -1,0 +1,214 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+namespace Magestore\Pdfinvoiceplus\Helper;
+
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\Exception\LocalizedException;
+
+
+/**
+ * @category Magestore
+ * @package  Magestore_Pdfinvoiceplus
+ * @module   Pdfinvoiceplus
+ * @author   Magestore Developer
+ */
+class Image extends \Magento\Framework\App\Helper\AbstractHelper
+{
+    /**
+     * default small image size.
+     */
+    const SMALL_IMAGE_SIZE_WIDTH = 40;
+    const SMALL_IMAGE_SIZE_HEIGHT = 30;
+
+    /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
+    protected $_objectManager;
+
+    /**
+     * @var \Magento\Framework\Filesystem\Directory\ReadInterface
+     */
+    protected $_mediaDirectory;
+
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
+     * @var \Magestore\Pdfinvoiceplus\Model\ImageUploaderFactory
+     */
+    protected $_imageUploaderFactory;
+
+    /**
+     * Block constructor.
+     *
+     * @param \Magento\Framework\App\Helper\Context $context
+     */
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context,
+        \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Framework\Filesystem $filesystem,
+        \Magestore\Pdfinvoiceplus\Model\ImageUploaderFactory $imageUploaderFactory
+    ) {
+        parent::__construct($context);
+
+        $this->_mediaDirectory = $filesystem->getDirectoryRead(DirectoryList::MEDIA);
+        $this->_objectManager = $objectManager;
+        $this->_storeManager = $storeManager;
+        $this->_imageUploaderFactory = $imageUploaderFactory;
+    }
+
+    /**
+     * get media url of image.
+     *
+     * @param string $imagePath
+     *
+     * @return string
+     */
+    public function getMediaUrlImage($imagePath = '')
+    {
+        return $this->_storeManager->getStore()
+            ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . $imagePath;
+    }
+
+    /**
+     * @param \Magento\Framework\DataObject $model
+     * @param                               $fileId
+     * @param                               $relativePath
+     * @param bool                          $makeResize
+     *
+     * @throws LocalizedException
+     */
+    public function mediaUploadImage(
+        \Magento\Framework\DataObject $model,
+        $fileId,
+        $relativePath,
+        $makeResize = false
+    ) {
+        if (!empty($_FILES[$fileId]['name'])) {
+            try {
+                /** @var \Magento\MediaStorage\Model\File\Uploader $uploader */
+                $uploader = $this->_imageUploaderFactory->create(['fileId' => $fileId]);
+                $mediaAbsolutePath = $this->_mediaDirectory->getAbsolutePath($relativePath);
+                $uploader->save($mediaAbsolutePath);
+
+                /*
+                 * resize to small image
+                 */
+                if ($makeResize) {
+                    $this->resizeImage(
+                        $mediaAbsolutePath . $uploader->getUploadedFileName(),
+                        self::SMALL_IMAGE_SIZE_WIDTH
+                    );
+                    $imagePath = $this->_getResizeImageFileName($relativePath . $uploader->getUploadedFileName());
+                } else {
+                    $imagePath = $relativePath . $uploader->getUploadedFileName();
+                }
+
+                $model->setData($fileId, $imagePath);
+            } catch (\Exception $e) {
+                throw new LocalizedException(
+                    __($e->getMessage())
+                );
+            }
+        } else {
+            if ($model->getData($fileId) && empty($model->getData($fileId . '/delete'))) {
+                $model->setData($fileId, $model->getData($fileId . '/value'));
+            } else {
+                $model->setData($fileId, '');
+            }
+        }
+    }
+
+    /**
+     * get media url of image.
+     *
+     * @param string $imagePath
+     *
+     * @return string
+     */
+    public function getSmallProductImageSrc($imagePath, $width=77, $height = 77)
+    {
+        $imageFullPath = $this->_mediaDirectory->getAbsolutePath('catalog/product'.$imagePath);
+        if(!file_exists($imageFullPath)){
+            return '';
+        }
+        $type = pathinfo($imageFullPath, PATHINFO_EXTENSION);
+        $data = file_get_contents($imageFullPath);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        return $base64;
+
+
+        // $imageFullPathNew = $this->_mediaDirectory->getAbsolutePath('PdfInvoice'.$imagePath);
+        // if(file_exists($imageFullPathNew)){
+        //     $type = pathinfo($imageFullPathNew, PATHINFO_EXTENSION);
+        //     $data = file_get_contents($imageFullPathNew);
+        //     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        //     return $base64;
+        // }
+        // /** @var \Magento\Framework\Image $image */
+        // $image = $this->_objectManager->create('Magento\Framework\Image', ['fileName' => $imageFullPath]);
+        // die('asf');
+        // $image->constrainOnly(true);
+        // $image->keepAspectRatio(true);
+        // $image->keepFrame(false);
+        // $image->resize($width, $height);
+        // $image->save($imageFullPathNew);
+        // $type = pathinfo($imageFullPathNew, PATHINFO_EXTENSION);
+        // $data = file_get_contents($imageFullPathNew);
+        // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        // return $base64;
+    }
+
+
+    /**
+     * resize image.
+     *
+     * @param      $fileName
+     * @param      $width
+     * @param null $height
+     */
+    public function resizeImage($fileName, $width, $height = null)
+    {
+        /** @var \Magento\Framework\Image $image */
+        $image = $this->_objectManager->create('Magento\Framework\Image', ['fileName' => $fileName]);
+
+        $image->constrainOnly(true);
+        $image->keepAspectRatio(true);
+        $image->keepFrame(false);
+        $image->resize($width, $height);
+        $image->save($this->_getResizeImageFileName($fileName));
+    }
+
+    /**
+     * @param $fileName
+     *
+     * @return string
+     */
+    protected function _getResizeImageFileName($fileName)
+    {
+        return dirname($fileName) . '/resize/' . basename($fileName);
+    }
+}

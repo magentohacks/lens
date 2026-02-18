@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+
+    <type name="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Inventory">
+        <plugin name="boostmyshop-advanced-stock-product-inventory-tab" type="BoostMyShop\AdvancedStock\Plugin\Block\Adminhtml\Product\Edit\Tab\Inventory" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="RefreshSalesHistory" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshSalesHistory</item>
+                <item name="RefreshQuantityToShip" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshQuantityToShip</item>
+                <item name="RefreshSellableQuantity" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RefreshSellableQuantity</item>
+                <item name="FixReservation" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\FixReservation</item>
+                <item name="CheckStockDiscrepencies" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\CheckStockDiscrepencies</item>
+                <item name="RemoveAdditionnalStockItem" xsi:type="object">BoostMyShop\AdvancedStock\Console\Command\RemoveAdditionnalStockItem</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Plugin for CatalogInventory Module -->
+
+    <!--
+    <type name="Magento\CatalogInventory\Ui\DataProvider\Product\AddQuantityFieldToCollection">
+        <plugin name="boostmyshop-advanced-stock-cataloginventory-dataprovider-product-addquantityfieldtocollection" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Ui\DataProvider\Product\AddQuantityFieldToCollection" sortOrder="1"/>
+    </type>
+    -->
+
+    <!--
+    <type name="Magento\CatalogInventory\Model\StockRegistryProvider">
+        <plugin name="boostmyshop-advanced-stock-cataloginventory-stockregistryprovider" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\StockRegistryProvider" sortOrder="1"/>
+    </type>
+    -->
+
+    <!--
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Indexer\Stock\DefaultStock">
+        <plugin name="boostmyshop-advanced-stock-cataloginventory-indexer-stock-defaultstock" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Model\ResourceModel\Indexer\Stock\DefaultStock" sortOrder="1"/>
+    </type>
+    -->
+
+    <!--
+    <type name="Magento\CatalogInventory\Helper\Stock">
+        <plugin name="boostmyshop-advanced-stock-cataloginventory-helper-stock" type="BoostMyShop\AdvancedStock\Plugin\CatalogInventory\Helper\Stock" sortOrder="1"/>
+    </type>
+    -->
+
+    <!-- Plugin for Supplier / Procurement Module -->
+
+    <type name="BoostMyShop\Supplier\Model\StockUpdater">
+        <plugin name="boostmyshop-advanced-stock-supplier-stock-updated" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\StockUpdater" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Source\Warehouse">
+        <plugin name="boostmyshop-advanced-stock-supplier-source-warehouse" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Source\Warehouse" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Product">
+        <plugin name="boostmyshop-advanced-stock-supplier-product" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Product" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\ResourceModel\Replenishment\Collection">
+        <plugin name="boostmyshop-advanced-stock-supplier-replenishment-collection" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\ResourceModel\Replenishment\Collection" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\Supplier\Model\Pdf\Order">
+        <plugin name="boostmyshop-advanced-stock-supplier-pdf-order" type="BoostMyShop\AdvancedStock\Plugin\Supplier\Model\Pdf\Order" sortOrder="2"/>
+    </type>
+
+    <!-- Plugin for Order preparation Module -->
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Renderer\Products">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-renderer-products" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Renderer\Products" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\InStock">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-instock" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\InStock" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\BackOrder">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-backorder" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\BackOrder" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Block\Preparation\Tab\Holded">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-preparation-tab-holded" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Block\Preparation\Tab\Holded" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\OrderPreparation">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-orderpreparation" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\OrderPreparation" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\Config\Source\Warehouses">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-config-source-warehouses" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\Config\Source\Warehouses" sortOrder="1"/>
+    </type>
+
+    <type name="BoostMyShop\OrderPreparation\Model\Product">
+        <plugin name="boostmyshop-advanced-stock-orderpreparation-product" type="BoostMyShop\AdvancedStock\Plugin\OrderPreparation\Model\Product" sortOrder="1"/>
+    </type>
+
+</config>

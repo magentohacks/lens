@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Pdfinvoiceplus
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+/** @var \Magestore\Pdfinvoiceplus\Block\Adminhtml\Design\Editor\AdvanceEdit $block */
+?>
+<html>
+<head>
+    <link rel="icon" href="http://www.magestore.com/skin/frontend/default/magestore61/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="<?php echo $block->getViewFileUrl('requirejs/require.js') ?>"></script>
+    <script type="text/javascript"
+            src="<?php echo $block->getViewFileUrl('Magestore_Pdfinvoiceplus::/js/requirejs/mixins.js') ?>"></script>
+    <script type="text/javascript"
+            src="<?php echo $block->getViewFileUrl('Magestore_Pdfinvoiceplus::/js/requirejs/requirejs-config.js') ?>">
+    </script>
+    <script type="text/javascript">
+        magestore.config("<?php echo $block->getBaseUrl() . 'pub/static/adminhtml/Magento/backend/en_US' ?>");
+    </script>
+    <script src="<?php echo $block->getViewFileUrl('Magestore_Pdfinvoiceplus::/js/requirejs/config.js') ?>"
+            type="text/javascript"></script>
+    <title><?php echo __('Advanced Edit | Template %1', $block->getPdfTemplateId()) ?></title>
+    <link rel="stylesheet" href="<?php echo $block->getViewFileUrl('Magestore_Pdfinvoiceplus::css/advance-edit.css'); ?>">
+</head>
+<body>
+<!--header menu-->
+<div class="header-menu"
+     data-mage-init='{
+        "menuWrapper": {
+            "saveHtmlUrl": "<?php echo $block->getSaveHtmlUrl(['isAjax' => true]); ?>",
+            "saveData": {
+                "template_id": "<?php echo $block->getPdfTemplateId(); ?>",
+                "design_type": "<?php echo $block->getDesignType(); ?>",
+                "form_key": "<?php echo $block->getFormKey(); ?>"
+            },
+            "syncInfoResetUrl": "<?php echo $block->getSyncInfoResetTemplateUrl(); ?>",
+            "advanceEdtior": "1",
+            "script_url": "<?php echo $block->getViewFileUrl('tiny_mce/tiny_mce.js'); ?>"
+         }
+     }'
+>
+    <ul>
+        <li class="header-item"><a id="back" href="<?php echo $this->getBackUrl(); ?>">Back</a></li>
+        <li class="header-item" style="float:right">
+            <a id="save" class="save save-action" type="button" ><?php echo __('Save'); ?></a></li>
+        <li class="header-item" style="float:right">
+            <a id="reset" class="load load-action"><?php echo __('Reset'); ?></a>
+        </li>
+    </ul>
+</div>
+
+<div id="container-html">
+    <div style="padding:5px;color:#ff0000;font-size: 15px;text-align: center">
+        <p class="note-msg">
+            <?php echo __('Warning: Inappropriate changes on this page can lead to losing the drop and drag function on the Edit Design page. If you are not skilled with HTML, you should not edit HTML tags on this page to avoid damaging the template.'); ?>
+        </p>
+    </div>
+    <div class="content">
+        <form method="post" name="html_edit_form" id="html_edit_form"
+              enctype="multipart/form-data"
+              action="<?php echo $block->getSaveHtmlPostUrl(); ?>">
+            <input type="hidden" name="design_type" value="<?php echo $block->getDesignType(); ?>"/>
+            <input type="hidden" name="template_id" value="<?php echo $block->getPdfTemplateId(); ?>"/>
+            <input type="hidden" name="form_key" value="<?php echo $block->getFormKey(); ?>"/>
+            <textarea name="edit_html" id="edit_html" class="textarea">
+<!--                --><?php //echo 'sss';//$block->getPdfTemplateHtml(); ?>
+                <div code="{{var order_increment_id}}" type="QR"></div>
+                <barcode code="{{var order_increment_id}}" type="QR"></barcode>
+            </textarea>
+        </form>
+    </div>
+</div><!--end container-html-->
+<div id="loading-mask" class="loading-mask" style="display:none">
+    <p class="loader" id="loading_mask_loader">
+        <img src="<?php echo $block->getViewFileUrl('images/loader-1.gif'); ?>" alt="<?php echo __('Loading') ?>...">
+        <br><?php echo __('Please wait') ?>...
+    </p>
+</div>
+</body>
+</html>

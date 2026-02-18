@@ -1,0 +1,30 @@
+{
+    "name": "customgento/module-cookiebot-m2",
+    "description": "This Magento 2 module integrates Cookiebot into your store.",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Team CustomGento",
+            "email": "info@customgento.com"
+        }
+    ],
+    "require": {
+        "magento/framework": "~102.0||~103.0",
+        "magento/module-catalog": "~103.0||~104.0",
+        "magento/module-cms": "~103.0||~104.0",
+        "php": "~7.4.0||~8.1.0||~8.2.0||~8.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.5||~9.5",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CustomGento\\Cookiebot\\": ""
+        }
+    }
+}

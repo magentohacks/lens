@@ -1,0 +1,9 @@
+.checkout_subscription {
+    font-weight: 400!important;
+    font-size:12px;
+}
+label button.action.action-show {
+    font-weight: 400;
+    font-size: 12px;
+    color: black!important;
+}

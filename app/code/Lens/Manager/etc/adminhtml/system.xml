@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="lens" translate="label" sortOrder="100"> 
+            <!-- add a new tab with id helloworld -->
+            <label>Lens</label>
+        </tab>
+        <section id="manager" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <!-- add a new section with id helloworld and for tab helloworld -->
+            <class>separator-top</class>
+            <label>Lens Configuration</label>
+            <tab>lens</tab>
+            <resource>Lens_Manager::manager</resource>
+            <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <!-- add a new group with id active display -->
+                <label>Enter All available Prescriptions</label>
+                <field id="power" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Power</label>
+                </field>
+                <field id="cylinder" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Cylinder</label>
+                </field>
+                <field id="axis" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Axis</label>
+                </field>
+                <field id="addition" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Addition</label>
+                </field>
+                <field id="dominance" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Dominance</label>
+                </field>
+                <field id="basecurve" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Base Curve</label>
+                </field>
+                <field id="diameter" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Diameter</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

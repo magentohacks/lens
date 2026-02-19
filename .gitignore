@@ -6,6 +6,7 @@
 /.idea
 /nbproject
 atlassian*
+auth.json
 
 /sitemap
 /sitemap.xml
@@ -13,6 +14,7 @@ atlassian*
 /app/config_sandbox
 /app/etc/config.php
 /app/etc/env.php
+/app/bootstrap.php
 /app/code/Magento/TestModule*
 
 /node_modules

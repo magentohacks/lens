@@ -1,1 +1,0 @@
-/srv/public_html/app/code/Trustpilot/Reviews/view/adminhtml/web/js/validation.js

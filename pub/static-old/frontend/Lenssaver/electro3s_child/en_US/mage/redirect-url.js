@@ -1,1 +1,0 @@
-/srv/public_html/lib/web/mage/redirect-url.js

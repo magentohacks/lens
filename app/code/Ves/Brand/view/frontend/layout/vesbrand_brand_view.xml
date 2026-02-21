@@ -33,13 +33,17 @@
             <block class="Ves\Brand\Block\GroupList" name="group_list" template="Ves_Brand::grouplist.phtml"/>
             <block class="Magento\LayeredNavigation\Block\Navigation\Category" name="catalog.leftnav" before="-" template="layer/view.phtml">
                 <block class="Magento\LayeredNavigation\Block\Navigation\State" name="catalog.navigation.state" as="state" />
-                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer" template="layer/filter.phtml"/>
+                <block class="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" name="catalog.navigation.renderer" as="renderer" template="Ves_Brand::layer/filter.phtml">
+                    <arguments>
+                        <argument name="product_layer_view_model" xsi:type="object">Magento\LayeredNavigation\ViewModel\Layer\Filter</argument>
+                    </arguments>
+                </block>
             </block>
             <block class="Magento\Framework\View\Element\Template" ifconfig="vesbrand/general_settings/enable_search" name="brand.searchform.main" template="Ves_Brand::search/form.phtml" before="-"/>
         </referenceContainer>
         <referenceContainer name="content">
             <block class="Ves\Brand\Block\Brand\View" name="brand.products" template="Ves_Brand::brand/view.phtml">
-                <block class="Ves\Brand\Block\Brand\Product\ListProduct" name="brand.products.list" as="product_list" template="Magento_Catalog::product/brand_wise_listing.phtml">
+                <block class="Ves\Brand\Block\Brand\Product\ListProduct" name="brand.products.list" as="product_list" template="Magento_Catalog::product/list.phtml">
                     <container name="category.product.list.additional" as="additional" />
                     <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
                         <block class="Magento\Framework\View\Element\Template" name="category.product.type.details.renderers.default" as="default"/>

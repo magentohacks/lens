@@ -103,9 +103,15 @@ $_aloHelper = $this->helper('Magiccart\Alothemes\Helper\Data');
 									</div>
 									<div class="product details product-item-details">
 										<?php echo $block->getProductDetailsHtml($_product); ?>
-										<div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
+										<?php 
+										if ($pos) {
+											$position = strpos($pos, $viewMode . '-actions');
+										} else {
+											$position = '';
+										} ?>
+										<div class="product actions product-item-actions"<?php echo $position; ?>>
 											<?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
-											<div class="actions-primary"<?php echo strpos($pos, $viewMode . '-primary') ? $position : ''; ?>>
+											<div class="actions-primary"<?php echo $position; ?>>
 												<?php if ($_product->isSaleable()): ?>
 													<?php $postParams = $block->getAddToCartPostParams($_product); ?>
 													<form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
@@ -127,7 +133,7 @@ $_aloHelper = $this->helper('Magiccart\Alothemes\Helper\Data');
 													<?php endif; ?>
 												<?php endif; ?>
 											</div>
-											<div data-role="add-to-links" class="actions-secondary add-to-links"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
+											<div data-role="add-to-links" class="actions-secondary add-to-links"<?php echo $position; ?>>
 												<?php //if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
 													<a href="#"
 													class="action towishlist"
